@@ -27,6 +27,7 @@ const UserSchema = new mongoose.Schema(
     jwtToken: {
       type: String, 
     },
+    bookmarks:[String] //arrays of contest codes
   },
   { timestamps: true }
 );

@@ -91,7 +91,7 @@ async function fetchCodeforcesContests() {
       throw new Error("Codeforces API returned non-OK status");
     }
 
-    const contests = response.data.result.slice(0, 10);
+    const contests = response.data.result.slice(0, 30);
     
     // Format the contests in the desired structure with only the required fields
     return contests.map(contest => {

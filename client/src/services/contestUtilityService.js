@@ -11,20 +11,22 @@ export function getContestStatus(contest, currentTime) {
   }
 }
 
+
 export function getTimeRemaining(targetTime, currentTime) {
   const timeDiff = targetTime.getTime() - currentTime.getTime();
   
   if (timeDiff <= 0) {
-    return '00:00:00';
+    return '00:00:00:00';
   }
-
-  // Convert to hours, minutes, seconds
+  
+  // Convert to days, hours, minutes, seconds
   const totalSeconds = Math.floor(timeDiff / 1000);
-  const hours = Math.floor(totalSeconds / 3600);
+  const days = Math.floor(totalSeconds / (24 * 3600));
+  const hours = Math.floor((totalSeconds % (24 * 3600)) / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
   const seconds = totalSeconds % 60;
-
-  return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  
+  return `${days.toString().padStart(2, '0')}:${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
 
 export function enhanceContestsWithStatus(contests, currentTime) {

@@ -1,11 +1,12 @@
-// components/ContestCard.js
+// // components/ContestCard.js
 import { useState, useEffect } from 'react';
 import CountdownTimer from './CountdownTimer';
+import { parse, format } from 'date-fns';
 
 export default function ContestCard({ contest }) {
     const [status, setStatus] = useState(contest.status);
     const [currentTime, setCurrentTime] = useState(new Date());
-
+    console.log("contest data in card", contest)
     // Check for status transitions
     useEffect(() => {
         const interval = setInterval(() => {
@@ -43,6 +44,41 @@ export default function ContestCard({ contest }) {
         }
     };
 
+    const getGoogleCalendarLink = () => {
+        const istTimeZone = 'Asia/Kolkata';
+
+        const start = format(new Date(contest.startime), "yyyyMMdd'T'HHmmss", { timeZone: istTimeZone });
+        const end = format(new Date(contest.endtime), "yyyyMMdd'T'HHmmss", { timeZone: istTimeZone });
+
+        const details = {
+            text: contest.name,
+            dates: `${start}/${end}`,
+            details: `Participate in ${contest.name} on ${contest.platform}`,
+            location: contest.platform,
+        };
+
+        const params = new URLSearchParams({
+            action: 'TEMPLATE',
+            ...details,
+        });
+
+        return `https://calendar.google.com/calendar/render?${params.toString()}`;
+    };
+
+
+    const getContestLink = () => {
+        switch (contest.platform.toLowerCase()) {
+            case 'codeforces':
+                return `https://codeforces.com/contest/${contest.code}`;
+            case 'leetcode':
+                return `https://leetcode.com/contest/${contest.code}`;
+            case 'codechef':
+                return `https://www.codechef.com/${contest.code}`;
+            default:
+                return '#';
+        }
+    };
+
     return (
         <div className="border rounded-lg p-4 shadow-sm bg-white">
             <div className="flex justify-between items-start mb-2">
@@ -59,7 +95,7 @@ export default function ContestCard({ contest }) {
 
             <div className="text-sm mb-2">
                 <p>Start: {contest.formattedStartTime}</p>
-                <p>End: {contest.formattedEndTime}</p>
+                {/* <p>End: {contest.formattedEndTime}</p> */}
                 <p>Duration: {contest.duration} minutes</p>
             </div>
 
@@ -70,10 +106,26 @@ export default function ContestCard({ contest }) {
                 {status === 'ongoing' && (
                     <CountdownTimer targetTime={contest.endtime} type="end" />
                 )}
-                {status === 'past' && (
-                    <div className="text-gray-600 font-medium">Completed</div>
-                )}
+            </div>
+            <div className="mt-4 flex gap-2">
+                {status != 'past' && <a
+                    href={getGoogleCalendarLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1 text-sm rounded bg-blue-600 text-white hover:bg-blue-700 transition"
+                >
+                    Add to Calendar
+                </a>}
+                <a
+                    href={getContestLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1 text-sm rounded bg-gray-200 text-gray-800 hover:bg-gray-300 transition"
+                >
+                    Go to Contest
+                </a>
             </div>
         </div>
     );
 }
+
