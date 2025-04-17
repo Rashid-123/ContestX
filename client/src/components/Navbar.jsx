@@ -1,26 +1,3 @@
-// // app/components/Navbar.js
-// "use client";
-// import { useEffect, useState } from "react";
-// import Link from "next/link";
-
-// export default function Navbar() {
-
-//     return (
-//         <nav className="bg-gray-800 text-white p-4 flex justify-between">
-//             <div className="text-xl font-bold">ContestX</div>
-//             <div className="flex space-x-4">
-//                 <Link href="/" className="hover:underline">Home</Link>
-//                 <Link href="/contests" className="hover:underline">Contests</Link>
-//                 <Link href="/tasks" className="hover:underline">Tasks</Link>
-//                 <Link href="/hackathon" className="hover:underline">Hackathon</Link>
-//                 <Link href="/integrate" className="hover:underline">Integrate</Link>
-//                 <Link href="/help" className="hover:underline">Help</Link>
-//                 <Link href="/login" className="hover:underline">Login</Link>
-//             </div>
-//         </nav>
-//     );
-// }
-
 
 "use client";
 import { useEffect, useState } from "react";
