@@ -1,12 +1,9 @@
-// controllers/authController.js
-
 import mongoose from 'mongoose';
-import User from "../models/User.js"
+import User from "../models/user.js"
 import admin from 'firebase-admin';
-import jwt from 'jsonwebtoken';
 import dotenv from "dotenv";
 dotenv.config();
-console.log("Private Key:", process.env.FIREBASE_PRIVATE_KEY);
+// console.log("Private Key:", process.env.FIREBASE_PRIVATE_KEY);
 
 // Initialize Firebase Admin - make sure you have set up your service account
 if (!admin.apps.length) {
@@ -18,80 +15,47 @@ if (!admin.apps.length) {
     }),
   });
 }
-
-// Helper function to generate JWT token
-const generateToken = (user) => {
-  return jwt.sign(
-    {
-      id: user._id,
-      email: user.email,
-      role: user.role,
-      firebaseUID: user.firebaseUID
-    },
-    process.env.JWT_SECRET,
-    { expiresIn: '7d' }
-  );
-};
-
-// Generic authentication handler for both methods
- const handleLogin= async (req, res) => {
+  const handleAuth = async (req, res) => {
   try {
     const { idToken } = req.body;
     
     if (!idToken) {
-      return res.status(400).json({ success: false, message: 'ID token is required' });
+      return res.status(400).json({ error: 'ID token is required' });
     }
-
+    console.log('Received ID Token:', idToken);
     // Verify the Firebase ID token
     const decodedToken = await admin.auth().verifyIdToken(idToken);
+    console.log('Decoded Token:', decodedToken);
     const { uid, email, name, picture } = decodedToken;
-    
-    // Check if user exists
+   console.log('Decoded Token UID:', uid);
+    // Find or create user in MongoDB
     let user = await User.findOne({ firebaseUID: uid });
-    
+    console.log('User found:', user);
     if (!user) {
-      // Create new user if doesn't exist
+      // Create new user if not found
       user = new User({
         firebaseUID: uid,
-        email: email,
-        displayName: name || email.split('@')[0], // Use name from token or generate from email
+        email,
+        displayName: name || '',
         photoURL: picture || '',
-        role:"user",
+        role: 'user', // Default role
       });
-      
       await user.save();
     }
-    
-    // Generate JWT token
-    const jwtToken = generateToken(user);
-    
-    // Update user with new token
-    user.jwtToken = jwtToken;
-    await user.save();
-    
-    return res.status(200).json({
-      success: true,
-      message: 'Authentication successful',
+    console.log('User after find/create:', user);
+    res.json({ 
       user: {
         id: user._id,
         email: user.email,
         displayName: user.displayName,
         photoURL: user.photoURL,
         role: user.role,
-      },
-      token: jwtToken,
-      isNewUser: decodedToken.firebase.sign_in_provider === 'password' ? 
-        (decodedToken.firebase.sign_in_attributes?.isNewUser || false) : false
+      }
     });
-    
   } catch (error) {
     console.error('Authentication error:', error);
-    return res.status(500).json({
-      success: false,
-      message: 'Authentication failed',
-      error: error.message
-    });
+    res.status(500).json({ error: 'Authentication failed' });
   }
 };
 
-export default handleLogin;
+export {handleAuth}

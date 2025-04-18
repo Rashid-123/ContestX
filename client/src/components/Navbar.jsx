@@ -6,7 +6,7 @@ import { useAuth } from "../context/AuthContext"; // Import the auth context
 import { Menu, X } from "lucide-react"; // Import icons for mobile menu
 
 export default function Navbar() {
-    const { user } = useAuth(); // Get user from auth context
+    const { user, logout } = useAuth(); // Get user from auth context
     console.log(user)
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -75,7 +75,7 @@ export default function Navbar() {
                                 <Link href="/profile" className="block px-4 py-2 hover:bg-gray-600">Profile</Link>
                                 <Link href="/settings" className="block px-4 py-2 hover:bg-gray-600">Settings</Link>
                                 <button
-                                    onClick={() => useAuth().signOut()}
+                                    onClick={logout}
                                     className="block w-full text-left px-4 py-2 hover:bg-gray-600"
                                 >
                                     Logout
@@ -122,7 +122,7 @@ export default function Navbar() {
                             <Link href="/profile" className="block py-2 hover:bg-gray-700 px-2 rounded">Profile</Link>
                             <Link href="/settings" className="block py-2 hover:bg-gray-700 px-2 rounded">Settings</Link>
                             <button
-                                onClick={() => useAuth().signOut()}
+                                onClick={logout}
                                 className="block w-full text-left py-2 hover:bg-gray-700 px-2 rounded"
                             >
                                 Logout

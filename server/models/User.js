@@ -23,11 +23,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       enum: ["user", "admin"],
       default: "user",
-    },
-    jwtToken: {
-      type: String, 
-    },
-    bookmarks:[String] //arrays of contest codes
+    }
   },
   { timestamps: true }
 );
