@@ -7,7 +7,6 @@ import {
   filterContestsByPlatform,
   filterContestsByStatus
 } from '../services/contestUtilityService';
-import { setLazyProp } from 'next/dist/server/api-utils';
 
 export function useContests() {
   const [rawContests, setRawContests] = useState([]);
