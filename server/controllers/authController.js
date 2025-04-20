@@ -39,6 +39,7 @@ if (!admin.apps.length) {
         displayName: name || '',
         photoURL: picture || '',
         role: 'user', // Default role
+        bookmarked: [], // Default bookmarked array
       });
       await user.save();
     }
@@ -50,6 +51,7 @@ if (!admin.apps.length) {
         displayName: user.displayName,
         photoURL: user.photoURL,
         role: user.role,
+        bookmarked: user.bookmarked,
       }
     });
   } catch (error) {

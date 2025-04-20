@@ -23,7 +23,11 @@ const UserSchema = new mongoose.Schema(
       type: String,
       enum: ["user", "admin"],
       default: "user",
-    }
+    },
+    bookmarks: {
+      type: [String],
+      default: [],
+    },
   },
   { timestamps: true }
 );

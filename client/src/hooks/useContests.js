@@ -27,17 +27,17 @@ export function useContests() {
       console.log("inside hook for contest data")
       try {
         setLoading(true);
-        const cached = localStorage.getItem('contests');
-        if (cached) {
-          console.log("fetching the Cached data")
-          const { data, expiresAt } = JSON.parse(cached);
-          if (Date.now() < expiresAt) {
-            setRawContests(data);
-            setProcessedContests(data);
-            setLoading(false);
-            return;
-          }
-        }
+        // const cached = localStorage.getItem('contests');
+        // if (cached) {
+        //   console.log("fetching the Cached data")
+        //   const { data, expiresAt } = JSON.parse(cached);
+        //   if (Date.now() < expiresAt) {
+        //     setRawContests(data);
+        //     setProcessedContests(data);
+        //     setLoading(false);
+        //     return;
+        //   }
+        // }
         //IF NO CACHED DATA THEN FETCH FROM API
         const data = await fetchContests();
         setRawContests(data);
@@ -57,23 +57,6 @@ export function useContests() {
 
     loadContests();
   }, [])
-
-  // useEffect(() => {
-  //   const loadContests = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const data = await fetchContests();
-  //       setRawContests(data);
-  //       setError(null);
-  //     } catch (err) {
-  //       setError('Failed to load contests');
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   loadContests();
-  // }, []);
 
   // Update current time every second
   useEffect(() => {
@@ -140,6 +123,7 @@ export function useContests() {
   const availablePlatforms = [...new Set(rawContests.map(contest => contest.platform))];
 
   return {
+    rawContests,
     contests: processedContests,
     groupedContests,
     loading,

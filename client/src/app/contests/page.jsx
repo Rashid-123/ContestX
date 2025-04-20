@@ -1,12 +1,14 @@
 "use client"
-import { useState } from 'react';
+import { use, useState, useEffect } from 'react';
 import Head from 'next/head';
 import { useContests } from '../../hooks/useContests';
 import ContestCard from '../../components/ContestCard';
 import FilterBar from '../../components/FilterBar';
-
+import { useAuth } from '../../context/AuthContext';
+import axios from 'axios';
 export default function ContestsPage() {
     const {
+        rawContests,
         groupedContests,
         loading,
         error,
@@ -16,6 +18,43 @@ export default function ContestsPage() {
         filterByStatus,
         clearFilters
     } = useContests();
+
+    const [isBookmarked, setIsBookmarked] = useState(false);
+    const [bookmarkedContests_Code, setBookmarkedContests_Code] = useState([]);
+    const [bookmarkedContests, setBookmarkedContests] = useState([]);
+    const { user, token } = useAuth();
+
+    useEffect(() => {
+        if (user) {
+            const fetchBookmarked = async () => {
+                try {
+                    const response = await axios.get('http://localhost:5000/api/bookmark/', {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            Authorization: `Bearer ${token}`
+                        }
+                    });
+                    setBookmarkedContests_Code(response.data.bookmarks);
+                    console.log('Bookmarked contests:', response.data.bookmarks);
+                } catch (err) {
+                    console.error('Error fetching bookmarked contests:', err);
+                }
+            };
+            fetchBookmarked();
+        }
+    }, [user]);
+
+    useEffect(() => {
+        if (rawContests?.length > 0 && bookmarkedContests_Code?.length > 0) {
+            const filtered = rawContests.filter(contest =>
+                bookmarkedContests_Code.includes(contest.code)
+            );
+            setBookmarkedContests(filtered);
+        } else {
+            setBookmarkedContests([]);
+        }
+    }, [rawContests, bookmarkedContests_Code]);
+
 
     if (loading) {
         return (
@@ -55,15 +94,43 @@ export default function ContestsPage() {
                 <FilterBar
                     availablePlatforms={availablePlatforms}
                     currentFilters={filters}
-                    onFilterByPlatform={filterByPlatform}
-                    onFilterByStatus={filterByStatus}
-                    onClearFilters={clearFilters}
+                    onFilterByPlatform={(platform) => {
+                        setIsBookmarked(false); // Clear bookmark
+                        filterByPlatform(platform);
+                    }}
+                    onFilterByStatus={(status) => {
+                        setIsBookmarked(false); // Clear bookmark
+                        filterByStatus(status);
+                    }}
+                    onClearFilters={() => {
+                        setIsBookmarked(false); // Clear bookmark
+                        clearFilters();
+                    }}
+                    onToggleBookmark={() => setIsBookmarked(!isBookmarked)}
+                    isBookmarkActive={isBookmarked}
+                    token={token} // Pass token to FilterBar if needed
                 />
 
                 {/* Contest sections */}
                 <div className="space-y-8">
+                    {/* Bookmarked Contests */}
+                    {isBookmarked && (
+                        <section>
+                            <h2 className="text-2xl font-semibold mb-4">Bookmarked Contests</h2>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                {bookmarkedContests?.length > 0 ? (
+                                    bookmarkedContests?.map(contest => (
+                                        <ContestCard key={contest.code} contest={contest} token={token} bookmarkedContests_Code={bookmarkedContests_Code}
+                                            setBookmarkedContests_Code={setBookmarkedContests_Code} />
+                                    ))
+                                ) : (
+                                    <p className="text-gray-500">No bookmarked contests found.</p>
+                                )}
+                            </div>
+                        </section>
+                    )}
                     {/* In filters.status mode, we only show the selected status */}
-                    {filters.filterType === 'status' ? (
+                    {!isBookmarked && (filters.filterType === 'status' ? (
                         <>
                             {filters.status && groupedContests[filters.status].length > 0 && (
                                 <section>
@@ -72,7 +139,8 @@ export default function ContestsPage() {
                                     </h2>
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                         {groupedContests[filters.status].map(contest => (
-                                            <ContestCard key={contest.code} contest={contest} />
+                                            <ContestCard key={contest.code} contest={contest} token={token} bookmarkedContests_Code={bookmarkedContests_Code}
+                                                setBookmarkedContests_Code={setBookmarkedContests_Code} />
                                         ))}
                                     </div>
                                 </section>
@@ -87,7 +155,8 @@ export default function ContestsPage() {
                                     <h2 className="text-2xl font-semibold mb-4">Ongoing Contests</h2>
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                         {groupedContests.ongoing.map(contest => (
-                                            <ContestCard key={contest.code} contest={contest} />
+                                            <ContestCard key={contest.code} contest={contest} token={token} bookmarkedContests_Code={bookmarkedContests_Code}
+                                                setBookmarkedContests_Code={setBookmarkedContests_Code} />
                                         ))}
                                     </div>
                                 </section>
@@ -99,7 +168,8 @@ export default function ContestsPage() {
                                     <h2 className="text-2xl font-semibold mb-4">Upcoming Contests</h2>
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                         {groupedContests.upcoming.map(contest => (
-                                            <ContestCard key={contest.code} contest={contest} />
+                                            <ContestCard key={contest.code} contest={contest} token={token} bookmarkedContests_Code={bookmarkedContests_Code}
+                                                setBookmarkedContests_Code={setBookmarkedContests_Code} />
                                         ))}
                                     </div>
                                 </section>
@@ -111,13 +181,14 @@ export default function ContestsPage() {
                                     <h2 className="text-2xl font-semibold mb-4">Past Contests</h2>
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                         {groupedContests.past.map(contest => (
-                                            <ContestCard key={contest.code} contest={contest} />
+                                            <ContestCard key={contest.code} contest={contest} token={token} bookmarkedContests_Code={bookmarkedContests_Code}
+                                                setBookmarkedContests_Code={setBookmarkedContests_Code} />
                                         ))}
                                     </div>
                                 </section>
                             )}
                         </>
-                    )}
+                    ))}
 
                     {/* No contests message */}
                     {Object.values(groupedContests).every(group => group.length === 0) && (

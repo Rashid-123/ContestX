@@ -2,7 +2,7 @@
 import admin from "firebase-admin";
 import User from "../models/user.js"; // adjust path
 
-const protect = async (req, res, next) => {
+export const protect = async (req, res, next) => {
   const authHeader = req.headers.authorization;
 
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
@@ -31,4 +31,4 @@ const protect = async (req, res, next) => {
   }
 };
 
-export default protect;
+

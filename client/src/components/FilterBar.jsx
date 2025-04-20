@@ -1,17 +1,29 @@
 // components/FilterBar.js
 import { useState } from 'react';
-
+import toast from 'react-hot-toast';
 export default function FilterBar({
     availablePlatforms,
     currentFilters,
     onFilterByPlatform,
     onFilterByStatus,
-    onClearFilters
+    onClearFilters,
+    onToggleBookmark,
+    isBookmarkActive,
+    token,
 }) {
     const [activeTab, setActiveTab] = useState('platform'); // 'platform' or 'status'
 
     const handleTabChange = (tab) => {
         setActiveTab(tab);
+    };
+
+    const handleBookmarkClick = () => {
+        if (!token) {
+            toast.error("Please login to show Bookmarks");
+            return
+        }
+        onClearFilters();
+        onToggleBookmark();
     };
 
     return (
@@ -23,8 +35,8 @@ export default function FilterBar({
                 <button
                     onClick={() => handleTabChange('platform')}
                     className={`mr-4 py-2 px-4 font-medium ${activeTab === 'platform'
-                            ? 'border-b-2 border-blue-500 text-blue-600'
-                            : 'text-gray-500 hover:text-gray-700'
+                        ? 'border-b-2 border-blue-500 text-blue-600'
+                        : 'text-gray-500 hover:text-gray-700'
                         }`}
                 >
                     Platform
@@ -32,8 +44,8 @@ export default function FilterBar({
                 <button
                     onClick={() => handleTabChange('status')}
                     className={`py-2 px-4 font-medium ${activeTab === 'status'
-                            ? 'border-b-2 border-blue-500 text-blue-600'
-                            : 'text-gray-500 hover:text-gray-700'
+                        ? 'border-b-2 border-blue-500 text-blue-600'
+                        : 'text-gray-500 hover:text-gray-700'
                         }`}
                 >
                     Status
@@ -48,8 +60,8 @@ export default function FilterBar({
                             key={platform}
                             onClick={() => onFilterByPlatform(platform)}
                             className={`px-3 py-1 rounded-full text-sm ${currentFilters.platform === platform && currentFilters.filterType === 'platform'
-                                    ? 'bg-blue-600 text-white'
-                                    : 'bg-blue-100 text-blue-800 hover:bg-blue-200'
+                                ? 'bg-blue-600 text-white'
+                                : 'bg-blue-100 text-blue-800 hover:bg-blue-200'
                                 }`}
                         >
                             {platform}
@@ -66,8 +78,8 @@ export default function FilterBar({
                             key={status}
                             onClick={() => onFilterByStatus(status)}
                             className={`px-3 py-1 rounded-full text-sm ${currentFilters.status === status && currentFilters.filterType === 'status'
-                                    ? 'bg-blue-600 text-white'
-                                    : 'bg-blue-100 text-blue-800 hover:bg-blue-200'
+                                ? 'bg-blue-600 text-white'
+                                : 'bg-blue-100 text-blue-800 hover:bg-blue-200'
                                 }`}
                         >
                             {status.charAt(0).toUpperCase() + status.slice(1)}
@@ -85,6 +97,18 @@ export default function FilterBar({
                     Clear Filters
                 </button>
             )}
+
+            {<div className="mb-4">
+                <button
+                    onClick={handleBookmarkClick}
+                    className={`px-3 py-1 rounded-full text-sm ${isBookmarkActive
+                        ? 'bg-yellow-500 text-white'
+                        : 'bg-yellow-100 text-yellow-800 hover:bg-yellow-200'
+                        }`}
+                >
+                    {isBookmarkActive ? 'Show All' : 'Bookmarked'}
+                </button>
+            </div>}
         </div>
     );
 }

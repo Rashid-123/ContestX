@@ -1,12 +1,15 @@
 // // components/ContestCard.js
 import { useState, useEffect } from 'react';
 import CountdownTimer from './CountdownTimer';
-import { parse, format } from 'date-fns';
+import { parse, format, set } from 'date-fns';
+import axios from 'axios';
+import { toast } from 'react-hot-toast';
 
-export default function ContestCard({ contest }) {
+export default function ContestCard({ contest, bookmarkedContests_Code, setBookmarkedContests_Code, token }) {
     const [status, setStatus] = useState(contest.status);
     const [currentTime, setCurrentTime] = useState(new Date());
     console.log("contest data in card", contest)
+    const [bookmarked, setBookmarked] = useState(false);
     // Check for status transitions
     useEffect(() => {
         const interval = setInterval(() => {
@@ -79,6 +82,38 @@ export default function ContestCard({ contest }) {
         }
     };
 
+    const handleBookmark = async () => {
+
+        if (!token) {
+            toast.error("Please login to bookmark contests.");
+            return;
+        }
+
+        setBookmarked(!bookmarked);
+        try {
+            const response = await axios.post('http://localhost:5000/api/bookmark',
+                { contestCode: contest.code }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`
+                },
+                withCredentials: true
+            },
+            )
+            console.log('Bookmark response:', response.data);
+            setBookmarkedContests_Code(response.data.bookmarks);
+
+        } catch (error) {
+            console.error('Error bookmarking contest:', error);
+        }
+
+    }
+    useEffect(() => {
+        if (bookmarkedContests_Code?.includes(contest.code)) {
+            setBookmarked(true);
+        }
+    }, [bookmarkedContests_Code, contest.code]);
+
     return (
         <div className="border rounded-lg p-4 shadow-sm bg-white">
             <div className="flex justify-between items-start mb-2">
@@ -124,6 +159,17 @@ export default function ContestCard({ contest }) {
                 >
                     Go to Contest
                 </a>
+                <button
+                    onClick={handleBookmark}
+                    className={`px-3 py-1 text-sm rounded transition ${bookmarked
+                        ? 'bg-yellow-400 text-white hover:bg-yellow-500'
+                        : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
+                        }`}
+                >
+                    {bookmarked ? 'Bookmarked' : 'Bookmark'}
+                </button>
+
+
             </div>
         </div>
     );
