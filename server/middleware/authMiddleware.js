@@ -1,6 +1,5 @@
-// middlewares/verifyFirebaseToken.js
 import admin from "firebase-admin";
-import User from "../models/user.js"; // adjust path
+import User from "../models/user.js";
 
 export const protect = async (req, res, next) => {
   const authHeader = req.headers.authorization;

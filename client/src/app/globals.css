@@ -127,9 +127,9 @@ body{
   }
 }
 
-@layer utilities {
+/* @layer utilities {
   .bg-dotted {
     background-image: radial-gradient(#ccc 0.9px, transparent 0);
     background-size: 40px 40px;
   }
-}
+} */

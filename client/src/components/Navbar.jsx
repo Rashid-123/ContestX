@@ -80,7 +80,7 @@ export default function Navbar() {
     //#f0eee6
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 p-4 border-b" style={{ backgroundColor: "#ebdbbc", color: "#141413" }}>
+        <nav className="fixed top-0 left-0 right-0 z-50 p-4.5  shadow-sm " style={{ backgroundColor: "white", color: "#141413", borderBottom: "1px solid #faf9f5" }}>
             <div className="container mx-auto flex items-center justify-between">
                 {/* Logo */}
                 <div className="text-xl font-bold">ContestCraft</div>

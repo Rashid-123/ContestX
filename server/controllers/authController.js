@@ -52,6 +52,8 @@ if (!admin.apps.length) {
         photoURL: user.photoURL,
         role: user.role,
         bookmarked: user.bookmarked,
+        leetCode_url: user.leetCode,
+        github_url: user.github,
       }
     });
   } catch (error) {

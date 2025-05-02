@@ -28,6 +28,14 @@ const UserSchema = new mongoose.Schema(
       type: [String],
       default: [],
     },
+    leetCode: {
+      type: String,
+      default: null,
+    },
+    github: {
+      type: String,
+      default: null,
+    },
   },
   { timestamps: true }
 );
