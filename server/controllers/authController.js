@@ -22,15 +22,15 @@ if (!admin.apps.length) {
     if (!idToken) {
       return res.status(400).json({ error: 'ID token is required' });
     }
-    console.log('Received ID Token:', idToken);
+    // console.log('Received ID Token:', idToken);
     // Verify the Firebase ID token
     const decodedToken = await admin.auth().verifyIdToken(idToken);
-    console.log('Decoded Token:', decodedToken);
+    // console.log('Decoded Token:', decodedToken);
     const { uid, email, name, picture } = decodedToken;
-   console.log('Decoded Token UID:', uid);
+  //  console.log('Decoded Token UID:', uid);
     // Find or create user in MongoDB
     let user = await User.findOne({ firebaseUID: uid });
-    console.log('User found:', user);
+    // console.log('User found:', user);
     if (!user) {
       // Create new user if not found
       user = new User({
@@ -52,8 +52,8 @@ if (!admin.apps.length) {
         photoURL: user.photoURL,
         role: user.role,
         bookmarked: user.bookmarked,
-        leetCode_url: user.leetCode,
-        github_url: user.github,
+        leetcode: user.leetcode,
+        github: user.github,
       }
     });
   } catch (error) {

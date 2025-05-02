@@ -28,7 +28,7 @@ const UserSchema = new mongoose.Schema(
       type: [String],
       default: [],
     },
-    leetCode: {
+    leetcode: {
       type: String,
       default: null,
     },

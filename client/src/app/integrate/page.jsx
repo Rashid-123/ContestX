@@ -1,18 +1,28 @@
+
 "use client";
 import { useState, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
-import { Axis3D } from "lucide-react";
 import axios from "axios";
 
 export default function Integrate() {
-    const { user, token } = useAuth();
+    const { user, setUser, token } = useAuth();
     const [githubInput, setGithubInput] = useState("");
     const [leetcodeInput, setLeetcodeInput] = useState("");
+    const [isEditingGithub, setIsEditingGithub] = useState(false);
+    const [isEditingLeetcode, setIsEditingLeetcode] = useState(false);
+    const [isLoading, setIsLoading] = useState({ github: false, leetcode: false });
+    const [originalValues, setOriginalValues] = useState({ github: "", leetcode: "" });
 
     useEffect(() => {
         if (user) {
-            if (user.github) setGithubInput(user.github);
-            if (user.leetCode) setLeetcodeInput(user.leetCode);
+            if (user.github) {
+                setGithubInput(user.github);
+                setOriginalValues(prev => ({ ...prev, github: user.github }));
+            }
+            if (user.leetcode) {
+                setLeetcodeInput(user.leetcode);
+                setOriginalValues(prev => ({ ...prev, leetcode: user.leetcode }));
+            }
         }
     }, [user]);
 
@@ -20,38 +30,65 @@ export default function Integrate() {
         setter(e.target.value);
     };
 
-    const extractUsername = (input, platfrom) => {
+    const extractUsername = (input, platform) => {
         try {
             const url = new URL(input);
 
-            if (platfrom === 'github' && url.hostname.includes("github.com")) {
+            if (platform === 'github' && url.hostname.includes("github.com")) {
                 return url.pathname.split("/")[1];
             }
-            console.log(url.hostname, url.pathname)
-            " this is the response of above console.lgo , leetcode.com /u/rashid_01/"
 
-            if (platfrom === "leetcode" && url.hostname.includes("leetcode.com")) {
-                console.log("inside the if statement")
+            if (platform === "leetcode" && url.hostname.includes("leetcode.com")) {
                 const parts = url.pathname.split("/").filter(Boolean);
-                console.log(parts)
                 if (parts[0] === "u" && parts[1]) {
                     return parts[1];
                 }
             }
-            console.log(input, platfrom)
             return input;
         } catch (error) {
             return input;
         }
     }
-    const handleSubmit = async (platfrom) => {
 
-        const input = platfrom === 'github' ? githubInput : leetcodeInput;
-        const username = extractUsername(input, platfrom);
+    const toggleEditMode = (platform) => {
+        if (platform === 'github') {
+            if (isEditingGithub) {
+                // Save changes
+                handleSubmit('github');
+            } else {
+                // Enter edit mode
+                setIsEditingGithub(true);
+            }
+        } else if (platform === 'leetcode') {
+            if (isEditingLeetcode) {
+                // Save changes
+                handleSubmit('leetcode');
+            } else {
+                // Enter edit mode
+                setIsEditingLeetcode(true);
+            }
+        }
+    };
+
+    const cancelEdit = (platform) => {
+        if (platform === 'github') {
+            setGithubInput(originalValues.github);
+            setIsEditingGithub(false);
+        } else if (platform === 'leetcode') {
+            setLeetcodeInput(originalValues.leetcode);
+            setIsEditingLeetcode(false);
+        }
+    };
+
+    const handleSubmit = async (platform) => {
+        const input = platform === 'github' ? githubInput : leetcodeInput;
+        const username = extractUsername(input, platform);
 
         try {
+            // Set loading state
+            setIsLoading(prev => ({ ...prev, [platform]: true }));
 
-            const response = await axios.put(`http://localhost:5000/api/integrate/${platfrom}`,
+            const response = await axios.put(`http://localhost:5000/api/integrate/${platform}`,
                 { username },
                 {
                     headers: {
@@ -59,19 +96,36 @@ export default function Integrate() {
                         'Content-Type': 'application/json',
                     }
                 });
-            console.log(`Successfully integrated ${platfrom}:`, response.data);
-            alert(`${platfrom} username updated : ${username}`)
+
+            // Update user data
+            setUser(response.data.user);
+
+            // Update original values
+            setOriginalValues(prev => ({ ...prev, [platform]: username }));
+
+            // Exit edit mode
+            if (platform === 'github') {
+                setIsEditingGithub(false);
+            } else if (platform === 'leetcode') {
+                setIsEditingLeetcode(false);
+            }
+
+            alert(`${platform} username updated: ${username}`);
+
         } catch (error) {
-            console.error(`Error integrating ${platfrom}:`, error);
+            console.error(`Error integrating ${platform}:`, error);
+            alert(`Failed to update ${platform} username. Please try again.`);
+        } finally {
+            // Clear loading state
+            setIsLoading(prev => ({ ...prev, [platform]: false }));
         }
     }
 
-
-    const getProfileUrl = (platfrom, input) => {
-        const username = extractUsername(input, platfrom);
+    const getProfileUrl = (platform, input) => {
+        const username = extractUsername(input, platform);
         if (!username) return null;
 
-        return platfrom === "github" ? `https://github.com/${username}` : `https://leetcode.com/u/${username}`;
+        return platform === "github" ? `https://github.com/${username}` : `https://leetcode.com/u/${username}`;
     };
 
     return (
@@ -81,57 +135,89 @@ export default function Integrate() {
             {/* GitHub Integration Form */}
             <div className="space-y-4">
                 <h2 className="text-xl font-semibold">GitHub</h2>
-                <input
-                    type="text"
-                    className="w-full p-2 border rounded"
-                    placeholder="Enter GitHub username or URL"
-                    value={githubInput}
-                    onChange={handleInputChange(setGithubInput)}
-                />
-                {githubInput && (
-                    <a
-                        href={getProfileUrl("github", githubInput)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 underline text-sm"
+                <div className="flex flex-col">
+                    <input
+                        type="text"
+                        className={`w-full p-2 border rounded ${!isEditingGithub ? 'bg-gray-100' : 'bg-white'}`}
+                        placeholder="Enter GitHub username or URL"
+                        value={githubInput}
+                        onChange={handleInputChange(setGithubInput)}
+                        readOnly={!isEditingGithub}
+                        disabled={isLoading.github}
+                    />
+                    {githubInput && (
+                        <a
+                            href={getProfileUrl("github", githubInput)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 underline text-sm mt-1"
+                        >
+                            View Profile on GitHub
+                        </a>
+                    )}
+                </div>
+                <div className="flex space-x-2">
+                    <button
+                        onClick={() => toggleEditMode("github")}
+                        className={`px-4 py-2 ${isEditingGithub ? 'bg-green-600 hover:bg-green-700' : 'bg-black hover:bg-gray-800'} text-white rounded`}
+                        disabled={isLoading.github}
                     >
-                        View Profile on GitHub
-                    </a>
-                )}
-                <button
-                    onClick={() => handleSubmit("github")}
-                    className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800"
-                >
-                    Connect GitHub
-                </button>
+                        {isLoading.github ? 'Processing...' : isEditingGithub ? 'Save' : originalValues.github ? 'Update' : 'Connect'}
+                    </button>
+                    {isEditingGithub && (
+                        <button
+                            onClick={() => cancelEdit("github")}
+                            className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+                            disabled={isLoading.github}
+                        >
+                            Cancel
+                        </button>
+                    )}
+                </div>
             </div>
 
             {/* LeetCode Integration Form */}
             <div className="space-y-4">
                 <h2 className="text-xl font-semibold">LeetCode</h2>
-                <input
-                    type="text"
-                    className="w-full p-2 border rounded"
-                    placeholder="Enter LeetCode username or URL"
-                    value={leetcodeInput}
-                    onChange={handleInputChange(setLeetcodeInput)}
-                />
-                {leetcodeInput && (
-                    <a
-                        href={getProfileUrl("leetcode", leetcodeInput)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-orange-600 underline text-sm"
+                <div className="flex flex-col">
+                    <input
+                        type="text"
+                        className={`w-full p-2 border rounded ${!isEditingLeetcode ? 'bg-gray-100' : 'bg-white'}`}
+                        placeholder="Enter LeetCode username or URL"
+                        value={leetcodeInput}
+                        onChange={handleInputChange(setLeetcodeInput)}
+                        readOnly={!isEditingLeetcode}
+                        disabled={isLoading.leetcode}
+                    />
+                    {leetcodeInput && (
+                        <a
+                            href={getProfileUrl("leetcode", leetcodeInput)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-orange-600 underline text-sm mt-1"
+                        >
+                            View Profile on LeetCode
+                        </a>
+                    )}
+                </div>
+                <div className="flex space-x-2">
+                    <button
+                        onClick={() => toggleEditMode("leetcode")}
+                        className={`px-4 py-2 ${isEditingLeetcode ? 'bg-green-600 hover:bg-green-700' : 'bg-orange-500 hover:bg-orange-600'} text-white rounded`}
+                        disabled={isLoading.leetcode}
                     >
-                        View Profile on LeetCode
-                    </a>
-                )}
-                <button
-                    onClick={() => handleSubmit("leetcode")}
-                    className="px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-600"
-                >
-                    Connect LeetCode
-                </button>
+                        {isLoading.leetcode ? 'Processing...' : isEditingLeetcode ? 'Save' : originalValues.leetcode ? 'Update' : 'Connect'}
+                    </button>
+                    {isEditingLeetcode && (
+                        <button
+                            onClick={() => cancelEdit("leetcode")}
+                            className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+                            disabled={isLoading.leetcode}
+                        >
+                            Cancel
+                        </button>
+                    )}
+                </div>
             </div>
         </div>
     );

@@ -26,8 +26,8 @@ const updateUserField = async (req, res, field) => {
 
     if (!user) {
       return res.status(404).json({ message: "User not found." });
-    }
-
+    } 
+    console.log("User found:", user);
     res.status(200).json({
       message: `${field} username updated successfully.`,
       user,
@@ -38,7 +38,7 @@ const updateUserField = async (req, res, field) => {
 };
 
 export const integrate_Leetcode = (req, res) => {
-  return updateUserField(req, res, "leetCode");
+  return updateUserField(req, res, "leetcode");
 };
 
 export const integrate_Github = (req, res) => {
