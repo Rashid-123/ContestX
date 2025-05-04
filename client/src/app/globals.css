@@ -3,7 +3,8 @@
 
 
 body{
-  @apply bg-[#faf9f5]
+  /* @apply bg-[#faf9f5] */
+  @apply bg-[#f8f8fa]
 }
 
 @custom-variant dark (&:is(.dark *));
