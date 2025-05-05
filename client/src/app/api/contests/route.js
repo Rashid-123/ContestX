@@ -6,6 +6,7 @@ import {redis} from "@/lib/redis";
 const CACHE_KEY = "contest_data";
 const CACHE_TIME = 60 * 15 ;
 export async function GET(request) {
+  console.log("Request received for contests");
   try {
 
     // const cachedContests = await redis.get(CACHE_KEY);

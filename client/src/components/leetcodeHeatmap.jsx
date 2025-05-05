@@ -35,7 +35,7 @@ const LeetCodeHeatmap = ({ username }) => {
                 }
 
                 const result = await res.json();
-                console.log("API Response:", result);
+                // console.log("API Response:", result);
 
                 // API should now directly return the parsed object
                 // But let's handle both possible formats to be safe

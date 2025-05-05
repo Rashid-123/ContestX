@@ -1,5 +1,7 @@
 export async function POST(req) {
+  console.log("Request received for submission calendar");
   try {
+
     const body = await req.json();
     const { username } = body;
     
@@ -31,7 +33,7 @@ export async function POST(req) {
     
     const data = await graphqlResponse.json();
     
-    console.log(data);
+    // console.log(data);
     if (!graphqlResponse.ok || data.errors) {
       return new Response(
         JSON.stringify({ error: data.errors || 'Invalid response from LeetCode' }),

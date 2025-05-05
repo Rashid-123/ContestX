@@ -131,51 +131,6 @@ export default function Integrate() {
         <div className="max-w-xl mx-auto p-6 space-y-10">
             <h1 className="text-2xl font-bold">Integrate Developer Profiles</h1>
 
-            {/* GitHub Integration Form */}
-            <div className="space-y-4">
-                <h2 className="text-xl font-semibold">GitHub</h2>
-                <div className="flex flex-col">
-                    <input
-                        type="text"
-                        className={`w-full p-2 border rounded ${!isEditingGithub ? 'bg-gray-100' : 'bg-white'}`}
-                        placeholder="Enter GitHub username or URL"
-                        value={githubInput}
-                        onChange={handleInputChange(setGithubInput)}
-                        readOnly={!isEditingGithub}
-                        disabled={isLoading.github}
-                    />
-                    {githubInput && (
-                        <a
-                            href={getProfileUrl("github", githubInput)}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 underline text-sm mt-1"
-                        >
-                            View Profile on GitHub
-                        </a>
-                    )}
-                </div>
-                <div className="flex space-x-2">
-                    <button
-                        onClick={() => toggleEditMode("github")}
-                        className={`px-4 py-2 ${isEditingGithub ? 'bg-green-600 hover:bg-green-700' : 'bg-black hover:bg-gray-800'} text-white rounded`}
-                        disabled={isLoading.github}
-                    >
-                        {isLoading.github ? 'Processing...' : isEditingGithub ? 'Save' : originalValues.github ? 'Update' : 'Connect'}
-                    </button>
-                    {isEditingGithub && (
-                        <button
-                            onClick={() => cancelEdit("github")}
-                            className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
-                            disabled={isLoading.github}
-                        >
-                            Cancel
-                        </button>
-                    )}
-                </div>
-            </div>
-
-            {/* LeetCode Integration Form */}
             <div className="space-y-4">
                 <h2 className="text-xl font-semibold">LeetCode</h2>
                 <div className="flex flex-col">

@@ -15,7 +15,7 @@ const Github_activity = ({ user }) => {
             try {
                 const formatted = await formatEvents(user.github);
                 setEvents(formatted);
-                console.log(formatted);
+                // console.log(formatted);
             } catch (error) {
                 console.error("Failed to fetch GitHub events:", error);
             } finally {
