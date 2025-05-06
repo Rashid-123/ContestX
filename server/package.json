@@ -22,8 +22,11 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.15.0",
     "mongoose": "^8.13.1",
+    "node-fetch": "^3.3.2",
     "openai": "^4.97.0",
-    "pinecone-client": "^2.0.0"
+    "p-limit": "^6.2.0",
+    "pinecone-client": "^2.0.0",
+    "striptags": "^3.2.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"

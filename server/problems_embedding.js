@@ -140,7 +140,7 @@ console.log(`Total problems to process: ${ids.length}`);
 // Create batches of data
 
 const BATCH_SIZE = 50; 
-const DELAY_BETWEEN_BATCHES = 10000; 
+const DELAY_BETWEEN_BATCHES = 5000; 
 function createBatches(array, size) {
     const batches = [];
     for (let i = 0; i < array.length; i += size) {
