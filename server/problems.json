@@ -1,1048 +1,8 @@
 {
     "problems": [
         {
-            "number": 1,
-            "title": "Two Sum",
-            "tags": [
-                "Array",
-                "Hash Table"
-            ],
-            "difficulty": "Easy",
-            "description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice."
-        },
-        {
-            "number": 2,
-            "title": "Add Two Numbers",
-            "tags": [
-                "Linked List",
-                "Math",
-                "Recursion"
-            ],
-            "difficulty": "Medium",
-            "description": "You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each node contains a single digit. Add the two numbers and return the sum as a linked list."
-        },
-        {
-            "number": 3,
-            "title": "Longest Substring Without Repeating Characters",
-            "tags": [
-                "Hash Table",
-                "String",
-                "Sliding Window"
-            ],
-            "difficulty": "Medium",
-            "description": "Given a string s, find the length of the longest substring without repeating characters."
-        },
-        {
-            "number": 4,
-            "title": "Median of Two Sorted Arrays",
-            "tags": [
-                "Array",
-                "Binary Search",
-                "Divide and Conquer"
-            ],
-            "difficulty": "Hard",
-            "description": "Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays. The overall run time complexity should be O(log (m+n))."
-        },
-        {
-            "number": 5,
-            "title": "Longest Palindromic Substring",
-            "tags": [
-                "String",
-                "Dynamic Programming"
-            ],
-            "difficulty": "Medium",
-            "description": "Given a string s, return the longest palindromic substring in s."
-        },
-        {
-            "number": 6,
-            "title": "Zigzag Conversion",
-            "tags": [
-                "String"
-            ],
-            "difficulty": "Medium",
-            "description": "The string 'PAYPALISHIRING' is written in a zigzag pattern on a given number of rows like this: P A H N, A P L S I I G, Y I R. Write the code that will take a string and make this conversion given a number of rows."
-        },
-        {
-            "number": 7,
-            "title": "Reverse Integer",
-            "tags": [
-                "Math"
-            ],
-            "difficulty": "Medium",
-            "description": "Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-2^31, 2^31 - 1], then return 0."
-        },
-        {
-            "number": 8,
-            "title": "String to Integer (atoi)",
-            "tags": [
-                "String",
-                "Math"
-            ],
-            "difficulty": "Medium",
-            "description": "Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C++'s atoi function)."
-        },
-        {
-            "number": 9,
-            "title": "Palindrome Number",
-            "tags": [
-                "Math"
-            ],
-            "difficulty": "Easy",
-            "description": "Given an integer x, return true if x is palindrome integer. An integer is a palindrome when it reads the same backward as forward."
-        },
-        {
-            "number": 10,
-            "title": "Regular Expression Matching",
-            "tags": [
-                "String",
-                "Dynamic Programming",
-                "Recursion"
-            ],
-            "difficulty": "Hard",
-            "description": "Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where '.' matches any single character and '*' matches zero or more of the preceding element."
-        },
-        {
-            "number": 11,
-            "title": "Container With Most Water",
-            "tags": [
-                "Array",
-                "Two Pointers",
-                "Greedy"
-            ],
-            "difficulty": "Medium",
-            "description": "Given n non-negative integers a1, a2, ..., an , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of the line i is at (i, ai) and (i, 0). Find two lines, which, together with the x-axis forms a container, such that the container contains the most water."
-        },
-        {
-            "number": 12,
-            "title": "Integer to Roman",
-            "tags": [
-                "Math",
-                "String"
-            ],
-            "difficulty": "Medium",
-            "description": "Given an integer, convert it to a roman numeral."
-        },
-        {
-            "number": 13,
-            "title": "Roman to Integer",
-            "tags": [
-                "Math",
-                "String"
-            ],
-            "difficulty": "Easy",
-            "description": "Given a roman numeral, convert it to an integer."
-        },
-        {
-            "number": 14,
-            "title": "Longest Common Prefix",
-            "tags": [
-                "String"
-            ],
-            "difficulty": "Easy",
-            "description": "Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string ''."
-        },
-        {
-            "number": 15,
-            "title": "3Sum",
-            "tags": [
-                "Array",
-                "Two Pointers",
-                "Sorting"
-            ],
-            "difficulty": "Medium",
-            "description": "Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0."
-        },
-        {
-            "number": 16,
-            "title": "3Sum Closest",
-            "tags": [
-                "Array",
-                "Two Pointers",
-                "Sorting"
-            ],
-            "difficulty": "Medium",
-            "description": "Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers."
-        },
-        {
-            "number": 17,
-            "title": "Letter Combinations of a Phone Number",
-            "tags": [
-                "Hash Table",
-                "String",
-                "Backtracking",
-                "Recursion"
-            ],
-            "difficulty": "Medium",
-            "description": "Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. Return the answer in any order."
-        },
-        {
-            "number": 18,
-            "title": "4Sum",
-            "tags": [
-                "Array",
-                "Two Pointers",
-                "Sorting"
-            ],
-            "difficulty": "Medium",
-            "description": "Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that: 0 <= a, b, c, d < n, a, b, c, and d are distinct, and nums[a] + nums[b] + nums[c] + nums[d] == target."
-        },
-        {
-            "number": 19,
-            "title": "Remove Nth Node From End of List",
-            "tags": [
-                "Linked List",
-                "Two Pointers"
-            ],
-            "difficulty": "Medium",
-            "description": "Given the head of a linked list, remove the nth node from the end of the list and return its head."
-        },
-        {
-            "number": 20,
-            "title": "Valid Parentheses",
-            "tags": [
-                "String",
-                "Stack"
-            ],
-            "difficulty": "Easy",
-            "description": "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. An input string is valid if: Open brackets must be closed by the same type of brackets. Open brackets must be closed in the correct order."
-        },
-        {
-            "number": 21,
-            "title": "Merge Two Sorted Lists",
-            "tags": [
-                "Linked List",
-                "Recursion"
-            ],
-            "difficulty": "Easy",
-            "description": "Merge two sorted linked lists and return it as a sorted list. The list should be made by splicing together the nodes of the first two lists."
-        },
-        {
-            "number": 22,
-            "title": "Generate Parentheses",
-            "tags": [
-                "String",
-                "Backtracking",
-                "Dynamic Programming"
-            ],
-            "difficulty": "Medium",
-            "description": "Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses."
-        },
-        {
-            "number": 23,
-            "title": "Merge k Sorted Lists",
-            "tags": [
-                "Linked List",
-                "Divide and Conquer",
-                "Heap"
-            ],
-            "difficulty": "Hard",
-            "description": "You are given an array of k linked-lists lists, each linked-list is sorted in ascending order. Merge all the linked-lists into one sorted linked-list and return it."
-        },
-        {
-            "number": 24,
-            "title": "Swap Nodes in Pairs",
-            "tags": [
-                "Linked List",
-                "Recursion"
-            ],
-            "difficulty": "Medium",
-            "description": "Given a linked list, swap every two adjacent nodes and return its head. You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)"
-        },
-        {
-            "number": 25,
-            "title": "Reverse Nodes in k-Group",
-            "tags": [
-                "Linked List",
-                "Recursion"
-            ],
-            "difficulty": "Hard",
-            "description": "Given a linked list, reverse the nodes of a linked list k at a time and return its modified list. If the number of nodes is not a multiple of k then left-out nodes, in the end, should remain as it is."
-        },
-        {
-            "number": 26,
-            "title": "Remove Duplicates from Sorted Array",
-            "tags": [
-                "Array",
-                "Two Pointers"
-            ],
-            "difficulty": "Easy",
-            "description": "Given a sorted array nums, remove the duplicates in-place such that each element appears only once and returns the new length. Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory."
-        },
-        {
-            "number": 27,
-            "title": "Remove Element",
-            "tags": [
-                "Array",
-                "Two Pointers"
-            ],
-            "difficulty": "Easy",
-            "description": "Given an array nums and a value val, remove all instances of that value in-place and return the new length. Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory."
-        },
-        {
-            "number": 28,
-            "title": "Find the Index of the First Occurrence in a String",
-            "tags": [
-                "String",
-                "Two Pointers",
-                "String Matching"
-            ],
-            "difficulty": "Easy",
-            "description": "Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack."
-        },
-        {
-            "number": 29,
-            "title": "Divide Two Integers",
-            "tags": [
-                "Math",
-                "Bit Manipulation"
-            ],
-            "difficulty": "Medium",
-            "description": "Given two integers dividend and divisor, divide two integers without using multiplication, division, and mod operator. Return the quotient after dividing dividend by divisor."
-        },
-        {
-            "number": 30,
-            "title": "Substring with Concatenation of All Words",
-            "tags": [
-                "Hash Table",
-                "String",
-                "Sliding Window"
-            ],
-            "difficulty": "Hard",
-            "description": "You are given a string s and an array of strings words of the same length. Return all starting indices of substring(s) in s that is a concatenation of each word in words exactly once, in any order, and without any intervening characters."
-        },
-        {
-            "number": 31,
-            "title": "Next Permutation",
-            "tags": [
-                "Array",
-                "Two Pointers"
-            ],
-            "difficulty": "Medium",
-            "description": "Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers. If such an arrangement is not possible, it must rearrange it as the lowest possible order (i.e., sorted in ascending order)."
-        },
-        {
-            "number": 32,
-            "title": "Longest Valid Parentheses",
-            "tags": [
-                "String",
-                "Dynamic Programming",
-                "Stack"
-            ],
-            "difficulty": "Hard",
-            "description": "Given a string containing just the characters '(' and ')', find the length of the longest valid (well-formed) parentheses substring."
-        },
-        {
-            "number": 33,
-            "title": "Search in Rotated Sorted Array",
-            "tags": [
-                "Array",
-                "Binary Search"
-            ],
-            "difficulty": "Medium",
-            "description": "There is an integer array nums sorted in ascending order (with distinct values). Prior to being passed to your function, nums is possibly rotated at an unknown pivot index k. Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums."
-        },
-        {
-            "number": 34,
-            "title": "Find First and Last Position of Element in Sorted Array",
-            "tags": [
-                "Array",
-                "Binary Search"
-            ],
-            "difficulty": "Medium",
-            "description": "Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value. If target is not found in the array, return [-1, -1]."
-        },
-        {
-            "number": 35,
-            "title": "Search Insert Position",
-            "tags": [
-                "Array",
-                "Binary Search"
-            ],
-            "difficulty": "Easy",
-            "description": "Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order."
-        },
-        {
-            "number": 36,
-            "title": "Valid Sudoku",
-            "tags": [
-                "Array",
-                "Hash Table",
-                "Matrix"
-            ],
-            "difficulty": "Medium",
-            "description": "Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules: Each row must contain the digits 1-9 without repetition. Each column must contain the digits 1-9 without repetition. Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without repetition."
-        },
-        {
-            "number": 37,
-            "title": "Sudoku Solver",
-            "tags": [
-                "Array",
-                "Backtracking",
-                "Matrix"
-            ],
-            "difficulty": "Hard",
-            "description": "Write a program to solve a Sudoku puzzle by filling the empty cells. A sudoku solution must satisfy all of the following rules: Each of the digits 1-9 must occur exactly once in each row. Each of the digits 1-9 must occur exactly once in each column. Each of the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid."
-        },
-        {
-            "number": 38,
-            "title": "Count and Say",
-            "tags": [
-                "String"
-            ],
-            "difficulty": "Medium",
-            "description": "The count-and-say sequence is a sequence of digit strings defined by the recursive formula: countAndSay(1) = '1', countAndSay(n) is the way you would 'say' the digit string from countAndSay(n-1), which is then converted into a different digit string."
-        },
-        {
-            "number": 39,
-            "title": "Combination Sum",
-            "tags": [
-                "Array",
-                "Backtracking"
-            ],
-            "difficulty": "Medium",
-            "description": "Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of candidates where the chosen numbers sum to target. You may return the combinations in any order."
-        },
-        {
-            "number": 40,
-            "title": "Combination Sum II",
-            "tags": [
-                "Array",
-                "Backtracking"
-            ],
-            "difficulty": "Medium",
-            "description": "Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target. Each number in candidates may only be used once in the combination."
-        },
-        {
-            "number": 41,
-            "title": "First Missing Positive",
-            "tags": [
-                "Array",
-                "Hash Table"
-            ],
-            "difficulty": "Hard",
-            "description": "Given an unsorted integer array nums, find the smallest missing positive integer. You must implement an algorithm that runs in O(n) time and uses constant extra space."
-        },
-        {
-            "number": 42,
-            "title": "Trapping Rain Water",
-            "tags": [
-                "Array",
-                "Two Pointers",
-                "Dynamic Programming",
-                "Stack",
-                "Monotonic Stack"
-            ],
-            "difficulty": "Hard",
-            "description": "Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining."
-        },
-        {
-            "number": 43,
-            "title": "Multiply Strings",
-            "tags": [
-                "Math",
-                "String",
-                "Simulation"
-            ],
-            "difficulty": "Medium",
-            "description": "Given two non-negative integers represented as strings, return their product. Note: The input numbers can be arbitrarily large and are non-negative."
-        },
-        {
-            "number": 44,
-            "title": "Wildcard Matching",
-            "tags": [
-                "String",
-                "Dynamic Programming",
-                "Greedy",
-                "Recursion"
-            ],
-            "difficulty": "Hard",
-            "description": "Given an input string (s) and a pattern (p), implement wildcard pattern matching with support for '?' and '*' where '?' Matches any single character and '*' Matches any sequence of characters (including the empty sequence)."
-        },
-        {
-            "number": 45,
-            "title": "Jump Game II",
-            "tags": [
-                "Array",
-                "Greedy",
-                "Dynamic Programming"
-            ],
-            "difficulty": "Medium",
-            "description": "Given an array of non-negative integers nums, you are initially positioned at the first index of the array. Each element in the array represents your maximum jump length at that position. Your goal is to reach the last index in the minimum number of jumps."
-        },
-        {
-            "number": 46,
-            "title": "Permutations",
-            "tags": [
-                "Array",
-                "Backtracking"
-            ],
-            "difficulty": "Medium",
-            "description": "Given an array nums of distinct integers, return all the possible permutations. You can return the answer in any order."
-        },
-        {
-            "number": 47,
-            "title": "Permutations II",
-            "tags": [
-                "Array",
-                "Backtracking"
-            ],
-            "difficulty": "Medium",
-            "description": "Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order."
-        },
-        {
-            "number": 48,
-            "title": "Rotate Image",
-            "tags": [
-                "Array",
-                "Math",
-                "Matrix"
-            ],
-            "difficulty": "Medium",
-            "description": "You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise). You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation."
-        },
-        {
-            "number": 49,
-            "title": "Group Anagrams",
-            "tags": [
-                "Hash Table",
-                "String",
-                "Sorting"
-            ],
-            "difficulty": "Medium",
-            "description": "Given an array of strings strs, group the anagrams together. You can return the answer in any order."
-        },
-        {
-            "number": 50,
-            "title": "Pow(x, n)",
-            "tags": [
-                "Math",
-                "Recursion"
-            ],
-            "difficulty": "Medium",
-            "description": "Implement pow(x, n), which calculates x raised to the power n (i.e., x^n)."
-        },
-        {
-            "number": 51,
-            "title": "N-Queens",
-            "tags": [
-                "Array",
-                "Backtracking"
-            ],
-            "difficulty": "Hard",
-            "description": "The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that no two queens attack each other. Given an integer n, return all distinct solutions to the n-queens puzzle."
-        },
-        {
-            "number": 52,
-            "title": "N-Queens II",
-            "tags": [
-                "Backtracking"
-            ],
-            "difficulty": "Hard",
-            "description": "The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that no two queens attack each other. Given an integer n, return the number of distinct solutions to the n-queens puzzle."
-        },
-        {
-            "number": 53,
-            "title": "Maximum Subarray",
-            "tags": [
-                "Array",
-                "Divide and Conquer",
-                "Dynamic Programming"
-            ],
-            "difficulty": "Easy",
-            "description": "Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum."
-        },
-        {
-            "number": 54,
-            "title": "Spiral Matrix",
-            "tags": [
-                "Array",
-                "Matrix",
-                "Simulation"
-            ],
-            "difficulty": "Medium",
-            "description": "Given an m x n matrix, return all elements of the matrix in spiral order."
-        },
-        {
-            "number": 55,
-            "title": "Jump Game",
-            "tags": [
-                "Array",
-                "Greedy",
-                "Dynamic Programming"
-            ],
-            "difficulty": "Medium",
-            "description": "You are given an integer array nums. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position. Return true if you can reach the last index, or false otherwise."
-        },
-        {
-            "number": 56,
-            "title": "Merge Intervals",
-            "tags": [
-                "Array",
-                "Sorting"
-            ],
-            "difficulty": "Medium",
-            "description": "Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input."
-        },
-        {
-            "number": 57,
-            "title": "Insert Interval",
-            "tags": [
-                "Array"
-            ],
-            "difficulty": "Medium",
-            "description": "You are given an array of non-overlapping intervals intervals where intervals[i] = [starti, endi] represent the start and the end of the ith interval and intervals is sorted in ascending order by starti. You are also given an interval newInterval = [start, end] that represents the start and end of another interval. Insert newInterval into intervals such that intervals is still sorted in ascending order by starti and intervals still does not have any overlapping intervals (merge overlapping intervals if necessary)."
-        },
-        {
-            "number": 58,
-            "title": "Length of Last Word",
-            "tags": [
-                "String"
-            ],
-            "difficulty": "Easy",
-            "description": "Given a string s consisting of some words separated by some number of spaces, return the length of the last word in the string. A word is a maximal substring consisting of non-space characters only."
-        },
-        {
-            "number": 59,
-            "title": "Spiral Matrix II",
-            "tags": [
-                "Array",
-                "Matrix",
-                "Simulation"
-            ],
-            "difficulty": "Medium",
-            "description": "Given a positive integer n, generate an n x n matrix filled with elements from 1 to n^2 in spiral order."
-        },
-        {
-            "number": 60,
-            "title": "Permutation Sequence",
-            "tags": [
-                "Math",
-                "Recursion"
-            ],
-            "difficulty": "Hard",
-            "description": "The set [1, 2, 3, ..., n] contains a total of n! unique permutations. Given n and k, return the kth permutation sequence."
-        },
-        {
-            "number": 61,
-            "title": "Rotate List",
-            "tags": [
-                "Linked List",
-                "Two Pointers"
-            ],
-            "difficulty": "Medium",
-            "description": "Given the head of a linked list, rotate the list to the right by k places."
-        },
-        {
-            "number": 62,
-            "title": "Unique Paths",
-            "tags": [
-                "Math",
-                "Dynamic Programming",
-                "Combinatorics"
-            ],
-            "difficulty": "Medium",
-            "description": "A robot is located at the top-left corner of a m x n grid. The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid. How many possible unique paths are there?"
-        },
-        {
-            "number": 63,
-            "title": "Unique Paths II",
-            "tags": [
-                "Array",
-                "Dynamic Programming",
-                "Matrix"
-            ],
-            "difficulty": "Medium",
-            "description": "A robot is located at the top-left corner of a m x n grid. The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid. Now consider if some obstacles are added to the grids. How many unique paths would there be?"
-        },
-        {
-            "number": 64,
-            "title": "Minimum Path Sum",
-            "tags": [
-                "Array",
-                "Dynamic Programming",
-                "Matrix"
-            ],
-            "difficulty": "Medium",
-            "description": "Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right, which minimizes the sum of all numbers along its path. Note: You can only move either down or right at any point in time."
-        },
-        {
-            "number": 65,
-            "title": "Valid Number",
-            "tags": [
-                "String"
-            ],
-            "difficulty": "Hard",
-            "description": "A valid number can be split up into these components (in order): A decimal number or an integer, (Optional) An 'e' or 'E', followed by an integer."
-        },
-        {
-            "number": 66,
-            "title": "Plus One",
-            "tags": [
-                "Array",
-                "Math"
-            ],
-            "difficulty": "Easy",
-            "description": "You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's. Increment the large integer by one and return the resulting array of digits."
-        },
-        {
-            "number": 67,
-            "title": "Add Binary",
-            "tags": [
-                "Math",
-                "String",
-                "Bit Manipulation",
-                "Simulation"
-            ],
-            "difficulty": "Easy",
-            "description": "Given two binary strings a and b, return their sum as a binary string."
-        },
-        {
-            "number": 68,
-            "title": "Text Justification",
-            "tags": [
-                "String",
-                "Simulation"
-            ],
-            "difficulty": "Hard",
-            "description": "Given an array of strings words and a width maxWidth, format the text such that each line has exactly maxWidth characters and is fully (left and right) justified."
-        },
-        {
-            "number": 69,
-            "title": "Sqrt(x)",
-            "tags": [
-                "Math",
-                "Binary Search"
-            ],
-            "difficulty": "Easy",
-            "description": "Given a non-negative integer x, compute and return the square root of x. Since the return type is an integer, the decimal digits are truncated, and only the integer part of the result is returned."
-        },
-        {
-            "number": 70,
-            "title": "Climbing Stairs",
-            "tags": [
-                "Math",
-                "Dynamic Programming",
-                "Memoization"
-            ],
-            "difficulty": "Easy",
-            "description": "You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?"
-        },
-        {
-            "number": 71,
-            "title": "Simplify Path",
-            "tags": [
-                "String",
-                "Stack"
-            ],
-            "difficulty": "Medium",
-            "description": "Given a string path, which is an absolute path (starting with a slash '/') to a file or directory in a Unix-style file system, convert it to the simplified canonical path."
-        },
-        {
-            "number": 72,
-            "title": "Edit Distance",
-            "tags": [
-                "String",
-                "Dynamic Programming"
-            ],
-            "difficulty": "Hard",
-            "description": "Given two strings word1 and word2, return the minimum number of operations required to convert word1 to word2. You have the following three operations permitted on a word: Insert a character, Delete a character, Replace a character."
-        },
-        {
-            "number": 73,
-            "title": "Set Matrix Zeroes",
-            "tags": [
-                "Array",
-                "Hash Table",
-                "Matrix"
-            ],
-            "difficulty": "Medium",
-            "description": "Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's. You must do it in place."
-        },
-        {
-            "number": 74,
-            "title": "Search a 2D Matrix",
-            "tags": [
-                "Array",
-                "Binary Search",
-                "Matrix"
-            ],
-            "difficulty": "Medium",
-            "description": "Write an efficient algorithm that searches for a value target in an m x n integer matrix matrix. This matrix has the following properties: Integers in each row are sorted from left to right. The first integer of each row is greater than the last integer of the previous row."
-        },
-        {
-            "number": 75,
-            "title": "Sort Colors",
-            "tags": [
-                "Array",
-                "Two Pointers",
-                "Sorting"
-            ],
-            "difficulty": "Medium",
-            "description": "Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue. We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively."
-        },
-        {
-            "number": 76,
-            "title": "Minimum Window Substring",
-            "tags": [
-                "Hash Table",
-                "String",
-                "Sliding Window"
-            ],
-            "difficulty": "Hard",
-            "description": "Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string \"\"."
-        },
-        {
-            "number": 77,
-            "title": "Combinations",
-            "tags": [
-                "Array",
-                "Backtracking"
-            ],
-            "difficulty": "Medium",
-            "description": "Given two integers n and k, return all possible combinations of k numbers out of the range [1, n]. You may return the answer in any order."
-        },
-        {
-            "number": 78,
-            "title": "Subsets",
-            "tags": [
-                "Array",
-                "Backtracking",
-                "Bit Manipulation"
-            ],
-            "difficulty": "Medium",
-            "description": "Given an integer array nums of unique elements, return all possible subsets (the power set). The solution set must not contain duplicate subsets. Return the solution in any order."
-        },
-        {
-            "number": 79,
-            "title": "Word Search",
-            "tags": [
-                "Array",
-                "Backtracking",
-                "Matrix"
-            ],
-            "difficulty": "Medium",
-            "description": "Given an m x n grid of characters board and a string word, return true if word exists in the grid. The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once."
-        },
-        {
-            "number": 80,
-            "title": "Remove Duplicates from Sorted Array II",
-            "tags": [
-                "Array",
-                "Two Pointers"
-            ],
-            "difficulty": "Medium",
-            "description": "Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array; you must do this by modifying the input array in-place with O(1) extra memory."
-        },
-        {
-            "number": 81,
-            "title": "Search in Rotated Sorted Array II",
-            "tags": [
-                "Array",
-                "Binary Search"
-            ],
-            "difficulty": "Medium",
-            "description": "There is an integer array nums sorted in non-decreasing order (not necessarily with distinct values). Before being passed to your function, nums is rotated at an unknown pivot index k. Given the array nums after the rotation and an integer target, return true if target is in nums, or false if it is not in nums."
-        },
-        {
-            "number": 82,
-            "title": "Remove Duplicates from Sorted List II",
-            "tags": [
-                "Linked List",
-                "Two Pointers"
-            ],
-            "difficulty": "Medium",
-            "description": "Given the head of a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list. Return the linked list sorted as well."
-        },
-        {
-            "number": 83,
-            "title": "Remove Duplicates from Sorted List",
-            "tags": [
-                "Linked List"
-            ],
-            "difficulty": "Easy",
-            "description": "Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well."
-        },
-        {
-            "number": 84,
-            "title": "Largest Rectangle in Histogram",
-            "tags": [
-                "Array",
-                "Stack",
-                "Monotonic Stack"
-            ],
-            "difficulty": "Hard",
-            "description": "Given an array of integers heights representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram."
-        },
-        {
-            "number": 85,
-            "title": "Maximal Rectangle",
-            "tags": [
-                "Array",
-                "Dynamic Programming",
-                "Stack",
-                "Matrix",
-                "Monotonic Stack"
-            ],
-            "difficulty": "Hard",
-            "description": "Given a rows x cols binary matrix filled with 0's and 1's, find the largest rectangle containing only 1's and return its area."
-        },
-        {
-            "number": 86,
-            "title": "Partition List",
-            "tags": [
-                "Linked List",
-                "Two Pointers"
-            ],
-            "difficulty": "Medium",
-            "description": "Given the head of a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x. You should preserve the original relative order of the nodes in each of the two partitions."
-        },
-        {
-            "number": 87,
-            "title": "Scramble String",
-            "tags": [
-                "String",
-                "Dynamic Programming"
-            ],
-            "difficulty": "Hard",
-            "description": "We can scramble a string s to get a string t using the following algorithm: If the length of the string is 1, stop. If the length of the string is > 1, do one of the following: Split the string into two non-empty substrings at a random index, i.e., if the string is s, divide it to x and y where s = x + y. Randomly decide to swap the two substrings or to keep them in the same order. Apply step 1 recursively on each of the two substrings x and y. Given two strings s1 and s2 of the same length, return true if s2 is a scrambled string of s1, otherwise, return false."
-        },
-        {
-            "number": 88,
-            "title": "Merge Sorted Array",
-            "tags": [
-                "Array",
-                "Two Pointers",
-                "Sorting"
-            ],
-            "difficulty": "Easy",
-            "description": "You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively. Merge nums1 and nums2 into a single array sorted in non-decreasing order."
-        },
-        {
-            "number": 89,
-            "title": "Gray Code",
-            "tags": [
-                "Math",
-                "Backtracking",
-                "Bit Manipulation"
-            ],
-            "difficulty": "Medium",
-            "description": "An n-bit gray code sequence is a sequence of 2^n integers where: Every integer is in the range [0, 2^n - 1], The first integer is 0, and An integer appears no more than once in the sequence. The binary representation of every pair of adjacent integers differs by exactly one bit, and the binary representation of the first and last integers differs by exactly one bit. Given an integer n, return any valid n-bit gray code sequence."
-        },
-        {
-            "number": 90,
-            "title": "Subsets II",
-            "tags": [
-                "Array",
-                "Backtracking",
-                "Bit Manipulation"
-            ],
-            "difficulty": "Medium",
-            "description": "Given an integer array nums that may contain duplicates, return all possible subsets (the power set). The solution set must not contain duplicate subsets. Return the solution in any order."
-        },
-        {
-            "number": 91,
-            "title": "Decode Ways",
-            "tags": [
-                "String",
-                "Dynamic Programming"
-            ],
-            "difficulty": "Medium",
-            "description": "A message containing letters from A-Z can be encoded into numbers using the following mapping: 'A' -> '1', 'B' -> '2', ..., 'Z' -> '26'. To decode an encoded message, all the digits must be grouped then mapped back into letters using the reverse of the mapping above (there may be multiple ways). Given a string s containing only digits, return the number of ways to decode it."
-        },
-        {
-            "number": 92,
-            "title": "Reverse Linked List II",
-            "tags": [
-                "Linked List"
-            ],
-            "difficulty": "Medium",
-            "description": "Given the head of a singly linked list and two integers left and right where left <= right, reverse the nodes of the list from position left to position right, and return the reversed list."
-        },
-        {
-            "number": 93,
-            "title": "Restore IP Addresses",
-            "tags": [
-                "String",
-                "Backtracking"
-            ],
-            "difficulty": "Medium",
-            "description": "A valid IP address consists of exactly four integers separated by single dots. Each integer is between 0 and 255 (inclusive) and cannot have leading zeros. Given a string s containing only digits, return all possible valid IP addresses that can be formed by inserting dots into s. You are not allowed to reorder or remove any digits in s. You may return the valid IP addresses in any order."
-        },
-        {
-            "number": 94,
-            "title": "Binary Tree Inorder Traversal",
-            "tags": [
-                "Stack",
-                "Tree",
-                "Depth-First Search",
-                "Binary Tree"
-            ],
-            "difficulty": "Easy",
-            "description": "Given the root of a binary tree, return the inorder traversal of its nodes' values."
-        },
-        {
-            "number": 95,
-            "title": "Unique Binary Search Trees II",
-            "tags": [
-                "Dynamic Programming",
-                "Backtracking",
-                "Tree",
-                "Binary Search Tree",
-                "Binary Tree"
-            ],
-            "difficulty": "Medium",
-            "description": "Given an integer n, return all the structurally unique BST's (binary search trees), which has exactly n nodes of unique values from 1 to n. Return the answer in any order."
-        },
-        {
-            "number": 96,
-            "title": "Unique Binary Search Trees",
-            "tags": [
-                "Math",
-                "Dynamic Programming",
-                "Tree",
-                "Binary Search Tree",
-                "Binary Tree"
-            ],
-            "difficulty": "Medium",
-            "description": "Given an integer n, return the number of structurally unique BST's (binary search trees) which has exactly n nodes of unique values from 1 to n."
-        },
-        {
-            "number": 97,
-            "title": "Interleaving String",
-            "tags": [
-                "String",
-                "Dynamic Programming"
-            ],
-            "difficulty": "Medium",
-            "description": "Given strings s1, s2, and s3, find whether s3 is formed by an interleaving of s1 and s2. An interleaving of two strings s and t is a configuration where s and t are divided into s = s1 + s2 + ... + sn and t = t1 + t2 + ... + tm such that the concatenation s1 + t1 + s2 + t2 + ... + sn + tm is equal to the third string."
-        },
-        {
-            "number": 98,
-            "title": "Validate Binary Search Tree",
-            "tags": [
-                "Tree",
-                "Depth-First Search",
-                "Binary Search Tree",
-                "Binary Tree"
-            ],
-            "difficulty": "Medium",
-            "description": "Given the root of a binary tree, determine if it is a valid binary search tree (BST). A valid BST is defined as follows: The left subtree of a node contains only nodes with keys less than the node's key. The right subtree of a node contains only nodes with keys greater than the node's key. Both the left and right subtrees must also be binary search trees."
-        },
-        {
-            "number": 99,
-            "title": "Recover Binary Search Tree",
-            "tags": [
-                "Tree",
-                "Depth-First Search",
-                "Binary Search Tree",
-                "Binary Tree"
-            ],
-            "difficulty": "Medium",
-            "description": "You are given the root of a binary search tree (BST), where the values of exactly two nodes of the tree were swapped by mistake. Recover the tree without changing its structure."
-        },
-        {
-            "number": 100,
-            "title": "Same Tree",
+            "number": 101,
+            "title": "Symmetric Tree",
             "tags": [
                 "Tree",
                 "Depth-First Search",
@@ -1050,7 +10,1077 @@
                 "Binary Tree"
             ],
             "difficulty": "Easy",
-            "description": "Given the roots of two binary trees p and q, write a function to check if they are the same or not. Two binary trees are considered the same if they are structurally identical, and the nodes have the same value."
+            "description": "Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center)."
+        },
+        {
+            "number": 102,
+            "title": "Binary Tree Level Order Traversal",
+            "tags": [
+                "Tree",
+                "Breadth-First Search",
+                "Binary Tree"
+            ],
+            "difficulty": "Medium",
+            "description": "Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level)."
+        },
+        {
+            "number": 103,
+            "title": "Binary Tree Zigzag Level Order Traversal",
+            "tags": [
+                "Tree",
+                "Breadth-First Search",
+                "Binary Tree"
+            ],
+            "difficulty": "Medium",
+            "description": "Given the root of a binary tree, return the zigzag level order traversal of its nodes' values. (i.e., from left to right, then right to left for the next level and alternate between)."
+        },
+        {
+            "number": 104,
+            "title": "Maximum Depth of Binary Tree",
+            "tags": [
+                "Tree",
+                "Depth-First Search",
+                "Breadth-First Search",
+                "Binary Tree"
+            ],
+            "difficulty": "Easy",
+            "description": "Given the root of a binary tree, return its maximum depth. A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node."
+        },
+        {
+            "number": 105,
+            "title": "Construct Binary Tree from Preorder and Inorder Traversal",
+            "tags": [
+                "Array",
+                "Hash Table",
+                "Divide and Conquer",
+                "Tree",
+                "Binary Tree"
+            ],
+            "difficulty": "Medium",
+            "description": "Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree."
+        },
+        {
+            "number": 106,
+            "title": "Construct Binary Tree from Inorder and Postorder Traversal",
+            "tags": [
+                "Array",
+                "Hash Table",
+                "Divide and Conquer",
+                "Tree",
+                "Binary Tree"
+            ],
+            "difficulty": "Medium",
+            "description": "Given two integer arrays inorder and postorder where inorder is the inorder traversal of a binary tree and postorder is the postorder traversal of the same tree, construct and return the binary tree."
+        },
+        {
+            "number": 107,
+            "title": "Binary Tree Level Order Traversal II",
+            "tags": [
+                "Tree",
+                "Breadth-First Search",
+                "Binary Tree"
+            ],
+            "difficulty": "Medium",
+            "description": "Given the root of a binary tree, return the bottom-up level order traversal of its nodes' values. (i.e., from left to right, level by level from leaf to root)."
+        },
+        {
+            "number": 108,
+            "title": "Convert Sorted Array to Binary Search Tree",
+            "tags": [
+                "Array",
+                "Divide and Conquer",
+                "Tree",
+                "Binary Search Tree",
+                "Binary Tree"
+            ],
+            "difficulty": "Easy",
+            "description": "Given an integer array nums where the elements are sorted in ascending order, convert it to a height-balanced binary search tree."
+        },
+        {
+            "number": 109,
+            "title": "Convert Sorted List to Binary Search Tree",
+            "tags": [
+                "Linked List",
+                "Divide and Conquer",
+                "Tree",
+                "Binary Search Tree",
+                "Binary Tree"
+            ],
+            "difficulty": "Medium",
+            "description": "Given the head of a singly linked list where elements are sorted in ascending order, convert it to a height-balanced binary search tree."
+        },
+        {
+            "number": 110,
+            "title": "Balanced Binary Tree",
+            "tags": [
+                "Tree",
+                "Depth-First Search",
+                "Binary Tree"
+            ],
+            "difficulty": "Easy",
+            "description": "Given a binary tree, determine if it is height-balanced. For this problem, a height-balanced binary tree is defined as a binary tree in which the left and right subtrees of every node differ in height by no more than 1."
+        },
+        {
+            "number": 111,
+            "title": "Minimum Depth of Binary Tree",
+            "tags": [
+                "Tree",
+                "Depth-First Search",
+                "Breadth-First Search",
+                "Binary Tree"
+            ],
+            "difficulty": "Easy",
+            "description": "Given a binary tree, find its minimum depth. The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node."
+        },
+        {
+            "number": 112,
+            "title": "Path Sum",
+            "tags": [
+                "Tree",
+                "Depth-First Search",
+                "Breadth-First Search",
+                "Binary Tree"
+            ],
+            "difficulty": "Easy",
+            "description": "Given the root of a binary tree and an integer targetSum, return true if the tree has a root-to-leaf path such that adding up all the values along the path equals targetSum."
+        },
+        {
+            "number": 113,
+            "title": "Path Sum II",
+            "tags": [
+                "Tree",
+                "Depth-First Search",
+                "Backtracking",
+                "Binary Tree"
+            ],
+            "difficulty": "Medium",
+            "description": "Given the root of a binary tree and an integer targetSum, return all root-to-leaf paths where the sum of the node values in the path equals targetSum."
+        },
+        {
+            "number": 114,
+            "title": "Flatten Binary Tree to Linked List",
+            "tags": [
+                "Stack",
+                "Tree",
+                "Depth-First Search",
+                "Linked List",
+                "Binary Tree"
+            ],
+            "difficulty": "Medium",
+            "description": "Given the root of a binary tree, flatten the tree into a linked list, where the linked list is in the same order as a pre-order traversal of the binary tree."
+        },
+        {
+            "number": 115,
+            "title": "Distinct Subsequences",
+            "tags": [
+                "String",
+                "Dynamic Programming"
+            ],
+            "difficulty": "Hard",
+            "description": "Given two strings s and t, return the number of distinct subsequences of s which equals t."
+        },
+        {
+            "number": 116,
+            "title": "Populating Next Right Pointers in Each Node",
+            "tags": [
+                "Tree",
+                "Depth-First Search",
+                "Breadth-First Search",
+                "Binary Tree"
+            ],
+            "difficulty": "Medium",
+            "description": "You are given a perfect binary tree where all leaves are on the same level, and every parent has two children. Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL."
+        },
+        {
+            "number": 117,
+            "title": "Populating Next Right Pointers in Each Node II",
+            "tags": [
+                "Tree",
+                "Depth-First Search",
+                "Breadth-First Search",
+                "Binary Tree"
+            ],
+            "difficulty": "Medium",
+            "description": "Given a binary tree, populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL."
+        },
+        {
+            "number": 118,
+            "title": "Pascal's Triangle",
+            "tags": [
+                "Array",
+                "Dynamic Programming"
+            ],
+            "difficulty": "Easy",
+            "description": "Given an integer numRows, return the first numRows of Pascal's triangle."
+        },
+        {
+            "number": 119,
+            "title": "Pascal's Triangle II",
+            "tags": [
+                "Array",
+                "Dynamic Programming"
+            ],
+            "difficulty": "Easy",
+            "description": "Given an integer rowIndex, return the rowIndexth (0-indexed) row of the Pascal's triangle."
+        },
+        {
+            "number": 120,
+            "title": "Triangle",
+            "tags": [
+                "Array",
+                "Dynamic Programming"
+            ],
+            "difficulty": "Medium",
+            "description": "Given a triangle array, return the minimum path sum from top to bottom."
+        },
+        {
+            "number": 121,
+            "title": "Best Time to Buy and Sell Stock",
+            "tags": [
+                "Array",
+                "Dynamic Programming"
+            ],
+            "difficulty": "Easy",
+            "description": "You are given an array prices where prices[i] is the price of a given stock on the ith day. You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock. Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0."
+        },
+        {
+            "number": 122,
+            "title": "Best Time to Buy and Sell Stock II",
+            "tags": [
+                "Array",
+                "Dynamic Programming",
+                "Greedy"
+            ],
+            "difficulty": "Medium",
+            "description": "You are given an array prices where prices[i] is the price of a given stock on the ith day. On each day, you may decide to buy and/or sell the stock. You can only hold at most one share of stock at any time. However, you can buy it then immediately sell it on the same day. Find and return the maximum profit you can achieve."
+        },
+        {
+            "number": 123,
+            "title": "Best Time to Buy and Sell Stock III",
+            "tags": [
+                "Array",
+                "Dynamic Programming"
+            ],
+            "difficulty": "Hard",
+            "description": "You are given an array prices where prices[i] is the price of a given stock on the ith day. Find the maximum profit you can achieve. You may complete at most two transactions."
+        },
+        {
+            "number": 124,
+            "title": "Binary Tree Maximum Path Sum",
+            "tags": [
+                "Tree",
+                "Depth-First Search",
+                "Dynamic Programming",
+                "Binary Tree"
+            ],
+            "difficulty": "Hard",
+            "description": "A path in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. A node can only appear in the sequence at most once. Find the maximum path sum."
+        },
+        {
+            "number": 125,
+            "title": "Valid Palindrome",
+            "tags": [
+                "Two Pointers",
+                "String"
+            ],
+            "difficulty": "Easy",
+            "description": "Given a string s, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases."
+        },
+        {
+            "number": 126,
+            "title": "Word Ladder II",
+            "tags": [
+                "Hash Table",
+                "String",
+                "Breadth-First Search",
+                "Backtracking"
+            ],
+            "difficulty": "Hard",
+            "description": "Given two words, beginWord and endWord, and a dictionary wordList, return all the shortest transformation sequences from beginWord to endWord, such that: Only one letter can be changed at a time, and each transformed word must exist in the word list."
+        },
+        {
+            "number": 127,
+            "title": "Word Ladder",
+            "tags": [
+                "Hash Table",
+                "String",
+                "Breadth-First Search"
+            ],
+            "difficulty": "Hard",
+            "description": "Given two words beginWord and endWord, and a dictionary wordList, return the length of the shortest transformation sequence from beginWord to endWord, such that: Only one letter can be changed at a time, and each transformed word must exist in the word list."
+        },
+        {
+            "number": 128,
+            "title": "Longest Consecutive Sequence",
+            "tags": [
+                "Array",
+                "Hash Table",
+                "Union Find"
+            ],
+            "difficulty": "Medium",
+            "description": "Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence."
+        },
+        {
+            "number": 129,
+            "title": "Sum Root to Leaf Numbers",
+            "tags": [
+                "Tree",
+                "Depth-First Search",
+                "Binary Tree"
+            ],
+            "difficulty": "Medium",
+            "description": "You are given the root of a binary tree containing digits from 0 to 9 only. Each root-to-leaf path in the tree represents a number. Return the total sum of all root-to-leaf numbers."
+        },
+        {
+            "number": 130,
+            "title": "Surrounded Regions",
+            "tags": [
+                "Array",
+                "Depth-First Search",
+                "Breadth-First Search",
+                "Union Find",
+                "Matrix"
+            ],
+            "difficulty": "Medium",
+            "description": "Given an m x n matrix board containing 'X' and 'O', capture all regions that are 4-directionally surrounded by 'X'."
+        },
+        {
+            "number": 131,
+            "title": "Palindrome Partitioning",
+            "tags": [
+                "String",
+                "Dynamic Programming",
+                "Backtracking"
+            ],
+            "difficulty": "Medium",
+            "description": "Given a string s, partition s such that every substring of the partition is a palindrome. Return all possible palindrome partitioning of s."
+        },
+        {
+            "number": 132,
+            "title": "Palindrome Partitioning II",
+            "tags": [
+                "String",
+                "Dynamic Programming"
+            ],
+            "difficulty": "Hard",
+            "description": "Given a string s, partition s such that every substring of the partition is a palindrome. Return the minimum cuts needed for a palindrome partitioning of s."
+        },
+        {
+            "number": 133,
+            "title": "Clone Graph",
+            "tags": [
+                "Hash Table",
+                "Depth-First Search",
+                "Breadth-First Search",
+                "Graph"
+            ],
+            "difficulty": "Medium",
+            "description": "Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph."
+        },
+        {
+            "number": 134,
+            "title": "Gas Station",
+            "tags": [
+                "Array",
+                "Greedy"
+            ],
+            "difficulty": "Medium",
+            "description": "There are n gas stations along a circular route, where the amount of gas at the ith station is gas[i]. You have a car with an unlimited gas tank and it costs cost[i] of gas to travel from the ith station to its next (i + 1)th station. You begin the journey with an empty tank at one of the gas stations. Given two integer arrays gas and cost, return the starting gas station's index if you can travel around the circuit once in the clockwise direction, otherwise return -1."
+        },
+        {
+            "number": 135,
+            "title": "Candy",
+            "tags": [
+                "Array",
+                "Greedy"
+            ],
+            "difficulty": "Hard",
+            "description": "There are n children standing in a line. Each child is assigned a rating value given in the integer array ratings. You are giving candies to these children subjected to the following requirements: Each child must have at least one candy. Children with a higher rating get more candies than their neighbors. Return the minimum number of candies you need to have to distribute the candies to the children."
+        },
+        {
+            "number": 136,
+            "title": "Single Number",
+            "tags": [
+                "Array",
+                "Bit Manipulation"
+            ],
+            "difficulty": "Easy",
+            "description": "Given a non-empty array of integers nums, every element appears twice except for one. Find that single one."
+        },
+        {
+            "number": 137,
+            "title": "Single Number II",
+            "tags": [
+                "Array",
+                "Bit Manipulation"
+            ],
+            "difficulty": "Medium",
+            "description": "Given an integer array nums where every element appears three times except for one, which appears exactly once. Find the single element and return it."
+        },
+        {
+            "number": 138,
+            "title": "Copy List with Random Pointer",
+            "tags": [
+                "Hash Table",
+                "Linked List"
+            ],
+            "difficulty": "Medium",
+            "description": "A linked list of length n is given such that each node contains an additional random pointer, which could point to any node in the list, or null. Construct a deep copy of the list."
+        },
+        {
+            "number": 139,
+            "title": "Word Break",
+            "tags": [
+                "Hash Table",
+                "String",
+                "Dynamic Programming",
+                "Trie",
+                "Memoization"
+            ],
+            "difficulty": "Medium",
+            "description": "Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words."
+        },
+        {
+            "number": 140,
+            "title": "Word Break II",
+            "tags": [
+                "Hash Table",
+                "String",
+                "Dynamic Programming",
+                "Backtracking",
+                "Trie",
+                "Memoization"
+            ],
+            "difficulty": "Hard",
+            "description": "Given a string s and a dictionary of strings wordDict, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences in any order."
+        },
+        {
+            "number": 141,
+            "title": "Linked List Cycle",
+            "tags": [
+                "Hash Table",
+                "Linked List",
+                "Two Pointers"
+            ],
+            "difficulty": "Easy",
+            "description": "Given head, the head of a linked list, determine if the linked list has a cycle in it."
+        },
+        {
+            "number": 142,
+            "title": "Linked List Cycle II",
+            "tags": [
+                "Hash Table",
+                "Linked List",
+                "Two Pointers"
+            ],
+            "difficulty": "Medium",
+            "description": "Given the head of a linked list, return the node where the cycle begins. If there is no cycle, return null."
+        },
+        {
+            "number": 143,
+            "title": "Reorder List",
+            "tags": [
+                "Linked List",
+                "Two Pointers",
+                "Stack",
+                "Recursion"
+            ],
+            "difficulty": "Medium",
+            "description": "You are given the head of a singly linked-list. The list can be represented as: L0 → L1 → … → Ln - 1 → Ln. Reorder the list to be on the following form: L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …"
+        },
+        {
+            "number": 144,
+            "title": "Binary Tree Preorder Traversal",
+            "tags": [
+                "Stack",
+                "Tree",
+                "Depth-First Search",
+                "Binary Tree"
+            ],
+            "difficulty": "Easy",
+            "description": "Given the root of a binary tree, return the preorder traversal of its nodes' values."
+        },
+        {
+            "number": 145,
+            "title": "Binary Tree Postorder Traversal",
+            "tags": [
+                "Stack",
+                "Tree",
+                "Depth-First Search",
+                "Binary Tree"
+            ],
+            "difficulty": "Easy",
+            "description": "Given the root of a binary tree, return the postorder traversal of its nodes' values."
+        },
+        {
+            "number": 146,
+            "title": "LRU Cache",
+            "tags": [
+                "Hash Table",
+                "Linked List",
+                "Design",
+                "Doubly-Linked List"
+            ],
+            "difficulty": "Medium",
+            "description": "Design a data structure that follows the constraints of a Least Recently Used (LRU) cache."
+        },
+        {
+            "number": 147,
+            "title": "Insertion Sort List",
+            "tags": [
+                "Linked List",
+                "Sorting"
+            ],
+            "difficulty": "Medium",
+            "description": "Given the head of a singly linked list, sort the list using insertion sort, and return the sorted list's head."
+        },
+        {
+            "number": 148,
+            "title": "Sort List",
+            "tags": [
+                "Linked List",
+                "Two Pointers",
+                "Divide and Conquer",
+                "Sorting",
+                "Merge Sort"
+            ],
+            "difficulty": "Medium",
+            "description": "Given the head of a linked list, return the list after sorting it in ascending order."
+        },
+        {
+            "number": 149,
+            "title": "Max Points on a Line",
+            "tags": [
+                "Array",
+                "Hash Table",
+                "Math",
+                "Geometry"
+            ],
+            "difficulty": "Hard",
+            "description": "Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane, return the maximum number of points that lie on the same straight line."
+        },
+        {
+            "number": 150,
+            "title": "Evaluate Reverse Polish Notation",
+            "tags": [
+                "Array",
+                "Math",
+                "Stack"
+            ],
+            "difficulty": "Medium",
+            "description": "Evaluate the value of an arithmetic expression in Reverse Polish Notation."
+        },
+        {
+            "number": 151,
+            "title": "Reverse Words in a String",
+            "tags": [
+                "Two Pointers",
+                "String"
+            ],
+            "difficulty": "Medium",
+            "description": "Given an input string s, reverse the order of the words. A word is defined as a sequence of non-space characters. The words in s will be separated by at least one space."
+        },
+        {
+            "number": 152,
+            "title": "Maximum Product Subarray",
+            "tags": [
+                "Array",
+                "Dynamic Programming"
+            ],
+            "difficulty": "Medium",
+            "description": "Given an integer array nums, find a contiguous non-empty subarray within the array that has the largest product, and return the product."
+        },
+        {
+            "number": 153,
+            "title": "Find Minimum in Rotated Sorted Array",
+            "tags": [
+                "Array",
+                "Binary Search"
+            ],
+            "difficulty": "Medium",
+            "description": "Suppose an array of length n sorted in ascending order is rotated between 1 and n times. Given the sorted rotated array nums, return the minimum element of this array."
+        },
+        {
+            "number": 154,
+            "title": "Find Minimum in Rotated Sorted Array II",
+            "tags": [
+                "Array",
+                "Binary Search"
+            ],
+            "difficulty": "Hard",
+            "description": "Suppose an array of length n sorted in ascending order is rotated between 1 and n times. Given the sorted rotated array nums that may contain duplicates, return the minimum element of this array."
+        },
+        {
+            "number": 155,
+            "title": "Min Stack",
+            "tags": [
+                "Stack",
+                "Design"
+            ],
+            "difficulty": "Medium",
+            "description": "Design a stack that supports push, pop, top, and retrieving the minimum element in constant time."
+        },
+        {
+            "number": 156,
+            "title": "Binary Tree Upside Down",
+            "tags": [
+                "Tree",
+                "Depth-First Search",
+                "Binary Tree"
+            ],
+            "difficulty": "Medium",
+            "description": "Given the root of a binary tree, turn the tree upside down and return the new root. You can turn a binary tree upside down with the following steps: The original left child becomes the new root. The original root becomes the new right child. The original right child becomes the new left child."
+        },
+        {
+            "number": 157,
+            "title": "Read N Characters Given Read4",
+            "tags": [
+                "String",
+                "Interactive",
+                "Simulation"
+            ],
+            "difficulty": "Easy",
+            "description": "Given a file and assume that you can only read the file using a given method read4, implement a method to read n characters."
+        },
+        {
+            "number": 158,
+            "title": "Read N Characters Given Read4 II - Call Multiple Times",
+            "tags": [
+                "String",
+                "Interactive",
+                "Simulation"
+            ],
+            "difficulty": "Hard",
+            "description": "Given a file and assume that you can only read the file using a given method read4, implement a method read to read n characters. Your method read may be called multiple times."
+        },
+        {
+            "number": 159,
+            "title": "Longest Substring with At Most Two Distinct Characters",
+            "tags": [
+                "Hash Table",
+                "String",
+                "Sliding Window"
+            ],
+            "difficulty": "Medium",
+            "description": "Given a string s, return the length of the longest substring that contains at most two distinct characters."
+        },
+        {
+            "number": 160,
+            "title": "Intersection of Two Linked Lists",
+            "tags": [
+                "Hash Table",
+                "Linked List",
+                "Two Pointers"
+            ],
+            "difficulty": "Easy",
+            "description": "Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect. If the two linked lists have no intersection at all, return null."
+        },
+        {
+            "number": 161,
+            "title": "One Edit Distance",
+            "tags": [
+                "String",
+                "Two Pointers"
+            ],
+            "difficulty": "Medium",
+            "description": "Given two strings s and t, return true if they are both one edit distance apart, otherwise return false. One edit distance means inserting, deleting, or replacing exactly one character."
+        },
+        {
+            "number": 162,
+            "title": "Find Peak Element",
+            "tags": [
+                "Array",
+                "Binary Search"
+            ],
+            "difficulty": "Medium",
+            "description": "A peak element is an element that is strictly greater than its neighbors. Given an integer array nums, find a peak element, and return its index. If the array contains multiple peaks, return the index to any of the peaks."
+        },
+        {
+            "number": 163,
+            "title": "Missing Ranges",
+            "tags": [
+                "Array"
+            ],
+            "difficulty": "Easy",
+            "description": "You are given an inclusive range [lower, upper] and a sorted unique integer array nums, where all elements are in the inclusive range. Return the shortest sorted list of ranges that covers all the numbers in the array exactly."
+        },
+        {
+            "number": 164,
+            "title": "Maximum Gap",
+            "tags": [
+                "Array",
+                "Sorting",
+                "Bucket Sort",
+                "Radix Sort"
+            ],
+            "difficulty": "Hard",
+            "description": "Given an integer array nums, return the maximum difference between two successive elements in its sorted form. If the array contains less than two elements, return 0."
+        },
+        {
+            "number": 165,
+            "title": "Compare Version Numbers",
+            "tags": [
+                "Two Pointers",
+                "String"
+            ],
+            "difficulty": "Medium",
+            "description": "Given two version numbers, version1 and version2, compare them. Version numbers consist of one or more revisions joined by a dot '.'. Each revision consists of digits and may contain leading zeros."
+        },
+        {
+            "number": 166,
+            "title": "Fraction to Recurring Decimal",
+            "tags": [
+                "Hash Table",
+                "Math",
+                "String"
+            ],
+            "difficulty": "Medium",
+            "description": "Given two integers representing the numerator and denominator of a fraction, return the fraction in string format. If the fractional part is repeating, enclose the repeating part in parentheses."
+        },
+        {
+            "number": 167,
+            "title": "Two Sum II - Input Array Is Sorted",
+            "tags": [
+                "Array",
+                "Two Pointers",
+                "Binary Search"
+            ],
+            "difficulty": "Medium",
+            "description": "Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number."
+        },
+        {
+            "number": 168,
+            "title": "Excel Sheet Column Title",
+            "tags": [
+                "Math",
+                "String"
+            ],
+            "difficulty": "Easy",
+            "description": "Given an integer columnNumber, return its corresponding column title as it appears in an Excel sheet."
+        },
+        {
+            "number": 169,
+            "title": "Majority Element",
+            "tags": [
+                "Array",
+                "Hash Table",
+                "Divide and Conquer",
+                "Sorting",
+                "Counting"
+            ],
+            "difficulty": "Easy",
+            "description": "Given an array nums of size n, return the majority element. The majority element is the element that appears more than ⌊n / 2⌋ times."
+        },
+        {
+            "number": 170,
+            "title": "Two Sum III - Data structure design",
+            "tags": [
+                "Array",
+                "Hash Table",
+                "Design",
+                "Two Pointers"
+            ],
+            "difficulty": "Easy",
+            "description": "Design and implement a TwoSum class. It should support the following operations: add and find."
+        },
+        {
+            "number": 171,
+            "title": "Excel Sheet Column Number",
+            "tags": [
+                "Math",
+                "String"
+            ],
+            "difficulty": "Easy",
+            "description": "Given a string columnTitle that represents the column title as appear in an Excel sheet, return its corresponding column number."
+        },
+        {
+            "number": 172,
+            "title": "Factorial Trailing Zeroes",
+            "tags": [
+                "Math"
+            ],
+            "difficulty": "Medium",
+            "description": "Given an integer n, return the number of trailing zeroes in n!."
+        },
+        {
+            "number": 173,
+            "title": "Binary Search Tree Iterator",
+            "tags": [
+                "Stack",
+                "Tree",
+                "Design",
+                "Binary Search Tree",
+                "Binary Tree",
+                "Iterator"
+            ],
+            "difficulty": "Medium",
+            "description": "Implement the BSTIterator class that represents an iterator over the in-order traversal of a binary search tree (BST)."
+        },
+        {
+            "number": 174,
+            "title": "Dungeon Game",
+            "tags": [
+                "Array",
+                "Dynamic Programming",
+                "Matrix"
+            ],
+            "difficulty": "Hard",
+            "description": "The demons had captured the princess and imprisoned her in the bottom-right corner of a dungeon. The dungeon consists of m x n rooms laid out in a 2D grid. Our valiant knight was initially positioned in the top-left room and must fight his way through dungeon to rescue the princess."
+        },
+        {
+            "number": 175,
+            "title": "Combine Two Tables",
+            "tags": [
+                "Database"
+            ],
+            "difficulty": "Easy",
+            "description": "Write an SQL query to report the first name, last name, city, and state of each person in the Person table. If the address of a personId is not present in the Address table, report null instead."
+        },
+        {
+            "number": 176,
+            "title": "Second Highest Salary",
+            "tags": [
+                "Database"
+            ],
+            "difficulty": "Medium",
+            "description": "Write an SQL query to report the second highest salary from the Employee table. If there is no second highest salary, the query should report null."
+        },
+        {
+            "number": 177,
+            "title": "Nth Highest Salary",
+            "tags": [
+                "Database"
+            ],
+            "difficulty": "Medium",
+            "description": "Write an SQL query to report the nth highest salary from the Employee table. If there is no nth highest salary, the query should report null."
+        },
+        {
+            "number": 178,
+            "title": "Rank Scores",
+            "tags": [
+                "Database"
+            ],
+            "difficulty": "Medium",
+            "description": "Write an SQL query to rank the scores. The ranking should be calculated according to the following rules: The scores should be ranked from the highest to the lowest. If there is a tie between two scores, both should have the same ranking."
+        },
+        {
+            "number": 179,
+            "title": "Largest Number",
+            "tags": [
+                "Array",
+                "String",
+                "Greedy",
+                "Sorting"
+            ],
+            "difficulty": "Medium",
+            "description": "Given a list of non-negative integers nums, arrange them such that they form the largest number."
+        },
+        {
+            "number": 180,
+            "title": "Consecutive Numbers",
+            "tags": [
+                "Database"
+            ],
+            "difficulty": "Medium",
+            "description": "Write an SQL query to find all numbers that appear at least three times consecutively."
+        },
+        {
+            "number": 181,
+            "title": "Employees Earning More Than Their Managers",
+            "tags": [
+                "Database"
+            ],
+            "difficulty": "Easy",
+            "description": "Write an SQL query to find the employees who earn more than their managers."
+        },
+        {
+            "number": 182,
+            "title": "Duplicate Emails",
+            "tags": [
+                "Database"
+            ],
+            "difficulty": "Easy",
+            "description": "Write an SQL query to report all the duplicate emails."
+        },
+        {
+            "number": 183,
+            "title": "Customers Who Never Order",
+            "tags": [
+                "Database"
+            ],
+            "difficulty": "Easy",
+            "description": "Write an SQL query to report all customers who never order anything."
+        },
+        {
+            "number": 184,
+            "title": "Department Highest Salary",
+            "tags": [
+                "Database"
+            ],
+            "difficulty": "Medium",
+            "description": "Write an SQL query to find employees who have the highest salary in each of the departments."
+        },
+        {
+            "number": 185,
+            "title": "Department Top Three Salaries",
+            "tags": [
+                "Database"
+            ],
+            "difficulty": "Hard",
+            "description": "Write an SQL query to find the employees who are high earners in each of the departments."
+        },
+        {
+            "number": 186,
+            "title": "Reverse Words in a String II",
+            "tags": [
+                "Two Pointers",
+                "String"
+            ],
+            "difficulty": "Medium",
+            "description": "Given a character array s, reverse the order of the words. A word is defined as a sequence of non-space characters. The words in s will be separated by a single space."
+        },
+        {
+            "number": 187,
+            "title": "Repeated DNA Sequences",
+            "tags": [
+                "Hash Table",
+                "String",
+                "Bit Manipulation",
+                "Sliding Window",
+                "Rolling Hash",
+                "Hash Function"
+            ],
+            "difficulty": "Medium",
+            "description": "The DNA sequence is composed of a series of nucleotides abbreviated as 'A', 'C', 'G', and 'T'. Given a string s that represents a DNA sequence, return all the 10-letter-long sequences (substrings) that occur more than once in a DNA molecule."
+        },
+        {
+            "number": 188,
+            "title": "Best Time to Buy and Sell Stock IV",
+            "tags": [
+                "Array",
+                "Dynamic Programming"
+            ],
+            "difficulty": "Hard",
+            "description": "You are given an integer array prices where prices[i] is the price of a given stock on the ith day, and an integer k. Find the maximum profit you can achieve. You may complete at most k transactions."
+        },
+        {
+            "number": 189,
+            "title": "Rotate Array",
+            "tags": [
+                "Array",
+                "Math",
+                "Two Pointers"
+            ],
+            "difficulty": "Medium",
+            "description": "Given an array, rotate the array to the right by k steps, where k is non-negative."
+        },
+        {
+            "number": 190,
+            "title": "Reverse Bits",
+            "tags": [
+                "Divide and Conquer",
+                "Bit Manipulation"
+            ],
+            "difficulty": "Easy",
+            "description": "Reverse bits of a given 32 bits unsigned integer."
+        },
+        {
+            "number": 191,
+            "title": "Number of 1 Bits",
+            "tags": [
+                "Bit Manipulation"
+            ],
+            "difficulty": "Easy",
+            "description": "Write a function that takes an unsigned integer and returns the number of '1' bits it has (also known as the Hamming weight)."
+        },
+        {
+            "number": 192,
+            "title": "Word Frequency",
+            "tags": [
+                "Shell"
+            ],
+            "difficulty": "Medium",
+            "description": "Write a bash script to calculate the frequency of each word in a text file words.txt."
+        },
+        {
+            "number": 193,
+            "title": "Valid Phone Numbers",
+            "tags": [
+                "Shell"
+            ],
+            "difficulty": "Easy",
+            "description": "Given a text file file.txt that contains a list of phone numbers (one per line), write a one-liner bash script to print all valid phone numbers."
+        },
+        {
+            "number": 194,
+            "title": "Transpose File",
+            "tags": [
+                "Shell"
+            ],
+            "difficulty": "Medium",
+            "description": "Given a text file file.txt, transpose its content."
+        },
+        {
+            "number": 195,
+            "title": "Tenth Line",
+            "tags": [
+                "Shell"
+            ],
+            "difficulty": "Easy",
+            "description": "Given a text file file.txt, print just the 10th line of the file."
+        },
+        {
+            "number": 196,
+            "title": "Delete Duplicate Emails",
+            "tags": [
+                "Database"
+            ],
+            "difficulty": "Easy",
+            "description": "Write an SQL query to delete all the duplicate emails, keeping only one unique email with the smallest id."
+        },
+        {
+            "number": 197,
+            "title": "Rising Temperature",
+            "tags": [
+                "Database"
+            ],
+            "difficulty": "Easy",
+            "description": "Write an SQL query to find all dates' Id with higher temperatures compared to its previous dates (yesterday)."
+        },
+        {
+            "number": 198,
+            "title": "House Robber",
+            "tags": [
+                "Array",
+                "Dynamic Programming"
+            ],
+            "difficulty": "Medium",
+            "description": "You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night."
+        },
+        {
+            "number": 199,
+            "title": "Binary Tree Right Side View",
+            "tags": [
+                "Tree",
+                "Depth-First Search",
+                "Breadth-First Search",
+                "Binary Tree"
+            ],
+            "difficulty": "Medium",
+            "description": "Given the root of a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom."
+        },
+        {
+            "number": 200,
+            "title": "Number of Islands",
+            "tags": [
+                "Array",
+                "Depth-First Search",
+                "Breadth-First Search",
+                "Union Find",
+                "Matrix"
+            ],
+            "difficulty": "Medium",
+            "description": "Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands."
         }
     ]
 }
