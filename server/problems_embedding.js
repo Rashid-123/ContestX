@@ -118,7 +118,7 @@ const INDEX_NAME = process.env.PINECONE_INDEX_NAME || 'problems';
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 // === 📥 Load JSON Problems ===
-const rawData = fs.readFileSync('./problems.json', 'utf8');
+const rawData = fs.readFileSync('./leetcode_problems.json', 'utf8');
 const problems = JSON.parse(rawData).problems;
 
 // === 🔁 Format Data for Embedding ===
@@ -129,6 +129,7 @@ const texts = problems.map((p) =>
 const metadatas = problems.map((p) => ({
     number: p.number,
     title: p.title,
+    titleSlug: p.titleSlug,
     tags: p.tags,
     description: p.description, 
     difficulty: p.difficulty,
