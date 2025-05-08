@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { AuthProvider } from "@/context/AuthContext";
 import { Toaster } from "react-hot-toast";
+import { LeetCodeProvider } from "@/context/LeetcodeContext";
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={openSans.variable}>
       <body className="antialiased bg-dotted font-sans">
+       <LeetCodeProvider>
         <AuthProvider>
           <Navbar />
          <Toaster
@@ -39,6 +41,7 @@ export default function RootLayout({ children }) {
           <main className="pt-16">{children}</main>
           <Footer />
         </AuthProvider>
+        </LeetCodeProvider>
       </body>
     </html>
   );
