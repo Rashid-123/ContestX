@@ -112,43 +112,7 @@ function groupAndAverageVectors(vectors, numRecommendations) {
  * @param {number} numRecommendations - Number of recommendations (5 or 10)
  * @returns {Promise<Array<Object>>} - List of recommended problems
  */
-// async function findSimilarProblems(averageVectors, numRecommendations , problemNumbers) {
-//   const recommendations = new Set();
-//   const recommendedProblems = [];
-  
-//   for (const avgVector of averageVectors) {
-//     // Query the vector database for similar problems
-//     const queryResponse = await index.query({
-//       vector: avgVector,
-//       topK: 5, // Get more than we need to filter out problems already seen
-//       includeMetadata: true
-//     });
-//     console.log('Query response:', JSON.stringify(queryResponse, null, 2));
-//     // Process results
-//     for (const match of queryResponse.matches) { 
-//       const problemNumber = match.number;
-      
-//       // Add to recommendations if not already recommended
-//       if (!recommendations.has(problemNumber)) {
-//         recommendations.add(problemNumber);
-//         recommendedProblems.push({
-//           number: problemNumber,
-//           title: match.metadata.title,
-//           difficulty: match.metadata.difficulty,
-//           tags: match.metadata.tags,
-//           similarity: match.score
-//         });
-        
-//         // Break when we have enough recommendations
-//         if (recommendations.size >= numRecommendations) {
-//           break;
-//         }
-//       }
-//     }
-//   }
-  
-//   return recommendedProblems.slice(0, numRecommendations);
-// }
+
 
 async function findSimilarProblems(averageVectors, numRecommendations , problemNumbers) {
   const recommendations = new Set();
@@ -232,36 +196,6 @@ async function recommendProblems({ problemNumbers, numRecommendations }) {
   });
 }
 
-/**---------------------------------------------------------------------------------------------------------------------------------------------
- * Handler for API endpoint
- * @param {Object} req - Express request object
- * @param {Object} res - Express response object
- */
-// async function handleRecommendationRequest(req, res) {
-//   try {
-//     const { problemNumbers, numRecommendations } = req.body;
-    
-//     const result = await recommendProblems({
-//       problemNumbers,
-//       numRecommendations
-//     });
-    
-//     res.json(result);
-//   } catch (error) {
-//     console.error('Error generating recommendations:', error);
-//     res.status(500).json({ error: error.message });
-//   }
-// }
-
-// // Export functions for testing or direct usage
-// module.exports = {
-//   recommendProblems,
-//   fetchProblemVectors,
-//   groupAndAverageVectors,
-//   findSimilarProblems
-// };
-
-
 
 
 async function testRecommendation() {
@@ -272,7 +206,7 @@ async function testRecommendation() {
       console.log("Testing recommendation system...");
       const result = await recommendProblems({
         problemNumbers: testProblemNumbers,
-        numRecommendations: 5
+        numRecommendations: 10
       });
       
       console.log("Recommended problems:", JSON.stringify(result.recommendations, null, 2));

@@ -1,5 +1,50 @@
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 
+// const UserSchema = new mongoose.Schema(
+//   {
+//     firebaseUID: {
+//       type: String,
+//       required: true,
+//       unique: true,
+//     },
+//     email: {
+//       type: String,
+//       required: true,
+//       unique: true,
+//     },
+//     displayName: {
+//       type: String,
+//       required: true,
+//     },
+//     photoURL: {
+//       type: String,
+//     },
+//     role: {
+//       type: String,
+//       enum: ["user", "admin"],
+//       default: "user",
+//     },
+//     bookmarks: {
+//       type: [String],
+//       default: [],
+//     },
+//     leetcode: {
+//       type: String,
+//       default: null,
+//     },
+//     github: {
+//       type: String,
+//       default: null,
+//     },
+//   },
+//   { timestamps: true }
+// );
+
+// export default mongoose.models.User || mongoose.model("User", UserSchema);
+
+
+// models/User.js
+import mongoose from "mongoose";
 const UserSchema = new mongoose.Schema(
   {
     firebaseUID: {
@@ -16,9 +61,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    photoURL: {
-      type: String,
-    },
+    photoURL: String,
     role: {
       type: String,
       enum: ["user", "admin"],
@@ -28,14 +71,16 @@ const UserSchema = new mongoose.Schema(
       type: [String],
       default: [],
     },
-    leetcode: {
-      type: String,
-      default: null,
-    },
-    github: {
-      type: String,
-      default: null,
-    },
+    leetcode: String,
+    github: String,
+
+    // Store recommendation event references
+    recommendationHistory: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Recommendation",
+      },
+    ],
   },
   { timestamps: true }
 );
