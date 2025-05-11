@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import User from "../models/user.js"
+import User from "../models/User.js"
 import admin from 'firebase-admin';
 import dotenv from "dotenv";
 dotenv.config();

@@ -1,4 +1,4 @@
-import User from "../models/user.js";
+import User from "../models/User.js";
 export const toggleBookmark = async (req, res) => {
     try {
         const { contestCode } = req.body;

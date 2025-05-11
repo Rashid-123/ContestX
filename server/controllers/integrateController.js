@@ -1,4 +1,4 @@
-import User from '../models/user.js';
+import User from '../models/User.js';
 
 // Generic function to update a specific field
 const updateUserField = async (req, res, field) => {

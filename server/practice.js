@@ -1,6 +1,5 @@
 
 import dotenv from 'dotenv';
-import { PineconeStore } from '@langchain/pinecone';
 import { Pinecone } from '@pinecone-database/pinecone';
 import { RunnableSequence, RunnablePassthrough } from '@langchain/core/runnables';
 dotenv.config();
@@ -196,23 +195,27 @@ async function recommendProblems({ problemNumbers, numRecommendations }) {
   });
 }
 
+module.exports = {
+  recommendProblems
+};
 
 
-async function testRecommendation() {
-    try {
-      // Example test data - 20 problem numbers
-      const testProblemNumbers = [10, 22, 37, 41, 5, 63, 7, 98, 96, 10, 11, 121, 213, 14, 1560, 566, 17, 198, 19, 2910];
+
+// async function testRecommendation() {
+//     try {
+//       // Example test data - 20 problem numbers
+//       const testProblemNumbers = [10, 22, 37, 41, 5, 63, 7, 98, 96, 10, 11, 121, 213, 14, 1560, 566, 17, 198, 19, 2910];
       
-      console.log("Testing recommendation system...");
-      const result = await recommendProblems({
-        problemNumbers: testProblemNumbers,
-        numRecommendations: 10
-      });
+//       console.log("Testing recommendation system...");
+//       const result = await recommendProblems({
+//         problemNumbers: testProblemNumbers,
+//         numRecommendations: 10
+//       });
       
-      console.log("Recommended problems:", JSON.stringify(result.recommendations, null, 2));
-    } catch (error) {
-      console.error("Test failed:", error);
-    }
-  }
+//       console.log("Recommended problems:", JSON.stringify(result.recommendations, null, 2));
+//     } catch (error) {
+//       console.error("Test failed:", error);
+//     }
+//   }
   
- testRecommendation()
+//  testRecommendation()
