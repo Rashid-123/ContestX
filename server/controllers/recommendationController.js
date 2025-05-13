@@ -1,6 +1,6 @@
 import User from '../models/User.js';
 
-import recommendProblems from '../utils/recommendProblems.js';
+import recommendProblems from '../recommendProblems.js';
 const createRecmmendation = async (req, res) => {
 
     const userId = req.user.id;
