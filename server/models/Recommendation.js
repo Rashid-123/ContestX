@@ -6,13 +6,24 @@ const RecommendedProblemSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  title:{
+    type: String,
+    required: true,
+  },
+  titleSlug: {
+    type: String,
+    required: true,
+  },
+  difficulty: {
+    type: String,
+    required: true,
+  },
   usedProblemNumbers: {
     type: [String],
     required: true,
   },
   message: {
     type: String,
-    required: true,
   },
 }, { _id: true });
  

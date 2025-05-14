@@ -1,13 +1,33 @@
 
+// -------------------------------------------------------------------------------------------------
+
+
+
 import dotenv from 'dotenv';
 import { Pinecone } from '@pinecone-database/pinecone';
 import { RunnableSequence, RunnablePassthrough } from '@langchain/core/runnables';
 import mongoose from 'mongoose';
 dotenv.config();
 
+
+
+const connectToMongoDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log('MongoDB connected successfully');
+  } catch (err) {
+    console.error('MongoDB connection error:', err);
+    process.exit(1); // Exit if DB connection fails
+  }
+};
+
+await connectToMongoDB();
+
 // Import models
 import User from './models/User.js';
-// Dynamic import for Recommendation if it hasn't been imported yet
 const Recommendation = mongoose.models.Recommendation || 
   (await import('./models/Recommendation.js')).default;
 
@@ -26,7 +46,6 @@ const index = pinecone.Index(process.env.PINECONE_INDEX_NAME);
  */
 async function fetchProblemVectors(problemNumbers) {
   const vectors = [];
-  const metadata = [];
   
   for (const problemNumber of problemNumbers) {
     try {
@@ -34,21 +53,14 @@ async function fetchProblemVectors(problemNumbers) {
         topK: 1,
         vector: Array(3072).fill(0), // Placeholder vector, replace with actual vector if needed
         filter: { number: problemNumber },
-        // includeMetadata: true,
         includeValues: true, // you need this to get vector
       });
-      console.log("Query result:", result);
       
       // Get the vector and metadata
       const match = result.matches?.[0];
       if (match) {
         vectors.push(match.values);
-        // metadata.push({
-        //   number: match.metadata.number,
-        //   title: match.metadata.title,
-        //   difficulty: match.metadata.difficulty,
-        //   titleSlug: match.metadata.titleSlug,
-        // });
+        
       } else {
         console.log(`No match found for problem ${problemNumber}`);
       }
@@ -115,15 +127,12 @@ function calculateAverageVector(vectors) {
     averageVectors.push(avgVector);
     
     // Track which problems contributed to this group
-    // const groupMetadata = metadata.slice(i, i + groupSize);
-    // const groupProblemNumbers = groupMetadata.map(item => item.number);
+    
     problemGroups.push({
       problemNumbers: groupProblemNumbers,
       // metadata: groupMetadata,
     });
   }
-  console.log("Grouped problem numbers:", problemGroups);
-  console.log("Average vectors:", averageVectors);
   return { averageVectors, problemGroups };
 }
 
@@ -185,7 +194,7 @@ async function findSimilarProblems({ averageVectors, problemGroups, numRecommend
  * @param {number} numRecommendations - Number of recommendations (5 or 10)
  * @returns {Promise<Object>} - Object containing recommended problems
  */
-async function recommendProblems(problemNumbers, numRecommendations) {
+async function recommendProblems(problemNumbers, numRecommendations , userId) {
   // Validate input
   if (!Array.isArray(problemNumbers) || problemNumbers.length !== 20) {
     return { error: 'Please provide exactly 20 problem numbers' };
@@ -201,7 +210,6 @@ async function recommendProblems(problemNumbers, numRecommendations) {
       {
         problemData: async (input) => {
           const data = await fetchProblemVectors(input.problemNumbers);
-          // console.log("Fetched problem vectors:", data);
           return data;
         },
         numRecommendations: (input) => input.numRecommendations,
@@ -211,11 +219,9 @@ async function recommendProblems(problemNumbers, numRecommendations) {
         averageData: (input) => {
           const result = groupAndAverageVectors({
             vectors: input.problemData.vectors,
-            // metadata: input.problemData.metadata,
             allProblemNumbers: input.allProblemNumbers,
             numRecommendations: input.numRecommendations
           });
-          // console.log("Grouped and averaged vectors:", result);
           return result;
         },
         numRecommendations: (input) => input.numRecommendations,
@@ -228,7 +234,6 @@ async function recommendProblems(problemNumbers, numRecommendations) {
           numRecommendations: input.numRecommendations,
           allProblemNumbers: input.allProblemNumbers
         });
-        // console.log("Final recommended problems:", recommendedProblems);
         return { recommendedProblems };
       }
     ]);
@@ -239,32 +244,35 @@ async function recommendProblems(problemNumbers, numRecommendations) {
       problemNumbers,
       numRecommendations
     });
+
+    console.log("Result:", result);
     
-    // Format recommendations for MongoDB storage
-    // const formattedRecommendations = result.recommendedProblems.map(problem => ({
-    //   recommendedProblemNumber: problem.recommendedProblemNumber,
-    //   usedProblemNumbers: problem.usedProblemNumbers,
-    //   message: problem.message
-    // }));
+    // // Format recommendations for MongoDB storage
+    const formattedRecommendations = result.recommendedProblems.map(problem => ({
+      recommendedProblemNumber: problem.recommendedProblemNumber,
+      title: problem.title,
+      titleSlug: problem.titleSlug,
+      difficulty: problem.difficulty,
+      usedProblemNumbers: problem.usedProblemNumbers,
+    }));
+    // // Create a new recommendation document
+    const recommendationDoc = new Recommendation({
+      recommendations: formattedRecommendations,
+      createdAt: new Date()
+    });
     
-    // Create a new recommendation document
-    // const recommendationDoc = new Recommendation({
-    //   recommendations: formattedRecommendations,
-    //   createdAt: new Date()
-    // });
+    console.log("Recommendation document:", recommendationDoc);
+    // // Save the recommendation document
+    const savedRecommendation = await recommendationDoc.save();
     
-    // Save the recommendation document
-    // const savedRecommendation = await recommendationDoc.save();
+    // // Update the user's recommendation history
+    await User.findByIdAndUpdate(
+      userId,
+      { $push: { recommendationHistory: savedRecommendation._id } },
+      { new: true }
+    );
     
-    // Update the user's recommendation history
-    // await User.findByIdAndUpdate(
-    //   userId,
-    //   { $push: { recommendationHistory: savedRecommendation._id } },
-    //   { new: true }
-    // );
-    
-    // Return both the saved document ID and the full recommendation data'
-    // console.log("Recommendations:", result.recommendedProblems);
+ 
     return {
     //   recommendationId: savedRecommendation._id,
       recommendedProblems: result.recommendedProblems
@@ -285,9 +293,9 @@ const testRecommendation = async () => {
     const testProblemNumbers = [10, 22, 37, 41, 5, 63, 7, 98, 96, 10, 11, 121, 213, 14, 1560, 566, 17, 198, 19, 2910];
     
     console.log("Testing recommendation system...");
-    const result = await recommendProblems(testProblemNumbers ,10);
-    
-    console.log("Recommended problems:", JSON.stringify(result.recommendedProblems, null, 2));
+    const result = await recommendProblems(testProblemNumbers ,10 , "6801ec2c92f4da8dd8a18588");
+    // console.log("Test result:", result);
+    // console.log("Recommended problems:", JSON.stringify(result.recommendedProblems, null, 2));
     
   } catch (error) {
     console.error("Test failed:", error);
