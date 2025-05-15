@@ -326,7 +326,7 @@ export default function ContestsPage() {
             return (
                 <section>
                     <h2 className="text-2xl font-semibold mb-4">Bookmarked Contests</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 gap-4">
                         {bookmarkedContests?.length > 0 ? (
                             bookmarkedContests?.map(contest => (
                                 <ContestCard
@@ -351,7 +351,7 @@ export default function ContestsPage() {
                     <h2 className="text-2xl font-semibold mb-4 capitalize">
                         {filters.status} Contests
                     </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 gap-4">
                         {groupedContests[filters.status].length > 0 ? (
                             groupedContests[filters.status].map(contest => (
                                 <ContestCard
@@ -376,7 +376,7 @@ export default function ContestsPage() {
                 {groupedContests.ongoing.length > 0 && (
                     <section className="mb-8">
                         <h2 className="text-2xl font-semibold mb-4">Ongoing Contests</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 gap-4">
                             {groupedContests.ongoing.map(contest => (
                                 <ContestCard
                                     key={contest.code}
@@ -394,7 +394,7 @@ export default function ContestsPage() {
                 {groupedContests.upcoming.length > 0 && (
                     <section className="mb-8">
                         <h2 className="text-2xl font-semibold mb-4">Upcoming Contests</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 gap-4">
                             {groupedContests.upcoming.map(contest => (
                                 <ContestCard
                                     key={contest.code}
@@ -412,7 +412,7 @@ export default function ContestsPage() {
                 {groupedContests.past.length > 0 && (
                     <section>
                         <h2 className="text-2xl font-semibold mb-4">Past Contests</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 gap-4">
                             {groupedContests.past.map(contest => (
                                 <ContestCard
                                     key={contest.code}

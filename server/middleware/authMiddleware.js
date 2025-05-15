@@ -1,5 +1,5 @@
 import admin from "firebase-admin";
-import User from "../models/user.js";
+import User from "../models/User.js";
 
 export const protect = async (req, res, next) => {
   const authHeader = req.headers.authorization;

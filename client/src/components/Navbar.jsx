@@ -33,7 +33,9 @@ import {
 
 
 export default function Navbar() {
-    const { user, logout, loading } = useAuth();
+    const { user, token, logout, loading } = useAuth();
+    console.log("token in navbar", token)
+    const [isOpen, setIsOpen] = useState(false); // State for mobile menu
     const pathname = usePathname(); // Get current path
     const router = useRouter(); // For programmatic navigation
     // Function to get user initials for avatar

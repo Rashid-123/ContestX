@@ -1,35 +1,8 @@
 
-// -------------------------------------------------------------------------------------------------
-
-
-
 import dotenv from 'dotenv';
 import { Pinecone } from '@pinecone-database/pinecone';
 import { RunnableSequence, RunnablePassthrough } from '@langchain/core/runnables';
-import mongoose from 'mongoose';
 dotenv.config();
-
-
-
-const connectToMongoDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log('MongoDB connected successfully');
-  } catch (err) {
-    console.error('MongoDB connection error:', err);
-    process.exit(1); // Exit if DB connection fails
-  }
-};
-
-await connectToMongoDB();
-
-// Import models
-import User from './models/User.js';
-const Recommendation = mongoose.models.Recommendation || 
-  (await import('./models/Recommendation.js')).default;
 
 // Initialize Pinecone client
 const pinecone = new Pinecone({
@@ -152,7 +125,7 @@ async function findSimilarProblems({ averageVectors, problemGroups, numRecommend
     
     const queryResponse = await index.query({
       vector: avgVector,
-      topK:20 , // Significantly increased to ensure we have enough candidates after filtering
+      topK:10 , // Significantly increased to ensure we have enough candidates after filtering
       includeMetadata: true
     });
     
@@ -187,15 +160,15 @@ async function findSimilarProblems({ averageVectors, problemGroups, numRecommend
   return recommendedProblems;
 }
 
-/**------------------------------------------------------------------------------------------------------------------------------------
+/**---------------------------------------------------------------------------------------------------------------
  * Main recommendation function that also stores results in MongoDB
  * @param {string} userId - User ID to associate the recommendations with
  * @param {number[]} problemNumbers - Array of problem numbers to base recommendations on
  * @param {number} numRecommendations - Number of recommendations (5 or 10)
  * @returns {Promise<Object>} - Object containing recommended problems
  */
-async function recommendProblems(problemNumbers, numRecommendations , userId) {
-  // Validate input
+async function recommendProblems(problemNumbers, numRecommendations) {
+
   if (!Array.isArray(problemNumbers) || problemNumbers.length !== 20) {
     return { error: 'Please provide exactly 20 problem numbers' };
   }
@@ -246,35 +219,8 @@ async function recommendProblems(problemNumbers, numRecommendations , userId) {
     });
 
     console.log("Result:", result);
-    
-    // // Format recommendations for MongoDB storage
-    const formattedRecommendations = result.recommendedProblems.map(problem => ({
-      recommendedProblemNumber: problem.recommendedProblemNumber,
-      title: problem.title,
-      titleSlug: problem.titleSlug,
-      difficulty: problem.difficulty,
-      usedProblemNumbers: problem.usedProblemNumbers,
-    }));
-    // // Create a new recommendation document
-    const recommendationDoc = new Recommendation({
-      recommendations: formattedRecommendations,
-      createdAt: new Date()
-    });
-    
-    console.log("Recommendation document:", recommendationDoc);
-    // // Save the recommendation document
-    const savedRecommendation = await recommendationDoc.save();
-    
-    // // Update the user's recommendation history
-    await User.findByIdAndUpdate(
-      userId,
-      { $push: { recommendationHistory: savedRecommendation._id } },
-      { new: true }
-    );
-    
- 
+  
     return {
-    //   recommendationId: savedRecommendation._id,
       recommendedProblems: result.recommendedProblems
     };
     
@@ -284,22 +230,29 @@ async function recommendProblems(problemNumbers, numRecommendations , userId) {
   }
 }
 
-// export default recommendProblems;
+export default recommendProblems;
 
 
-const testRecommendation = async () => {
-  try {
-    // Example test data - 20 problem numbers
-    const testProblemNumbers = [10, 22, 37, 41, 5, 63, 7, 98, 96, 10, 11, 121, 213, 14, 1560, 566, 17, 198, 19, 2910];
+// const testRecommendation = async () => {
+//   try {
+//     // Example test data - 20 problem numbers
+//     const testProblemNumbers = [10, 22, 37, 41, 5, 63, 7, 98, 96, 10, 11, 121, 213, 14, 1560, 566, 17, 198, 19, 2910];
     
-    console.log("Testing recommendation system...");
-    const result = await recommendProblems(testProblemNumbers ,10 , "6801ec2c92f4da8dd8a18588");
-    // console.log("Test result:", result);
-    // console.log("Recommended problems:", JSON.stringify(result.recommendedProblems, null, 2));
+//     console.log("Testing recommendation system...");
+//     const result = await recommendProblems(testProblemNumbers ,10 , "6801ec2c92f4da8dd8a18588");
+//     // console.log("Test result:", result);
+//     // console.log("Recommended problems:", JSON.stringify(result.recommendedProblems, null, 2));
     
-  } catch (error) {
-    console.error("Test failed:", error);
-  }
-}
+//   } catch (error) {
+//     console.error("Test failed:", error);
+//   }
+// }
 
-testRecommendation();
+// testRecommendation();
+
+
+
+
+
+
+
