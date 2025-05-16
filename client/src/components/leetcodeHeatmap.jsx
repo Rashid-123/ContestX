@@ -39,10 +39,10 @@ const LeetCodeHeatmap = ({ username }) => {
 
     const legendColors = [
         { color: 'bg-gray-200', label: 'None' },
-        { color: 'bg-blue-300', label: '1-4' },
-        { color: 'bg-blue-500', label: '5-9' },
-        { color: 'bg-blue-700', label: '10-19' },
-        { color: 'bg-blue-900', label: '20+' },
+        { color: 'bg-green-300', label: '1-4' },
+        { color: 'bg-green-500', label: '5-9' },
+        { color: 'bg-green-700', label: '10-19' },
+        { color: 'bg-green-900', label: '20+' },
     ];
 
     if (isLoading) {
@@ -57,10 +57,11 @@ const LeetCodeHeatmap = ({ username }) => {
     }
 
     return (
-        <div className="p-4 rounded-2xl bg-white border border-gray-200 ">
-            <h2 className="text-xl font-semibold mb-6 mt-5">
-                LeetCode Submissions for {username}
+        <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white border border-gray-200">
+            <h2 className="text-lg sm:text-xl font-semibold">
+                LeetCode Activity
             </h2>
+            <span className=" text-xs sm:text-sm" style={{ color: 'var(--second-text-color)' }}>Your coding progress on LeetCode</span>
 
             {error ? (
                 <div className="text-red-500 p-4">{error}</div>
@@ -68,17 +69,17 @@ const LeetCodeHeatmap = ({ username }) => {
                 <div className="p-4 text-gray-500">No submission data available</div>
             ) : (
                 <>
-                    <CalendarHeatmap
+                    <div className='my-3'> <CalendarHeatmap
                         startDate={startDate}
                         endDate={endDate}
                         values={heatmapData}
                         classForValue={(value) => {
                             let base = 'cursor-pointer transition-all rounded-sm hover:stroke-black hover:stroke-2';
                             if (!value || !value.count) return `${base} fill-gray-200`;
-                            if (value.count >= 20) return `${base} fill-blue-900`;
-                            if (value.count >= 10) return `${base} fill-blue-700`;
-                            if (value.count >= 5) return `${base} fill-blue-500`;
-                            if (value.count >= 1) return `${base} fill-blue-300`;
+                            if (value.count >= 20) return `${base} fill-green-900`;
+                            if (value.count >= 10) return `${base} fill-green-700`;
+                            if (value.count >= 5) return `${base} fill-green-500`;
+                            if (value.count >= 1) return `${base} fill-green-300`;
                             return `${base} fill-gray-200`;
                         }}
                         gutterSize={3}
@@ -91,21 +92,23 @@ const LeetCodeHeatmap = ({ username }) => {
                                 : {}
                         }
                         showWeekdayLabels
-                    />
+                    /></div>
+
 
                     <ReactTooltip id="leetcode-heatmap-tooltip" place="top" className="z-50" />
 
-                    <div className="flex items-center gap-2 text-sm text-gray-600 mt-4">
+                    <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm text-gray-600">
                         <span>Less</span>
                         {legendColors.map((item, idx) => (
                             <div
                                 key={idx}
-                                className={`w-4 h-4 ${item.color} rounded-sm border border-gray-300`}
+                                className={`w-3 h-3 sm:w-4 sm:h-4 ${item.color} rounded-sm border border-gray-300`}
                                 title={item.label}
                             />
                         ))}
                         <span>More</span>
                     </div>
+
                 </>
             )}
         </div>

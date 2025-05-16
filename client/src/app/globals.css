@@ -4,7 +4,11 @@
 
 body{
   /* @apply bg-[#faf9f5] */
-  @apply bg-[#f8f8fa]
+  /* @apply bg-[#f8f8fa] */
+   @apply bg-[#fefeff] 
+}
+:root{
+  --second-text-color: #64748b;
 }
 
 @custom-variant dark (&:is(.dark *));

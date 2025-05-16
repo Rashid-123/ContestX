@@ -28,7 +28,7 @@ const Github_activity = ({ user }) => {
 
     return (
         <div className="p-4 rounded-2xl bg-white shadow-md">
-            <h2 className="text-xl font-semibold mb-4">GitHub Recent Activity</h2>
+            <h2 className="text-lg sm:text-xl font-semibold">GitHub Recent Activity</h2>
 
             {loading ? (
                 <p>Loading events...</p>
