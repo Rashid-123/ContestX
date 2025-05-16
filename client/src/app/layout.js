@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { AuthProvider } from "@/context/AuthContext";
 import { Toaster } from "react-hot-toast";
-import { LeetCodeProvider } from "@/context/LeetcodeContext";
+import { LeetCodeProvider } from "@/context/LeetCodeContext";
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",

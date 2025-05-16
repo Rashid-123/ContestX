@@ -8,7 +8,7 @@ import 'react-calendar-heatmap/dist/styles.css';
 import { fromUnixTime, format, subMonths } from 'date-fns';
 import { Tooltip as ReactTooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
-import { useLeetCode } from '@/context/LeetcodeContext';
+import { useLeetCode } from '@/context/LeetCodeContext';
 const LeetCodeHeatmap = ({ username }) => {
     const { calendarData: heatmapData, isLoading, error, fetchLeetCodeData } = useLeetCode();
 

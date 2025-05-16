@@ -22,14 +22,14 @@ export const LeetCodeProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [lastFetchTime, setLastFetchTime] = useState(null);
   const [username, setUsername] = useState(null);
-
+  
   // Function to fetch calendar data
   const fetchCalendarData = async (username) => {
     if (!username) return;
     
     setIsLoading(true);
     setError(null);
-
+    
     try {
       const res = await fetch('/api/leetcode/calendar', {
         method: 'POST',

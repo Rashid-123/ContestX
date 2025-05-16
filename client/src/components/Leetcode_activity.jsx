@@ -4,8 +4,8 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useLeetCode } from '@/context/LeetcodeContext';
-export default function Leetcode_activity({ username }) {
+import { useLeetCode } from '@/context/LeetCodeContext';
+export default function LeetCode_activity({ username }) {
     const { submissions, isLoading, error, fetchLeetCodeData } = useLeetCode();
 
     useEffect(() => {
