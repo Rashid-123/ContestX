@@ -2,8 +2,8 @@
 'use client';
 
 import { useAuth } from "@/context/AuthContext";
-import LeetCodeHeatmap from "@/components/LeetCodeHeatmap";
-import Leetcode_activity from "@/components/Leetcode_activity";
+import LeetCodeHeatmap from "@/components/leetCodeHeatmap";
+import Leetcode_activity from "@/components/LeetCode_activity";
 import RefreshButton from "@/components/RefreshButton";
 import POD from "@/components/POD";
 
