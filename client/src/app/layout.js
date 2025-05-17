@@ -20,7 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={openSans.variable}>
-      <body className="antialiased bg-dotted font-sans">
+      <body className="antialiased font-sans">
        <LeetCodeProvider>
         <AuthProvider>
           <Navbar />

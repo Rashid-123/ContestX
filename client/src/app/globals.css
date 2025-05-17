@@ -10,6 +10,15 @@ body{
 :root{
   --second-text-color: #64748b;
 }
+@layer utilities {
+  .bg-dotted {
+    background-image: radial-gradient(#ccc 0.9px, transparent 0);
+    background-size: 40px 40px;
+  }
+  .background-color-1{
+    background-color:#f8f8fa ;
+  }
+}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -132,9 +141,3 @@ body{
   }
 }
 
-/* @layer utilities {
-  .bg-dotted {
-    background-image: radial-gradient(#ccc 0.9px, transparent 0);
-    background-size: 40px 40px;
-  }
-} */

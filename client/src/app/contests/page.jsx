@@ -556,7 +556,7 @@ export default function ContestsPage() {
                 <meta name="description" content="Find all coding contests from various platforms in one place" />
             </Head>
 
-            <div className="container mx-auto px-4 py-8" style={{ backgroundColor: '#f8f8fa' } }>
+            <div className="container mx-auto px-4 py-8" >
                 <h1 className="text-3xl font-bold mb-6">Coding Contests</h1>
 
                 <div className="flex flex-col lg:flex-row gap-6">
