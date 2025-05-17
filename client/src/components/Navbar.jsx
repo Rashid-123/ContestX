@@ -26,7 +26,7 @@ import {
     Trophy,
     CheckSquare,
     Code,
-    Puzzle,
+    Settings,
     HelpCircle,
     Router
 } from "lucide-react";
@@ -113,7 +113,7 @@ export default function Navbar() {
                         </Button>
                         <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-muted/60 ${isActive("/integrate") ? "bg-muted/60" : ""}`}>
                             <Link href="/integrate">
-                                <Puzzle className="h-5 w-5" />
+                                <Settings className="h-5 w-5" />
                                 Integrate</Link>
                         </Button>
                         <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-muted/60 ${isActive("/help") ? "bg-muted/60" : ""}`}>
@@ -193,7 +193,7 @@ export default function Navbar() {
                                 </Button>
                                 <Button variant="ghost" asChild className="justify-start">
                                     <Link href="/integrate">
-                                        <Puzzle className="h-5 w-5" />
+                                        <Settings className="h-5 w-5" />
                                         Integrate</Link>
                                 </Button>
                                 <Button variant="ghost" asChild className="justify-start">
