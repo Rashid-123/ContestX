@@ -5,7 +5,8 @@
 body{
   /* @apply bg-[#faf9f5] */
   /* @apply bg-[#f8f8fa] */
-   @apply bg-[#fefeff] 
+     /* @apply bg-[#f5f5f9] */
+   /* @apply bg-[#fefeff]  */
 }
 :root{
   --second-text-color: #64748b;
