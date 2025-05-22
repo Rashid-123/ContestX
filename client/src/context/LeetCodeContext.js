@@ -160,7 +160,7 @@ export const LeetCodeProvider = ({ children }) => {
     calendarData,
     submissions,
     isLoading,
-    error,
+    leetcodeError: error,
     fetchLeetCodeData,
     refreshData,
     lastFetchTime
@@ -172,3 +172,6 @@ export const LeetCodeProvider = ({ children }) => {
     </LeetCodeContext.Provider>
   );
 };
+
+
+

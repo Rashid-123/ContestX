@@ -14,9 +14,10 @@ import {
 const router = express.Router();
 console.log("Recommendation routes loaded");
 router.post("/", protect, createRecommendation);
+router.get("/all", protect, getAllRecommendations);
 router.get("/:id", protect, getRecommendation);
 // router.delete("/:id", protect, deleteRecmmendation);
-router.get("/all", protect, getAllRecommendations);
+
 // router.post("/message", protect, createmessage);
 
 

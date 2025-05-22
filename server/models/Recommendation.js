@@ -34,6 +34,10 @@ const RecommendationSchema = new mongoose.Schema(
       type: [RecommendedProblemSchema],
       required: true,
     },
+    name: {
+      type: String,
+      required: true,
+    },
     createdAt: {
       type: Date,
       default: Date.now,
@@ -42,4 +46,4 @@ const RecommendationSchema = new mongoose.Schema(
 );
 
 export default mongoose.models.Recommendation ||
-  mongoose.model("Recommendation", RecommendationSchema);
+mongoose.model("Recommendation", RecommendationSchema);

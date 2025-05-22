@@ -10,7 +10,7 @@ import { Tooltip as ReactTooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 import { useLeetCode } from '@/context/LeetCodeContext';
 const LeetCodeHeatmap = ({ username }) => {
-    const { calendarData: heatmapData, isLoading, error, fetchLeetCodeData } = useLeetCode();
+    const { calendarData: heatmapData, isLoading, leetcodeError, fetchLeetCodeData } = useLeetCode();
 
     useEffect(() => {
         if (username) {
@@ -63,8 +63,8 @@ const LeetCodeHeatmap = ({ username }) => {
             </h2>
             <span className=" text-xs sm:text-sm" style={{ color: 'var(--second-text-color)' }}>Your coding progress on LeetCode</span>
 
-            {error ? (
-                <div className="text-red-500 p-4">{error}</div>
+            {leetcodeError ? (
+                <div className="text-red-500 p-4">{leetcodeError}</div>
             ) : heatmapData.length === 0 ? (
                 <div className="p-4 text-gray-500">No submission data available</div>
             ) : (
