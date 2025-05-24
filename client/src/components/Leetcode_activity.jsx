@@ -12,8 +12,8 @@ function SubmissionSkeleton() {
     return (
         <li className="p-3 sm:p-5 border border-gray-200 rounded-lg sm:rounded-2xl animate-pulse">
             <div className="flex items-center justify-between gap-2 mb-2">
-                <div className="h-4 bg-yellow-100 rounded w-3/4"></div>
-                <div className="h-4 w-4 bg-yellow-100 rounded-full flex-shrink-0"></div>
+                <div className="h-4 bg-blue-100 rounded w-3/4"></div>
+                <div className="h-4 w-4 bg-blue-100 rounded-full flex-shrink-0"></div>
             </div>
 
             <div className="flex flex-wrap items-center gap-y-2">

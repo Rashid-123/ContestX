@@ -37,9 +37,9 @@ const FilterBarSkeleton = () => (
         <div className="mb-6">
             <div className="h-5 bg-gray-200 rounded w-16 mb-1"></div>
             <div className="space-y-2">
-                <div className="h-8 bg-gray-200 rounded"></div>
-                <div className="h-8 bg-gray-200 rounded"></div>
-                <div className="h-8 bg-gray-200 rounded"></div>
+                <div className="h-8 bg-blue-100 rounded"></div>
+                <div className="h-8 bg-yellow-100 rounded"></div>
+                <div className="h-8 bg-orange-100 rounded"></div>
             </div>
         </div>
 
@@ -72,7 +72,7 @@ const ContestsLoadingSkeleton = () => {
 
                     {/* Ongoing Contests Section */}
                     <section className="mb-8">
-                        <div className="h-8 bg-gray-200 rounded w-48 mb-4 animate-pulse"></div>
+                        <div className="h-8 bg-green-100 rounded w-48 mb-4 animate-pulse"></div>
                         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                             {Array.from({ length: 3 }).map((_, index) => (
                                 <ContestCardSkeleton key={`ongoing-${index}`} />
@@ -82,7 +82,7 @@ const ContestsLoadingSkeleton = () => {
 
                     {/* Upcoming Contests Section */}
                     <section className="mb-8">
-                        <div className="h-8 bg-gray-200 rounded w-48 mb-4 animate-pulse"></div>
+                        <div className="h-8 bg-blue-100 rounded w-48 mb-4 animate-pulse"></div>
                         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                             {Array.from({ length: 6 }).map((_, index) => (
                                 <ContestCardSkeleton key={`upcoming-${index}`} />
@@ -92,7 +92,7 @@ const ContestsLoadingSkeleton = () => {
 
                     {/* Past Contests Section */}
                     <section>
-                        <div className="h-8 bg-gray-200 rounded w-48 mb-4 animate-pulse"></div>
+                        <div className="h-8 bg-red-100 rounded w-48 mb-4 animate-pulse"></div>
                         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                             {Array.from({ length: 4 }).map((_, index) => (
                                 <ContestCardSkeleton key={`past-${index}`} />

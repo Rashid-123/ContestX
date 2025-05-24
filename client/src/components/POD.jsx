@@ -207,7 +207,7 @@ const POD = () => {
                     href={`https://leetcode.com${link}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full px-3 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium flex items-center justify-center border border-blue-200 bg-blue-50 hover:bg-blue-100 transition-colors">
+                    className="w-full px-3 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium flex items-center justify-center border border-yellow-200 bg-yellow-100 hover:bg-yellow-200 transition-colors">
                     Solve Challenge
                     <ExternalLink className="h-3 w-3 sm:h-3.5 sm:w-3.5 ml-1.5 sm:ml-2" />
                 </a>

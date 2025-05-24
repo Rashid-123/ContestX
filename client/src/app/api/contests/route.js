@@ -9,11 +9,11 @@ export async function GET(request) {
   console.log("Request received for contests");
   try {
 
-    // const cachedContests = await redis.get(CACHE_KEY);
-    // if (cachedContests) {
-    //   console.log("Data served from cache");
-    //   return NextResponse.json({ contests: cachedContests, cached: true });
-    // }
+    const cachedContests = await redis.get(CACHE_KEY);
+    if (cachedContests) {
+      console.log("Data served from cache");
+      return NextResponse.json({ contests: cachedContests, cached: true });
+    }
 
     const [codechefResponse, codeforcesResponse, leetcodeResponse] = await Promise.all([
       fetchCodeChefContests(),
@@ -31,7 +31,7 @@ export async function GET(request) {
     
     allContests.sort((a, b) => new Date(b.startime) - new Date(a.startime));
 
-    // await redis.set(CACHE_KEY , allContests , {ex:CACHE_TIME});
+    await redis.set(CACHE_KEY , allContests , {ex:CACHE_TIME});
 
     return NextResponse.json({ contests: allContests });
   } catch (error) {

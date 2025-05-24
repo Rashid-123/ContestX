@@ -30,7 +30,7 @@ export default function Hero() {
 
                 {/* Main heading with improved typography */}
                 <h1 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6 max-w-4xl mx-auto leading-tight">
-                    Master Coding with <span className="text-blue-600">AI-Powered</span> Problem Recommendations
+                    Master Problem solving with <span className="text-blue-600">AI-Powered</span> Problem Recommendations
                 </h1>
 
                 {/* Subheading with better spacing and readability */}
@@ -58,8 +58,8 @@ export default function Hero() {
                     {/* Card 1 - with improved visual styling and icon inline with heading */}
                     <div className="bg-white rounded-xl p-6 border border-blue-100 shadow-xs hover:shadow-sm transition-all duration-300 group">
                         <div className="flex items-center justify-center gap-4 mb-3">
-                            <div className="text-blue-500 bg-blue-50 p-3 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="text-blue-500 bg-blue-50 p-2 rounded-full w-9 h-9 flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                 </svg>
                             </div>
@@ -73,8 +73,8 @@ export default function Hero() {
                     {/* Card 2 - with improved visual styling and icon inline with heading */}
                     <div className="bg-white rounded-xl p-6 border border-blue-100 shadow-xs hover:shadow-sm transition-all duration-300 group">
                         <div className="flex items-center justify-center gap-4 mb-3">
-                            <div className="text-blue-500 bg-blue-50 p-3 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="text-blue-500 bg-blue-50 p-2 rounded-full w-9 h-9 flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                                 </svg>
                             </div>
@@ -86,8 +86,8 @@ export default function Hero() {
                     </div>
                     <div className="bg-white rounded-xl p-6 border border-blue-100 shadow-xs hover:shadow-sm transition-all duration-300 group">
                         <div className="flex items-center justify-center gap-4 mb-3">
-                            <div className="text-blue-500 bg-blue-50 p-3 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="text-blue-500 bg-blue-50 p-2 rounded-full w-9 h-9 flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                                 </svg>
                             </div>

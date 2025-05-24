@@ -88,9 +88,9 @@ export default function Navbar() {
         </div>
         );
     }
-
+    // borderBottom: "1px solid #f8f8fa"
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 p-4.5  shadow-sm " style={{ backgroundColor: "white", color: "#141413", borderBottom: "1px solid #f8f8fa" }}>
+        <nav className="fixed top-0 left-0 right-0 z-50 p-5 bg-white border border-b-blue-100  shadow-sm " style={{ color: "#141413", }}>
             <div className="container mx-auto flex items-center justify-between">
                 {/* Logo */}
                 <div className="text-xl font-bold">ContestCraft</div>

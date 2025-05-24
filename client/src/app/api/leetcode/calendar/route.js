@@ -41,8 +41,7 @@ export async function POST(req) {
       );
     }
     
-    // Parse the submissionCalendar JSON string into an object
-    // This is the key fix - parse the string before returning
+   
     if (data.data?.matchedUser?.submissionCalendar) {
       try {
         const calendarData = JSON.parse(data.data.matchedUser.submissionCalendar);
