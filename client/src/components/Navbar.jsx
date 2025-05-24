@@ -98,28 +98,28 @@ export default function Navbar() {
                 {/* Center Navigation Links - Only visible on desktop */}
                 <div className="hidden lg:flex items-center justify-center space-x-1 flex-1">
                     <div className="flex items-center justify-center space-x-1">
-                        <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-muted/60 ${isActive("/") ? "bg-muted/60" : ""}`}>
+                        <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-gray-100 ${isActive("/") ? "bg-gray-50 border border-gray-200" : ""}`}>
                             <Link href="/">
                                 <Home className="h-5 w-5" />
                                 Home</Link>
                         </Button>
-                        <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-muted/60 ${isActive("/contests") ? "bg-muted/60" : ""}`}>
+                        <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-gray-100 ${isActive("/contests") ? "bg-gray-50 border border-gray-200" : ""}`}>
                             <Link href="/contests">
                                 <Trophy className="h-5 w-5" />
                                 Contests</Link>
                         </Button>
 
-                        <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-muted/60 ${isActive("/integrate") ? "bg-muted/60" : ""}`}>
+                        <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-gray-100 ${isActive("/integrate") ? "bg-gray-50 border border-gray-200" : ""}`}>
                             <Link href="/integrate">
                                 <Settings className="h-5 w-5" />
                                 Integrate</Link>
                         </Button>
-                        <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-muted/60 ${isActive("/recommendation") ? "bg-muted/60" : ""}`}>
+                        <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-gray100 ${isActive("/recommendation") ? "bg-gray-50 border border-gray-200 " : ""}`}>
                             <Link href="/recommendation">
                                 <Lightbulb className="h-5 w-5" />
                                 My Recommendations</Link>
                         </Button>
-                        <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-muted/60 ${isActive("/help") ? "bg-muted/60" : ""}`}>
+                        <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-gray-100 ${isActive("/help") ? "bg-gray-50 border border-gray-200" : ""}`}>
                             <Link href="/help">
                                 <HelpCircle className="h-5 w-5" />
                                 Help</Link>
@@ -172,23 +172,26 @@ export default function Navbar() {
                                 <SheetTitle>ContestCraft</SheetTitle>
                             </SheetHeader>
                             <div className="flex flex-col space-y-3 mt-6">
-                                <Button variant="ghost" className="justify-start" onClick={() => handleMobileNavigation("/")}>
+
+
+                                <Button variant="ghost" className={`justify-start ${isActive("/") ? "bg-blue-50" : ""}`} onClick={() => handleMobileNavigation("/")}>
                                     <Home className="h-5 w-5 mr-2" />
                                     Home
                                 </Button>
-                                <Button variant="ghost" className="justify-start" onClick={() => handleMobileNavigation("/contests")}>
+
+                                <Button variant="ghost" className={`justify-start ${isActive("/contests") ? "bg-blue-50" : ""}`} onClick={() => handleMobileNavigation("/contests")}>
                                     <Trophy className="h-5 w-5 mr-2" />
                                     Contests
                                 </Button>
-                                <Button variant="ghost" className="justify-start" onClick={() => handleMobileNavigation("/integrate")}>
+                                <Button variant="ghost" className={`justify-start ${isActive("/integrate") ? "bg-blue-50" : ""}`} onClick={() => handleMobileNavigation("/integrate")}>
                                     <Settings className="h-5 w-5 mr-2" />
                                     Integrate
                                 </Button>
-                                <Button variant="ghost" className="justify-start" onClick={() => handleMobileNavigation("/recommendation")}>
+                                <Button variant="ghost" className={`justify-start ${isActive("/recommendation") ? "bg-blue-50" : ""}`} onClick={() => handleMobileNavigation("/recommendation")}>
                                     <Lightbulb className="h-5 w-5 mr-2" />
                                     My Recommendations
                                 </Button>
-                                <Button variant="ghost" className="justify-start" onClick={() => handleMobileNavigation("/help")}>
+                                <Button variant="ghost" className={`justify-start ${isActive("/help") ? "bg-blue-50" : ""}`} onClick={() => handleMobileNavigation("/help")}>
                                     <HelpCircle className="h-5 w-5 mr-2" />
                                     Help
                                 </Button>

@@ -620,6 +620,27 @@ async function initPineconeStore() {
 }
 
 // Setup LLM prompt template for explanations
+// const explanationPromptTemplate = PromptTemplate.fromTemplate(`You are an expert LeetCode tutor.
+
+// Use your own internal understanding of the LeetCode problems by number — you already know their content, algorithms used, edge cases, and variations.
+
+// The user has solved these problems:
+// {sourceProblemsText}
+
+// You're recommending:
+// Problem {recommendedProblemNumber}: "{recommendedProblemTitle}" ({recommendedProblemDifficulty}) with tags: {recommendedProblemTags}
+
+// Please explain in detail (10-15 sentences) why this problem would be an excellent next step for the user.
+
+// Cover the following:
+
+// Key similarities in solving techniques
+// Important algorithmic or data structure skills being reinforced or added
+// How this new problem builds on previous knowledge
+// Any new patterns, edge cases, or optimizations the user may learn
+// Conceptual or difficulty progression that makes this recommendation valuable
+
+// Format your answer as clean, semantic HTML suitable for displaying in a web interface (e.g. with headings, paragraphs, bullet points if needed).`);
 const explanationPromptTemplate = PromptTemplate.fromTemplate(`You are an expert LeetCode tutor.
 
 Use your own internal understanding of the LeetCode problems by number — you already know their content, algorithms used, edge cases, and variations.
@@ -630,7 +651,7 @@ The user has solved these problems:
 You're recommending:
 Problem {recommendedProblemNumber}: "{recommendedProblemTitle}" ({recommendedProblemDifficulty}) with tags: {recommendedProblemTags}
 
-Please explain in detail (10-15 sentences) why this problem would be an excellent next step for the user.
+Please explain in detail ( 400-500 words)  why this problem would be an excellent next step for the user , choose slighty easy words .
 
 Cover the following:
 
@@ -640,8 +661,18 @@ How this new problem builds on previous knowledge
 Any new patterns, edge cases, or optimizations the user may learn
 Conceptual or difficulty progression that makes this recommendation valuable
 
-Format your answer as clean, semantic HTML suitable for displaying in a web interface (e.g. with headings, paragraphs, bullet points if needed).`);
+IMPORTANT: Format your response as clean, semantic HTML that is ready to display directly in a web interface. Use these specific styles:
 
+- Main heading: <h2 style="color: #1f2937; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; margin-top: 1.5rem; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem;">
+- Sub headings: <h3 style="color: #374151; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; margin-top: 1.25rem;">
+- Paragraphs: <p style="color: #4b5563; line-height: 1.6; margin-bottom: 1rem;">
+- Lists: <ul style="margin-bottom: 1rem;">
+- List items: <li style="color: #4b5563; margin-bottom: 0.25rem; line-height: 1.5;">
+- Bold text: <strong style="color: #1f2937; font-weight: 600;">
+
+Do NOT use code blocks, markdown, or any wrapper formatting. Return only the styled HTML content that can be directly inserted into a web page.
+
+For the first heading, do NOT add margin-top since it will be the first element.`);
 /**
  * Fetch problem details and vectors from Pinecone in batches
  */

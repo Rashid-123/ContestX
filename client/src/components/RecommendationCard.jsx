@@ -1,8 +1,10 @@
 
-import { ArrowBigRight } from "lucide-react";
-import Link from "next/link";
-export default function RecommendationCard({ recommendation }) {
 
+
+import { ArrowBigRight, Calendar } from "lucide-react";
+import Link from "next/link";
+
+export default function RecommendationCard({ recommendation }) {
     const formatDate = (dateString) => {
         try {
             const date = new Date(dateString);
@@ -20,24 +22,39 @@ export default function RecommendationCard({ recommendation }) {
     };
 
     return (
-        <div key={recommendation.id} className="bg-white rounded-lg shadow-xs hover:shadow-sm transition-shadow border border-blue-100">
+        <div key={recommendation.id} className="bg-white rounded-md shadow-xs hover:shadow-md transition-all duration-300 border border-blue-100 hover:border-blue-200 group">
 
-            <Link href={`/recommendation/details/${recommendation.id}`}> <div className=" p-5">
-                <h3 className="text-lg font-semibold text-gray-800">{recommendation.name}</h3>
-                <p className="text-sm text-gray-500 mt-1">{formatDate(recommendation.date)}</p>
+            <div className="p-6">
+                {/* Header */}
+                <div className="mb-4">
+                    <h3 className="text-xl font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-200 mb-2">
+                        {recommendation.name}
+                    </h3>
 
-                <div className="flex justify-between items-center mt-4">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                    {/* Date with calendar icon */}
+                    <div className="flex items-center text-sm text-gray-500">
+                        <Calendar className="h-4 w-4 mr-2 text-blue-400" />
+                        <span>{formatDate(recommendation.date)}</span>
+                    </div>
+                </div>
+
+                {/* Problem count badge */}
+                <div className="mb-6">
+                    <span className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-200">
                         {recommendation.count} problems
                     </span>
                 </div>
 
-                <div className="mt-4">
-                    <button className="w-full flex items-center justify-center px-4 py-2 rounded bg-blue-400 hover:bg-blue-500 text-white font-medium transition-colors">
-                        <span>Solve problems</span> <ArrowBigRight className="ml-2 h-4 w-4" />
-                    </button>
+                {/* Action button */}
+                <div className="mt-auto">
+                    <Link href={`/recommendation/details/${recommendation.id}`}>
+                        <button className="w-full flex items-center justify-center py-2 border border-blue-200 rounded-md bg-gray-50  text-gray-700 font-medium transition-all duration-200 shadow-xs transform">
+                            <span>Solve problems</span>
+                            <ArrowBigRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
+                        </button> </Link>
                 </div>
-            </div></Link>
-        </div >
+            </div>
+
+        </div>
     );
 }

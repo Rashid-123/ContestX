@@ -4,6 +4,7 @@ import { useAuth } from "@/context/AuthContext";
 import axios from "axios";
 import { SiLeetcode } from "react-icons/si";
 import { Settings } from "lucide-react";
+import Nologin from "@/components/Nologin";
 export default function Integrate() {
     const { user, setUser, token } = useAuth();
     const [githubInput, setGithubInput] = useState("");
@@ -145,79 +146,81 @@ export default function Integrate() {
                     </h2>
                 </div>
 
-                <div>
-                    <p className=" text-sm sm:text-base" style={{ color: 'var(--second-text-color)' }}>
-                        Integrate your LeetCode username to unlock smarter suggestions tailored to your recent activity.
-                    </p>
-                    <p className=" text-sm sm:text-base" style={{ color: 'var(--second-text-color)' }}>
-                        We analyze your solved problems and recommend the next best challenges to level up your skills.
-                    </p>
-                </div>
 
-                <div >
-                    <div className="flex flex-col my-7">
-                        <label htmlFor="leetcode-username" className="text-sm font-semibold mb-2 text-gray-1000">
-                            LeetCode Username
-                        </label>
-                        <div className="relative">
-                            <input
-                                id="leetcode-username"
-                                type="text"
-                                className={`w-full p-2  text-sm placeholder:text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all ${!isEditingLeetcode ? 'bg-gray-50' : 'bg-white'
-                                    }`}
-                                placeholder="Enter LeetCode username or URL"
-                                value={leetcodeInput}
-                                onChange={handleInputChange(setLeetcodeInput)}
-                                readOnly={!isEditingLeetcode}
-                                disabled={isLoading.leetcode}
-                            />
-                            {isLoading.leetcode && (
-                                <div className="absolute right-3 top-3">
-                                    <div className="animate-spin h-5 w-5 border-2 border-orange-500 border-t-transparent rounded-full"></div>
-                                </div>
+
+                {!user ? <Nologin message={"Please login to integrate you leetcode "} /> :
+                    (<div >
+                        <div>
+                            <p className=" text-sm sm:text-base" style={{ color: 'var(--second-text-color)' }}>
+                                Integrate your LeetCode username to unlock smarter suggestions tailored to your recent activity.
+                            </p>
+                            <p className=" text-sm sm:text-base" style={{ color: 'var(--second-text-color)' }}>
+                                We analyze your solved problems and recommend the next best challenges to level up your skills.
+                            </p>
+                        </div>
+                        <div className="flex flex-col my-7">
+                            <label htmlFor="leetcode-username" className="text-sm font-semibold mb-2 text-gray-1000">
+                                LeetCode Username
+                            </label>
+                            <div className="relative">
+                                <input
+                                    id="leetcode-username"
+                                    type="text"
+                                    className={`w-full p-2  text-sm placeholder:text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all ${!isEditingLeetcode ? 'bg-gray-50' : 'bg-white'
+                                        }`}
+                                    placeholder="Enter LeetCode username or URL"
+                                    value={leetcodeInput}
+                                    onChange={handleInputChange(setLeetcodeInput)}
+                                    readOnly={!isEditingLeetcode}
+                                    disabled={isLoading.leetcode}
+                                />
+                                {isLoading.leetcode && (
+                                    <div className="absolute right-3 top-3">
+                                        <div className="animate-spin h-5 w-5 border-2 border-orange-500 border-t-transparent rounded-full"></div>
+                                    </div>
+                                )}
+                            </div>
+                            <span className=" text-sm  mt-1" style={{ color: 'var(--second-text-color)' }}>Example : " username " or " https://leetcode.com/username " </span>
+
+                            {leetcodeInput && (
+                                <a
+                                    href={getProfileUrl("leetcode", leetcodeInput)}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-blue-600 hover:text-blue-700 underline text-sm mt-2 inline-flex items-center"
+                                >
+                                    View Profile on LeetCode
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
+                                </a>
                             )}
                         </div>
-                        <span className=" text-sm  mt-1" style={{ color: 'var(--second-text-color)' }}>Example : " username " or " https://leetcode.com/username " </span>
 
-                        {leetcodeInput && (
-                            <a
-                                href={getProfileUrl("leetcode", leetcodeInput)}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 hover:text-blue-700 underline text-sm mt-2 inline-flex items-center"
-                            >
-                                View Profile on LeetCode
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                </svg>
-                            </a>
-                        )}
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row gap-3">
-                        <button
-
-                            onClick={() => toggleEditMode("leetcode")}
-                            className={`px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-lg font-medium text-white transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 ${isEditingLeetcode
-                                ? 'bg-green-500 hover:bg-green-600 focus:ring-green-400'
-                                : 'bg-blue-500 hover:bg-blue-600 focus:ring-blue-400'
-                                } ${isLoading.leetcode ? 'opacity-75 cursor-not-allowed' : ''}`}
-                            disabled={isLoading.leetcode}
-                        >
-                            {isLoading.leetcode ? 'Processing...' : isEditingLeetcode ? 'Save' : originalValues.leetcode ? 'Update' : 'Connect'}
-                        </button>
-
-                        {isEditingLeetcode && (
+                        <div className="flex flex-col sm:flex-row gap-3">
                             <button
-                                onClick={() => cancelEdit("leetcode")}
-                                className="px-2.5 py-1.5 sm:px-3 sm:py-1.5 bg-red-400 text-white rounded-lg hover:bg-red-500 transition-all font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-400"
+
+                                onClick={() => toggleEditMode("leetcode")}
+                                className={`px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-lg font-medium text-white transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 ${isEditingLeetcode
+                                    ? 'bg-green-500 hover:bg-green-600 focus:ring-green-400'
+                                    : 'bg-blue-500 hover:bg-blue-600 focus:ring-blue-400'
+                                    } ${isLoading.leetcode ? 'opacity-75 cursor-not-allowed' : ''}`}
                                 disabled={isLoading.leetcode}
                             >
-                                Cancel
+                                {isLoading.leetcode ? 'Processing...' : isEditingLeetcode ? 'Save' : originalValues.leetcode ? 'Update' : 'Connect'}
                             </button>
-                        )}
-                    </div>
-                </div>
+
+                            {isEditingLeetcode && (
+                                <button
+                                    onClick={() => cancelEdit("leetcode")}
+                                    className="px-2.5 py-1.5 sm:px-3 sm:py-1.5 bg-red-400 text-white rounded-lg hover:bg-red-500 transition-all font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-400"
+                                    disabled={isLoading.leetcode}
+                                >
+                                    Cancel
+                                </button>
+                            )}
+                        </div>
+                    </div>)}
             </div>
         </div>
 

@@ -6,7 +6,6 @@ import axios from "axios";
 import { Lightbulb } from "lucide-react";
 import { useLeetCode } from "@/context/LeetCodeContext";
 import { useState, useEffect } from "react";
-
 export default function CreateRecommendation({ username, onCreated }) {
     const [recommendationName, setRecommendationName] = useState("");
     const [numberOfProblems, setNumberOfProblems] = useState(5);
@@ -14,7 +13,7 @@ export default function CreateRecommendation({ username, onCreated }) {
     const [loading, setLoading] = useState(false);
     const [previousProblems, setPreviousProblems] = useState([]);
 
-    const { token } = useAuth();
+    const { token  } = useAuth();
     const { submissions, isLoading, leetCodeError, fetchLeetCodeData } = useLeetCode();
 
     // Debug logging
@@ -124,10 +123,7 @@ export default function CreateRecommendation({ username, onCreated }) {
 
     return (
         <div className="flex flex-col bg-white rounded-lg p-4 mb-4">
-            <div className="flex items-center mb-4">
-                <Lightbulb className="h-6 w-6 text-blue-500" />
-                <h2 className="text-lg font-semibold ml-2">Create a Recommendation</h2>
-            </div>
+           
 
             <div className="mb-4">
                 <span className={`text-sm ${previousProblems.length === 0 ? 'text-red-600' : 'text-green-600'}`}>
