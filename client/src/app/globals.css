@@ -6,7 +6,7 @@ body{
   /* @apply bg-[#faf9f5] */
   /* @apply bg-[#f8f8fa] */
      /* @apply bg-[#f5f5f9] */
-   /* @apply bg-[#fefeff]  */
+   @apply bg-[#fafcfd] 
 
 }
 :root{

@@ -1,233 +1,36 @@
 
-// "use client";
-
-// import { useAuth } from "@/context/AuthContext";
-// import axios from "axios";
-// import { Lightbulb } from "lucide-react";
-// import { useLeetCode } from "@/context/LeetCodeContext";
-// import { useState, useEffect } from "react";
-// export default function CreateRecommendation({ username, onCreated }) {
-//     const [recommendationName, setRecommendationName] = useState("");
-//     const [numberOfProblems, setNumberOfProblems] = useState(5);
-//     const [Hard, setHard] = useState(false);
-//     const [loading, setLoading] = useState(false);
-//     const [previousProblems, setPreviousProblems] = useState([]);
-
-//     const { token } = useAuth();
-//     const { submissions, isLoading, leetCodeError, fetchLeetCodeData } = useLeetCode();
-
-//     // Debug logging
-//     console.log("Component render - username:", username);
-//     console.log("Component render - submissions:", submissions);
-//     console.log("Component render - isLoading:", isLoading);
-//     console.log("Component render - leetCodeError:", leetCodeError);
-
-//     useEffect(() => {
-//         console.log("Username effect triggered:", username);
-//         if (username) {
-//             console.log("Calling fetchLeetCodeData for:", username);
-//             fetchLeetCodeData(username);
-//         }
-//     }, [username, fetchLeetCodeData]);
-
-//     useEffect(() => {
-//         console.log("Submissions effect triggered:", submissions);
-//         if (submissions && submissions.length > 0) {
-//             const numbers = submissions.map((submission) => submission.number);
-//             setPreviousProblems(numbers);
-//             console.log("Set problem numbers:", numbers);
-//         } else {
-//             console.log("No submissions available or empty array");
-//             setPreviousProblems([]);
-//         }
-//     }, [submissions]);
-
-//     const createRecommendation = async (e) => {
-//         e.preventDefault();
-
-//         if (previousProblems.length === 0) {
-//             alert("No Previous problems available. Please wait for data to load or check your LeetCode username.");
-//             return;
-//         }
-
-//         const confirmed = window.confirm(
-//             "This will use your credits and cannot be undone. Continue?"
-//         );
-//         if (!confirmed) return;
-
-//         setLoading(true);
-
-//         try {
-//             const response = await axios.post(
-//                 "http://localhost:5000/api/recommend/",
-//                 { problemNumbers: previousProblems, numRecommendations: numberOfProblems, Hard, name: recommendationName },
-//                 {
-//                     headers: {
-//                         Authorization: `Bearer ${token}`,
-//                         "Content-Type": "application/json",
-//                     },
-//                 }
-//             );
-//             console.log("Recommendation created:", response.data);
-//             if (onCreated) {
-//                 onCreated();
-//             }
-//             setRecommendationName("");
-//             setHard(false);
-//         } catch (error) {
-//             console.error(
-//                 "Error creating recommendation:",
-//                 error.response?.data || error.message
-//             );
-//         } finally {
-//             setLoading(false);
-//         }
-//     };
-
-//     // Show loading state
-//     if (isLoading) {
-//         return (
-//             <div className="flex flex-col bg-white rounded-lg p-4 mb-4">
-//                 <div className="flex items-center mb-4">
-//                     <Lightbulb className="h-6 w-6 text-blue-500" />
-//                     <h2 className="text-lg font-semibold ml-2">Create a Recommendation</h2>
-//                 </div>
-//                 <div className="text-center py-4">
-//                     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500 mx-auto"></div>
-//                     <p className="mt-2 text-gray-600">Loading LeetCode data...</p>
-//                 </div>
-//             </div>
-//         );
-//     }
-
-//     // Show error state
-//     if (leetCodeError) {
-//         return (
-//             <div className="flex flex-col bg-white rounded-lg p-4 mb-4">
-//                 <div className="flex items-center mb-4">
-//                     <Lightbulb className="h-6 w-6 text-blue-500" />
-//                     <h2 className="text-lg font-semibold ml-2">Create a Recommendation</h2>
-//                 </div>
-//                 <div className="bg-red-50 border border-red-200 rounded p-4">
-//                     <p className="text-red-700">Error loading LeetCode data: {leetCodeError}</p>
-//                     <button
-//                         onClick={() => username && fetchLeetCodeData(username)}
-//                         className="mt-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-//                     >
-//                         Retry
-//                     </button>
-//                 </div>
-//             </div>
-//         );
-//     }
-
-//     return (
-//         <div className="flex flex-col bg-white rounded-lg p-4 mb-4">
-
-
-//             <div className="mb-4">
-//                 <span className={`text-sm ${previousProblems.length === 0 ? 'text-red-600' : 'text-green-600'}`}>
-//                     Number of problems : {previousProblems.length}
-//                 </span>
-//                 {previousProblems.length === 0 && (
-//                     <p className="text-xs text-red-500 mt-1">
-//                         No problems loaded. Make sure your LeetCode username is correct.
-//                     </p>
-//                 )}
-//             </div>
-
-//             <form className="space-y-4" onSubmit={createRecommendation}>
-//                 <label
-//                     htmlFor="recommendationName"
-//                     className="block text-sm font-medium text-gray-700"
-//                 >
-//                     Recommendation Name
-//                 </label>
-//                 <input
-//                     type="text"
-//                     id="recommendationName"
-//                     name="recommendationName"
-//                     placeholder="Recommendation Name"
-//                     value={recommendationName}
-//                     onChange={(e) => setRecommendationName(e.target.value)}
-//                     className="w-full p-2 border border-gray-300 rounded"
-//                     required
-//                 />
-
-//                 <label htmlFor="numberOfProblems" className="block text-sm font-medium text-gray-700">
-//                     Number of Problems
-//                 </label>
-//                 <select
-//                     id="numberOfProblems"
-//                     name="numberOfProblems"
-//                     value={numberOfProblems}
-//                     onChange={(e) => setNumberOfProblems(Number(e.target.value))}
-//                     className="w-full p-2 border border-gray-300 rounded"
-//                     required
-//                 >
-//                     <option value={5}>5</option>
-//                     <option value={10}>10</option>
-//                 </select>
-
-//                 <div className="flex items-center gap-2">
-//                     <input
-//                         type="checkbox"
-//                         id="recommendationHard"
-//                         checked={Hard}
-//                         onChange={(e) => setHard(e.target.checked)}
-//                     />
-//                     <label htmlFor="recommendationHard" className="text-sm text-gray-700">
-//                         Include Hard Problems
-//                     </label>
-//                 </div>
-
-//                 <button
-//                     type="submit"
-//                     disabled={loading || previousProblems.length === 0}
-//                     className={`w-full bg-blue-500 text-white p-2 rounded transition-colors ${loading || previousProblems.length === 0
-//                         ? "opacity-50 cursor-not-allowed"
-//                         : "hover:bg-blue-600"
-//                         }`}
-//                 >
-//                     {loading ? "Creating..." : "Create Recommendation"}
-//                 </button>
-//             </form>
-//         </div>
-//     );
-// }
-
-
 "use client";
-
 import { useAuth } from "@/context/AuthContext";
 import axios from "axios";
 import { Lightbulb } from "lucide-react";
 import { useLeetCode } from "@/context/LeetCodeContext";
 import { useState, useEffect } from "react";
-import LoadingModal from "@/components/LoadingModal";
-
 export default function CreateRecommendation({ username, onCreated }) {
     const [recommendationName, setRecommendationName] = useState("");
     const [numberOfProblems, setNumberOfProblems] = useState(5);
     const [Hard, setHard] = useState(false);
-    const [siLoading, setisLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [previousProblems, setPreviousProblems] = useState([]);
-    const [showModal, setShowModal] = useState(false);
 
     const { token } = useAuth();
     const { submissions, isLoading, leetCodeError, fetchLeetCodeData } = useLeetCode();
 
     useEffect(() => {
+        console.log("Username effect triggered:", username);
         if (username) {
+            console.log("Calling fetchLeetCodeData for:", username);
             fetchLeetCodeData(username);
         }
     }, [username, fetchLeetCodeData]);
 
     useEffect(() => {
+        console.log("Submissions effect triggered:", submissions);
         if (submissions && submissions.length > 0) {
             const numbers = submissions.map((submission) => submission.number);
             setPreviousProblems(numbers);
+            console.log("Set problem numbers:", numbers);
         } else {
+            console.log("No submissions available or empty array");
             setPreviousProblems([]);
         }
     }, [submissions]);
@@ -236,7 +39,7 @@ export default function CreateRecommendation({ username, onCreated }) {
         e.preventDefault();
 
         if (previousProblems.length === 0) {
-            alert("No previous problems available. Please wait for data to load or check your LeetCode username.");
+            alert("No Previous problems available. Please wait for data to load or check your LeetCode username.");
             return;
         }
 
@@ -245,18 +48,12 @@ export default function CreateRecommendation({ username, onCreated }) {
         );
         if (!confirmed) return;
 
-        setisLoading(true);
-        setShowModal(true);
+        setLoading(true);
 
         try {
             const response = await axios.post(
                 "http://localhost:5000/api/recommend/",
-                {
-                    problemNumbers: previousProblems,
-                    numRecommendations: numberOfProblems,
-                    Hard,
-                    name: recommendationName
-                },
+                { problemNumbers: previousProblems, numRecommendations: numberOfProblems, Hard, name: recommendationName },
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -264,38 +61,31 @@ export default function CreateRecommendation({ username, onCreated }) {
                     },
                 }
             );
-
             console.log("Recommendation created:", response.data);
-
             if (onCreated) {
                 onCreated();
             }
-
             setRecommendationName("");
             setHard(false);
-
-            // Show success message briefly before closing modal
-            setTimeout(() => {
-                setShowModal(false);
-            }, 1000);
-
         } catch (error) {
             console.error(
                 "Error creating recommendation:",
                 error.response?.data || error.message
             );
-            setShowModal(false);
-            // You might want to show an error message here
         } finally {
-            setisLoading(false);
+            setLoading(false);
         }
     };
 
     // Show loading state
     if (isLoading) {
         return (
-            <div className="w-full max-w-md">
-                <div className="text-center py-8">
+            <div className="flex flex-col bg-white rounded-lg p-4 mb-4">
+                <div className="flex items-center mb-4">
+                    <Lightbulb className="h-6 w-6 text-blue-500" />
+                    <h2 className="text-lg font-semibold ml-2">Create a Recommendation</h2>
+                </div>
+                <div className="text-center py-4">
                     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500 mx-auto"></div>
                     <p className="mt-2 text-gray-600">Loading LeetCode data...</p>
                 </div>
@@ -306,12 +96,16 @@ export default function CreateRecommendation({ username, onCreated }) {
     // Show error state
     if (leetCodeError) {
         return (
-            <div className="w-full max-w-md">
+            <div className="flex flex-col bg-white rounded-lg p-4 mb-4">
+                <div className="flex items-center mb-4">
+                    <Lightbulb className="h-6 w-6 text-blue-500" />
+                    <h2 className="text-lg font-semibold ml-2">Create a Recommendation</h2>
+                </div>
                 <div className="bg-red-50 border border-red-200 rounded p-4">
                     <p className="text-red-700">Error loading LeetCode data: {leetCodeError}</p>
                     <button
                         onClick={() => username && fetchLeetCodeData(username)}
-                        className="mt-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors"
+                        className="mt-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
                     >
                         Retry
                     </button>
@@ -320,94 +114,79 @@ export default function CreateRecommendation({ username, onCreated }) {
         );
     }
 
-
-
     return (
-        <>
-            <div className="w-full max-w-md">
-                <div className="mb-4">
-                    <span className={`text-sm ${previousProblems.length === 0 ? 'text-red-600' : 'text-green-600'}`}>
-                        Problems loaded: {previousProblems.length}
-                    </span>
-                    {previousProblems.length === 0 && (
-                        <p className="text-xs text-red-500 mt-1">
-                            No problems loaded. Make sure your LeetCode username is correct.
-                        </p>
-                    )}
-                </div>
+        <div className="flex flex-col bg-white rounded-lg p-4 mb-4">
 
-                <form className="space-y-4" onSubmit={createRecommendation}>
-                    <div>
-                        <label
-                            htmlFor="recommendationName"
-                            className="block text-sm font-medium text-gray-700 mb-2"
-                        >
-                            Recommendation Name
-                        </label>
-                        <input
-                            type="text"
-                            id="recommendationName"
-                            name="recommendationName"
-                            placeholder="Enter recommendation name"
-                            value={recommendationName}
-                            onChange={(e) => setRecommendationName(e.target.value)}
-                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                            required
-                        />
-                    </div>
 
-                    <div>
-                        <label htmlFor="numberOfProblems" className="block text-sm font-medium text-gray-700 mb-2">
-                            Number of Problems
-                        </label>
-                        <select
-                            id="numberOfProblems"
-                            name="numberOfProblems"
-                            value={numberOfProblems}
-                            onChange={(e) => setNumberOfProblems(Number(e.target.value))}
-                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                            required
-                        >
-                            <option value={5}>5 Problems</option>
-                            <option value={10}>10 Problems</option>
-                        </select>
-                    </div>
-
-                    <div className="flex items-center gap-3">
-                        <input
-                            type="checkbox"
-                            id="recommendationHard"
-                            checked={Hard}
-                            onChange={(e) => setHard(e.target.checked)}
-                            className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                        />
-                        <label htmlFor="recommendationHard" className="text-sm text-gray-700">
-                            Include Hard Problems
-                        </label>
-                    </div>
-
-                    <button
-                        type="submit"
-                        disabled={isLoading || previousProblems.length === 0}
-                        className={`w-full bg-blue-500 text-white p-3 rounded-lg font-medium transition-colors ${isLoading || previousProblems.length === 0
-                            ? "opacity-50 cursor-not-allowed"
-                            : "hover:bg-blue-600"
-                            }`}
-                    >
-                        {isLoading ? "Creating..." : "Create Recommendation"}
-                    </button>
-                </form>
+            <div className="mb-4">
+                <span className={`text-sm ${previousProblems.length === 0 ? 'text-red-600' : 'text-green-600'}`}>
+                    Number of problems : {previousProblems.length}
+                </span>
+                {previousProblems.length === 0 && (
+                    <p className="text-xs text-red-500 mt-1">
+                        No problems loaded. Make sure your LeetCode username is correct.
+                    </p>
+                )}
             </div>
 
-            <LoadingModal
-                isOpen={showModal}
-                message="Please wait, we are creating the best recommendation for you"
-            />
-        </>
+            <form className="space-y-4" onSubmit={createRecommendation}>
+                <label
+                    htmlFor="recommendationName"
+                    className="block text-sm font-medium text-gray-700"
+                >
+                    Recommendation Name
+                </label>
+                <input
+                    type="text"
+                    id="recommendationName"
+                    name="recommendationName"
+                    placeholder="Recommendation Name"
+                    value={recommendationName}
+                    onChange={(e) => setRecommendationName(e.target.value)}
+                    className="w-full p-2 border border-gray-300 rounded"
+                    required
+                />
+
+                <label htmlFor="numberOfProblems" className="block text-sm font-medium text-gray-700">
+                    Number of Problems
+                </label>
+                <select
+                    id="numberOfProblems"
+                    name="numberOfProblems"
+                    value={numberOfProblems}
+                    onChange={(e) => setNumberOfProblems(Number(e.target.value))}
+                    className="w-full p-2 border border-gray-300 rounded"
+                    required
+                >
+                    <option value={5}>5</option>
+                    <option value={10}>10</option>
+                </select>
+
+                <div className="flex items-center gap-2">
+                    <input
+                        type="checkbox"
+                        id="recommendationHard"
+                        checked={Hard}
+                        onChange={(e) => setHard(e.target.checked)}
+                    />
+                    <label htmlFor="recommendationHard" className="text-sm text-gray-700">
+                        Include Hard Problems
+                    </label>
+                </div>
+
+                <button
+                    type="submit"
+                    disabled={loading || previousProblems.length === 0}
+                    className={`w-full bg-blue-500 text-white p-2 rounded transition-colors ${loading || previousProblems.length === 0
+                        ? "opacity-50 cursor-not-allowed"
+                        : "hover:bg-blue-600"
+                        }`}
+                >
+                    {loading ? "Creating..." : "Create Recommendation"}
+                </button>
+            </form>
+        </div>
     );
 }
 
 
-const skeleton = () => {
-    return (<div className="w-full max-w-md"> </div>)
-}

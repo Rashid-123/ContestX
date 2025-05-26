@@ -105,7 +105,7 @@ export default function Integrate() {
                 Integrate
             </h2>
 
-            <div className="p-5 sm:p-6 md:p-6 rounded-xl border border-gray-200 transition-all duration-300 hover:shadow-sm">
+            <div className="bg-white p-5 sm:p-6 md:p-6 rounded-xl border border-gray-200 transition-all duration-300 hover:shadow-sm">
                 <div className="flex items-center mb-3">
                     <SiLeetcode className="w-5 h-5 mr-2 text-yellow-500" />
                     <h2 className="text-xl sm:text-2xl font-semibold text-gray-800">

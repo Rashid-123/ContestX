@@ -11,7 +11,7 @@ export default function Help() {
                 Help & Support
             </h2>
 
-            <div className=" p-5 sm:p-6 md:p-6 rounded-xl border border-gray-200 shadow-xs  transition-all duration-300 hover:shadow-sm">
+            <div className="bg-white p-5 sm:p-6 md:p-6 rounded-xl border border-gray-200 shadow-xs  transition-all duration-300 hover:shadow-sm">
 
                 <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-2">
                     Provide Feedback
