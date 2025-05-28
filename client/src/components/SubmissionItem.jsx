@@ -74,7 +74,7 @@ export default function SubmissionItem({ submission }) {
     return (
         <li className="p-3 sm:p-5 border border-gray-200 rounded-lg sm:rounded-2xl hover:border-blue-200 hover:shadow-sm transition-all duration-200">
             <div className="flex items-center justify-between gap-2 mb-2">
-                <p className="text-blue-500 font-medium text-sm sm:text-base truncate hover:text-blue-600 transition-colors">
+                <p className="text-slate-800 font-medium text-sm sm:text-base truncate hover:text-blue-600 transition-colors">
                     {title}
                 </p>
                 <a
