@@ -93,33 +93,33 @@ export default function Navbar() {
         <nav className="fixed top-0 left-0 right-0 z-50 p-5 bg-white border border-b-blue-50  shadow-sm " style={{ color: "#141413", }}>
             <div className="container mx-auto flex items-center justify-between">
                 {/* Logo */}
-                <div className="text-xl font-bold">ContestCraft</div>
+                <div className="text-xl font-bold">NextStep</div>
 
                 {/* Center Navigation Links - Only visible on desktop */}
                 <div className="hidden lg:flex items-center justify-center space-x-1 flex-1">
                     <div className="flex items-center justify-center space-x-1">
-                        <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-gray-100 ${isActive("/") ? "bg-gray-50  " : ""}`}>
+                        <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-gray-100 ${isActive("/") ? "bg-slate-100  " : ""}`}>
                             <Link href="/">
                                 <Home className="h-5 w-5" />
                                 Home</Link>
                         </Button>
-                        <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-gray-100 ${isActive("/contests") ? "bg-gray-50  " : ""}`}>
+                        <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-gray-100 ${isActive("/contests") ? "bg-slate-100  " : ""}`}>
                             <Link href="/contests">
                                 <Trophy className="h-5 w-5" />
                                 Contests</Link>
                         </Button>
 
-                        <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-gray-100 ${isActive("/integrate") ? "bg-gray-50  " : ""}`}>
+                        <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-gray-100 ${isActive("/integrate") ? "bg-slate-100  " : ""}`}>
                             <Link href="/integrate">
                                 <Settings className="h-5 w-5" />
                                 Integrate</Link>
                         </Button>
-                        <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-gray100 ${isActive("/recommendation") ? "bg-gray-50   " : ""}`}>
+                        <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-gray100 ${isActive("/recommendation") ? "bg-slate-100   " : ""}`}>
                             <Link href="/recommendation">
                                 <Lightbulb className="h-5 w-5" />
                                 My Recommendations</Link>
                         </Button>
-                        <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-gray-100 ${isActive("/help") ? "bg-gray-50  " : ""}`}>
+                        <Button variant="ghost" asChild className={`text-sm font-medium transition-colors hover:bg-gray-100 ${isActive("/help") ? "bg-slate-100  " : ""}`}>
                             <Link href="/help">
                                 <HelpCircle className="h-5 w-5" />
                                 Help</Link>
