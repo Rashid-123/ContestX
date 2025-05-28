@@ -59,15 +59,15 @@
 // };
 
 // export {handleAuth}
+import dotenv from "dotenv";
 
+dotenv.config();
+import admin from 'firebase-admin';
 
 import mongoose from 'mongoose';
 import User from "../models/User.js"
-import admin from 'firebase-admin';
-import dotenv from "dotenv";
 import { redis } from "../lib/redis.js"; // Assuming you have your Redis client setup
 
-dotenv.config();
 
 // Initialize Firebase Admin
 if (!admin.apps.length) {
