@@ -1,66 +1,5 @@
-// import mongoose from 'mongoose';
-// import User from "../models/User.js"
-// import admin from 'firebase-admin';
-// import dotenv from "dotenv";
-// dotenv.config();
-// // console.log("Private Key:", process.env.FIREBASE_PRIVATE_KEY);
 
-// // Initialize Firebase Admin - make sure you have set up your service account
-// if (!admin.apps.length) {
-//   admin.initializeApp({
-//     credential: admin.credential.cert({
-//       projectId: process.env.FIREBASE_PROJECT_ID,
-//       clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-//       privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-//     }),
-//   });
-// }
-//   const handleAuth = async (req, res) => {
-//   try {
-//     const { idToken } = req.body;
-    
-//     if (!idToken) {
-//       return res.status(400).json({ error: 'ID token is required' });
-//     }
-   
-//     const decodedToken = await admin.auth().verifyIdToken(idToken);
-//     const { uid, email, name, picture } = decodedToken;
- 
-//     let user = await User.findOne({ firebaseUID: uid });
-//     if (!user) {
-//       console.log("New uer is created")
-//       user = new User({
-//         firebaseUID: uid,
-//         email,
-//         displayName: name || '',
-//         photoURL: picture || '',
-//         role: 'user', 
-//         bookmarked: [], 
-//       });
-//       await user.save();
-//     }
-//     console.log('User after find/create:', user);
-//     res.json({ 
-//       user: {
-//         id: user._id,
-//         email: user.email,
-//         displayName: user.displayName,
-//         photoURL: user.photoURL,
-//         role: user.role,
-//         bookmarked: user.bookmarked,
-//         leetcode: user.leetcode,
-//         github: user.github,
-//       }
-//     });
-//   } catch (error) {
-//     console.error('Authentication error:', error);
-//     res.status(500).json({ error: 'Authentication failed' });
-//   }
-// };
-
-// export {handleAuth}
 import dotenv from "dotenv";
-
 dotenv.config();
 import admin from 'firebase-admin';
 
@@ -68,6 +7,12 @@ import mongoose from 'mongoose';
 import User from "../models/User.js"
 import { redis } from "../lib/redis.js"; // Assuming you have your Redis client setup
 
+const privateKey = process.env.FIREBASE_PRIVATE_KEY;
+
+if (!privateKey) {
+  console.error("🔥 FIREBASE_PRIVATE_KEY is not defined in environment variables");
+  throw new Error("FIREBASE_PRIVATE_KEY is missing");
+}
 
 // Initialize Firebase Admin
 if (!admin.apps.length) {
