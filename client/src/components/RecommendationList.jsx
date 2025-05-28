@@ -8,9 +8,9 @@ export default function RecommendationList({ recommendations }) {
     if (recommendations.length === 0) {
         return (
             <div className="flex flex-col items-center justify-center min-h-[300px] rounded-lg p-8">
-                <p className="text-gray-500 mb-4">No recommendations found</p>
-                <p className="text-gray-400 text-center">
-                    Seems like you have no recommendations yet. Create your first one below!
+                <p className="text-gray-600 mb-4">No recommendations found</p>
+                <p className="text-gray-500 text-center">
+                    Seems like you have no recommendations yet. Create your first one below !
                 </p>
             </div>
         );

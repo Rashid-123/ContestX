@@ -137,7 +137,7 @@ export const createRecommendation = async (req, res) => {
 };
 //----------- Get all recommendations for a user
 export const getAllRecommendations = async (req, res) => {
-    console.log("Get all recommendations called");
+    // console.log("Get all recommendations called");
     const userId = req.user._id;
  console.log("User ID:", userId);
     try {
@@ -145,7 +145,7 @@ export const getAllRecommendations = async (req, res) => {
             path: 'recommendationHistory',
             options: { sort: { createdAt: -1 } }
          });
-  console.log("User with recommendations:", user);
+//   console.log("User with recommendations:", user);
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
         }
@@ -157,7 +157,7 @@ export const getAllRecommendations = async (req, res) => {
             name: rec.name,
             date: rec.createdAt
         }));
-    console.log("Formatted recommendations:", formatted);
+    // console.log("Formatted recommendations:", formatted);
         return res.status(200).json({
             message: 'Recommendations retrieved successfully',
             recommendations: formatted

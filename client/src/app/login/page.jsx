@@ -119,9 +119,9 @@ export default function Login() {
                         </div>
                         <Button
                             type="submit"
-                            className="w-full text-gray-900 font-semibold"
+                            className="w-full  text-white font-semibold"
                             disabled={isLogingIn}
-                            style={{ backgroundColor: "#d4a27f" }} >
+                            style={{ backgroundColor: "#3B82F6" }} >
                             {isLogingIn ? "Logging in..." : "Login"}
                         </Button>
                     </form>

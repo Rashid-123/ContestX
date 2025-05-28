@@ -99,17 +99,17 @@ const handleAuth = async (req, res) => {
     let user;
 
     // --- Try to get user from cache ---
-    try {
-      const cachedUser = await redis.get(cacheKey);
-      if (cachedUser) {
-        console.log(`User ${uid} found in cache.`);
-        // Assuming your redis client auto-parses JSON, otherwise you'd do JSON.parse(cachedUser)
-        user = cachedUser;
-      }
-    } catch (cacheError) {
-      console.error("Error reading from Redis cache for user:", cacheError);
-      // Don't block the request, proceed to database
-    }
+    // try {
+    //   const cachedUser = await redis.get(cacheKey);
+    //   if (cachedUser) {
+    //     console.log(`User ${uid} found in cache.`);
+    //     // Assuming your redis client auto-parses JSON, otherwise you'd do JSON.parse(cachedUser)
+    //     user = cachedUser;
+    //   }
+    // } catch (cacheError) {
+    //   console.error("Error reading from Redis cache for user:", cacheError);
+    //   // Don't block the request, proceed to database
+    // }
 
 
     if (!user) { // If not found in cache or cache read failed

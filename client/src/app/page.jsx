@@ -47,14 +47,18 @@ import Leetcode_activity from "@/components/LeetCode_activity";
 import RefreshButton from "@/components/RefreshButton";
 import POD from "@/components/POD";
 import Hero from "@/components/Hero";
-import GooeyDotsSpinner from "@/components/GooeyDotsSpinner";
 import { SiLeetcode } from "react-icons/si";
+import { Loader2 } from "lucide-react";
 
 export default function Home() {
   const { user, token, loading } = useAuth();
 
   if (loading) {
-    return <><GooeyDotsSpinner /></>
+    return <>
+      <div className="flex flex-col items-center justify-center min-h-[500px]">
+        <Loader2 className="animate-spin h-8 w-8 text-blue-500" />
+      </div>
+    </>;
 
   }
 
@@ -75,9 +79,9 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <POD />
-            {user.leetcode && <LeetCodeHeatmap username={user.leetcode} />}
+            {<LeetCodeHeatmap username={user.leetcode} />}
           </div>
-          {user.leetcode && <Leetcode_activity username={user.leetcode} />}
+          {<Leetcode_activity username={user.leetcode} />}
         </div>
       )}
     </>
