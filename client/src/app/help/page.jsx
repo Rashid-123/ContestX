@@ -5,7 +5,7 @@ import { HiOutlineExclamationCircle } from "react-icons/hi";
 export default function Help() {
 
     return (
-        <div className="container mx-auto px-6 py-8 flex flex-col gap-4  max-w-[900px]">
+        <div className="container mx-auto px-4 py-8  flex flex-col gap-4  max-w-[900px]">
             <h2 className="flex items-center text-2xl sm:text-3xl font-bold text-gray-700 mb-4">
                 <HelpCircle className="h-6 w-6 mr-2" />
                 Help & Support

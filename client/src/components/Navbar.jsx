@@ -132,11 +132,9 @@ export default function Navbar() {
                     {/* Login Button or User Profile - Visible on all screen sizes */}
                     {!user ? (
 
-                        <Button
-                            style={{ backgroundColor: "#28a745", color: "#f0eee6", padding: "10px 20px", radius: "5px" }}
-                        >
+                        <button className="px-3 py-1 bg-green-50 hover:bg-green-100 text-gray-700 font-medium border border-green-200 rounded-md transition-all duration-200">
                             <Link href="/login">Login</Link>
-                        </Button>
+                        </button>
 
                     ) : (
                         <DropdownMenu>

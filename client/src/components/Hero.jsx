@@ -42,7 +42,7 @@ export default function Hero() {
                 <div className="flex justify-center mb-12">
                     <a
                         href="/login"
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-600 transform transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+                        className="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-blue-500 text-white font-medium md:font-semibold   rounded-md shadow-lg hover:bg-blue-600 transform transition duration-300 hover:-translate-y-1 hover:shadow-xl"
                     >
                         Get Started Now <ArrowRight size={16} />
                     </a>
@@ -55,47 +55,73 @@ export default function Hero() {
                 </div>
 
                 <div className="grid grid-cols-1  md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                    {/* Card 1 - with improved visual styling and icon inline with heading */}
+
                     <div className="bg-white rounded-xl p-6 border border-blue-100 shadow-xs hover:shadow-sm transition-all duration-300 group">
-                        <div className="flex items-center justify-center gap-4 mb-3">
-                            <div className="text-blue-500 bg-blue-50 p-2 rounded-full w-9 h-9 flex items-center justify-center flex-shrink-0">
+                        {/* Icon positioned on the left */}
+                        <div className="flex justify-start mb-4">
+                            <div className="text-blue-500 bg-blue-100 p-2 rounded-md w-9 h-9 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition-colors duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                 </svg>
                             </div>
-                            <h3 className="text-xl font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300 my-auto">Personalized Problem Suggestions</h3>
                         </div>
-                        <p className="text-gray-700 leading-relaxed text-center">
-                            Get AI-powered recommendations based on the problems you’ve recently solved, tailored to your learning pace and skill level.
+
+                        {/* Title below icon */}
+                        <h3 className="md:text-xl text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300 mb-3">
+                            Personalized Problem Suggestions
+                        </h3>
+
+                        {/* Description below title */}
+                        <p className="text-gray-700 leading-relaxed">
+                            Get AI-powered recommendations based on the problems you've recently solved, tailored to your learning pace and skill level.
                         </p>
                     </div>
 
-                    {/* Card 2 - with improved visual styling and icon inline with heading */}
                     <div className="bg-white rounded-xl p-6 border border-blue-100 shadow-xs hover:shadow-sm transition-all duration-300 group">
-                        <div className="flex items-center justify-center gap-4 mb-3">
-                            <div className="text-blue-500 bg-blue-50 p-2 rounded-full w-9 h-9 flex items-center justify-center flex-shrink-0">
+                        {/* Icon positioned on the left */}
+                        <div className="flex justify-start mb-4">
+                            <div className="text-blue-500 bg-blue-100 p-2 rounded-md w-9 h-9 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition-colors duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                                 </svg>
                             </div>
-                            <h3 className="text-xl font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300 my-auto">Smart Follow-Up Guidance</h3>
                         </div>
-                        <p className="text-gray-700 leading-relaxed text-center">
+
+                        {/* Title below icon */}
+                        <h3 className="md:text-xl text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300 mb-3">
+                            Smart Follow-Up Guidance
+                        </h3>
+
+                        {/* Description below title */}
+                        <p className="text-gray-700 leading-relaxed">
                             When you're stuck, receive insights that explain how the current problem connects to your past practice and how to approach it effectively.
                         </p>
                     </div>
+
                     <div className="bg-white rounded-xl p-6 border border-blue-100 shadow-xs hover:shadow-sm transition-all duration-300 group">
-                        <div className="flex items-center justify-center gap-4 mb-3">
-                            <div className="text-blue-500 bg-blue-50 p-2 rounded-full w-9 h-9 flex items-center justify-center flex-shrink-0">
+                        {/* Icon positioned on the left */}
+                        <div className="flex justify-start mb-4">
+                            <div className="text-blue-500 bg-blue-100 p-2 rounded-md w-9 h-9 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition-colors duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                                 </svg>
                             </div>
-                            <h3 className="text-xl font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300 my-auto">Practice Without Bias</h3>
                         </div>
-                        <p className="text-gray-700 leading-relaxed text-center">
-                            Skip manual tag filtering — solve problems based on your actual progress, not what you already know. This keeps your learning challenging and more effective.                        </p>
+
+                        {/* Title below icon */}
+                        <h3 className="md:text-xl text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300 mb-3">
+                            Practice Without Bias
+                        </h3>
+
+                        {/* Description below title */}
+                        <p className="text-gray-700 leading-relaxed">
+                            Skip manual tag filtering — solve problems based on your actual progress, not what you already know. This keeps your learning challenging and more effective.
+                        </p>
                     </div>
+
+
+
+
                 </div>
                 <div className=" py-16 md:py-24">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

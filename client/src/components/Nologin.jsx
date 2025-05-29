@@ -3,8 +3,8 @@ import { LogIn } from "lucide-react";
 
 export default function Nologin({ message }) {
     return (
-        <div className="flex flex-col items-center justify-center ">
-            <div className="bg-green-50 rounded-full p-2 mb-2">
+        <div className="flex flex-col items-center justify-center mb-8 mt-8">
+            <div className="bg-green-50 rounded-full p-2">
                 <LogIn className="h-4 w-4 text-green-500" />
             </div>
             <h3 className="text-md font-medium text-gray-800 mb-1">Not Logged In</h3>

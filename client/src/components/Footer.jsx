@@ -36,33 +36,33 @@ export default function Footer() {
                         {/* Social Icons */}
                         <div>
                             <h4 className="text-white font-medium mb-3 text-sm">Connect</h4>
-                            <div className="flex gap-4">
+                            <div className="flex gap-6">
                                 <a
-                                    href="https://linkedin.com/in/your-profile"
+                                    href="https://www.linkedin.com/in/shadan-rashid/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
                                     aria-label="LinkedIn Profile"
                                 >
-                                    <Linkedin className="w-5 h-5" />
+                                    <Linkedin className="w-6 h-6" />
                                 </a>
                                 <a
-                                    href="https://twitter.com/your-handle"
+                                    href="https://x.com/Rashid1505"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
                                     aria-label="Twitter Profile"
                                 >
-                                    <Twitter className="w-5 h-5" />
+                                    <Twitter className="w-6 h-6" />
                                 </a>
                                 <a
-                                    href="https://github.com/your-username"
+                                    href="https://github.com/Rashid-123"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-gray-400 hover:text-white transition-colors duration-200"
                                     aria-label="GitHub Profile"
                                 >
-                                    <Github className="w-5 h-5" />
+                                    <Github className="w-6 h-6" />
                                 </a>
                             </div>
                         </div>
@@ -71,7 +71,7 @@ export default function Footer() {
                         <div>
                             <h4 className="text-white font-medium mb-3 text-sm">Source Code</h4>
                             <a
-                                href="https://github.com/your-username/your-repo"
+                                href="https://github.com/Rashid-123/Next_Step"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors duration-200 group"
@@ -91,8 +91,6 @@ export default function Footer() {
                             © {new Date().getFullYear()} NextStep. Built with ❤️
                         </p>
                         <div className="flex items-center gap-4 text-xs text-gray-500">
-                            <span>Made by a Software Engineer</span>
-                            <span className="hidden sm:inline">•</span>
                             <span>Open Source</span>
                         </div>
                     </div>

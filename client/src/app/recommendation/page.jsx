@@ -117,7 +117,7 @@ export default function Recommendation() {
             <Lightbulb className="h-8 w-8 md:h-10 md:w-10 md:p-2 mr-3 p-1 text-purple-500 border border-purple-200 rounded rounded-md bg-purple-50" />
             Create Recommendation
           </h2>
-          <div className="max-w-[900px] flex flex-col items-center justify-center min-h-[300px]  md:p-10 sm:p-6 bg-purple-50 rounded rounded-lg border md:border-2 border-dashed border-purple-300">
+          <div className="max-w-[900px] flex flex-col items-center justify-center min-h-[300px] min-w-[320px] md:min-w-[500px] lg:min-w-[700px]  md:p-10 sm:p-6 bg-purple-50 rounded rounded-lg border md:border-2 border-dashed border-purple-300">
 
             {user ? (
               user.leetcode ? (
