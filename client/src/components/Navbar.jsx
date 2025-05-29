@@ -169,7 +169,7 @@ export default function Navbar() {
                         </SheetTrigger>
                         <SheetContent side="right" className="w-64">
                             <SheetHeader>
-                                <SheetTitle>ContestCraft</SheetTitle>
+                                <SheetTitle>NextStep</SheetTitle>
                             </SheetHeader>
                             <div className="flex flex-col space-y-3 mt-6">
 
