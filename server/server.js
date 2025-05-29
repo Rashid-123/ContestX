@@ -15,15 +15,33 @@ import recommendRoutes from "./routes/recommendRoutes.js";
 const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
-const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3000";
+
+
+// const FRONTEND_URL = "https://next-step-iota-liard.vercel.app"|| "http://localhost:3000";
+
+// // Middleware
+// app.use(
+//   cors({
+//     origin: [FRONTEND_URL], // Allow both URLs
+//     credentials: true, // Enable cookies & authentication headers
+//   })
+// );
+
+
+
+const FRONTEND_URLS = [
+  "https://next-step-iota-liard.vercel.app", // production
+  "http://localhost:3000", // development
+];
 
 // Middleware
 app.use(
   cors({
-    origin: [FRONTEND_URL], // Allow both URLs
+    origin: FRONTEND_URLS, // Allow both URLs
     credentials: true, // Enable cookies & authentication headers
   })
 );
+
 
 app.use(express.json());
 
