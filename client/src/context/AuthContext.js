@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
       const idToken = await result.user.getIdToken();
       setToken(idToken);
       // Send to backend to create/find user in MongoDB
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}api/auth/login`, { idToken });
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/login`, { idToken });
       
       // User data from backend
       setUser(response.data.user);
