@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { FilterIcon, ChevronUp, ChevronDown } from "lucide-react";
 import { toast } from 'react-hot-toast';
 import ContestsLoadingSkeleton from '@/components/ContestsLoadingSkeleton';
+
 export default function ContestsPage() {
     const {
         rawContests,
@@ -34,7 +35,7 @@ export default function ContestsPage() {
         if (user) {
             const fetchBookmarked = async () => {
                 try {
-                    const response = await axios.get('http://localhost:5000/api/bookmark/', {
+                    const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/bookmark/`, {
                         headers: {
                             'Content-Type': 'application/json',
                             Authorization: `Bearer ${token}`

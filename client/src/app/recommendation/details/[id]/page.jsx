@@ -22,7 +22,7 @@ export default function RecommendationDetails() {
             if (!token || !id) return;
 
             try {
-                const res = await fetch(`http://localhost:5000/api/recommend/${id}`, {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/recommend/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },

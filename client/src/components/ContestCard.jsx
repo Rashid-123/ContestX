@@ -135,7 +135,7 @@ export default function ContestCard({ contest, bookmarkedContests_Code, setBookm
         setBookmarked(!bookmarked);
         try {
             const response = await axios.post(
-                'http://localhost:5000/api/bookmark',
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/bookmark`,
                 { contestCode: contest.code },
                 {
                     headers: {

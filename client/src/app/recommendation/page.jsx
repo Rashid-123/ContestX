@@ -22,7 +22,7 @@ export default function Recommendation() {
     setRecommendation_Loading(true);
     if (!authLoading && token) {
       try {
-        const response = await fetch("http://localhost:5000/api/recommend/all", {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/recommend/all`, {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
