@@ -45,7 +45,7 @@ function LoadingSkeleton() {
 
 
 
-export default function LeetCode_activity({ username }) {
+export default function Activity({ username }) {
     const { submissions, isLoading, leetcodeError, fetchLeetCodeData } = useLeetCode();
 
     useEffect(() => {

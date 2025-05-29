@@ -34,7 +34,7 @@ const SkeletonLoader = () => {
 
 
 
-const LeetCodeHeatmap = ({ username }) => {
+export default function Heatmap({ username }) {
     const { calendarData: heatmapData, isLoading, leetcodeError, fetchLeetCodeData } = useLeetCode();
 
     useEffect(() => {
@@ -156,4 +156,3 @@ const LeetCodeHeatmap = ({ username }) => {
     );
 };
 
-export default LeetCodeHeatmap;
