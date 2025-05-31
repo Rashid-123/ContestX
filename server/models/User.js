@@ -30,6 +30,7 @@ const UserSchema = new mongoose.Schema(
     },
     leetcode: String,
     github: String,
+    credits:Number,
 
     // Store recommendation event references
     recommendationHistory: [

@@ -73,6 +73,8 @@ const handleAuth = async (req, res) => {
           photoURL: picture || '',
           role: 'user',
           bookmarked: [],
+          credits:0,
+
         });
         await user.save();
       }
@@ -99,7 +101,7 @@ const handleAuth = async (req, res) => {
         role: user.role,
         bookmarked: user.bookmarked,
         leetcode: user.leetcode,
-        github: user.github,
+        credits:user.credits,
       }
     });
 
