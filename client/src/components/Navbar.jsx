@@ -679,7 +679,7 @@ export default function Navbar() {
                             <Button
                                 variant="ghost"
                                 size="icon"
-                                className="lg:hidden bg-slate-50 border border-slate-100 h-7 w-7 sm:h-8 sm:w-8"
+                                className="lg:hidden bg-slate-50 border border-slate-100 h-8 w-8 sm:h-9 sm:w-9"
                             >
                                 <Menu className="h-5 w-5  text-slate-600" />
                                 <span className="sr-only">Toggle menu</span>
