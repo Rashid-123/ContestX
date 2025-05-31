@@ -85,15 +85,13 @@ export default function Footer() {
                 </div>
 
                 {/* Divider */}
-                <div className="border-t border-gray-700 mt-8 pt-6">
-                    <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-                        <p className="text-sm text-gray-500">
-                            © {new Date().getFullYear()} NextStep. Built with ❤️
-                        </p>
-                        <div className="flex items-center gap-4 text-xs text-gray-500">
-                            <span>Open Source</span>
-                        </div>
-                    </div>
+                <div className="border-t border-gray-700 mt-4 pt-6">
+
+                    <p className="text-sm text-gray-500 text-align-center ">
+                        © {new Date().getFullYear()} NextStep. Built with ❤️
+                    </p>
+
+
                 </div>
             </div>
         </footer>
