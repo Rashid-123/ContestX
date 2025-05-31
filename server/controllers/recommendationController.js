@@ -136,6 +136,7 @@ export const createRecommendation = async (req, res) => {
     }
 };
 //----------- Get all recommendations for a user
+
 export const getAllRecommendations = async (req, res) => {
     // console.log("Get all recommendations called");
     const userId = req.user._id;

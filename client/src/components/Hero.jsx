@@ -59,7 +59,7 @@ export default function Hero() {
                     <div className="bg-white rounded-xl p-6 border border-blue-100 shadow-xs hover:shadow-sm transition-all duration-300 group">
                         {/* Icon positioned on the left */}
                         <div className="flex justify-start mb-4">
-                            <div className="text-blue-500 bg-blue-100 p-2 rounded-md w-9 h-9 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition-colors duration-300">
+                            <div className="text-purple-500 bg-purple-100 p-2 rounded-md w-9 h-9 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition-colors duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                 </svg>
@@ -101,10 +101,8 @@ export default function Hero() {
                     <div className="bg-white rounded-xl p-6 border border-blue-100 shadow-xs hover:shadow-sm transition-all duration-300 group">
                         {/* Icon positioned on the left */}
                         <div className="flex justify-start mb-4">
-                            <div className="text-blue-500 bg-blue-100 p-2 rounded-md w-9 h-9 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition-colors duration-300">
-                                {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                                </svg> */}
+                            <div className="text-pink-400 bg-pink-100 p-2 rounded-md w-9 h-9 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition-colors duration-300">
+
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2l3.09 6.26L22 9l-5.91 5.64L17.82 22 12 18.27 6.18 22l1.73-7.36L2 9l6.91-.74L12 2z" />
                                 </svg>
@@ -174,7 +172,7 @@ export default function Hero() {
                     </div>
                 </div>
 
-                {/* Bottom CTA card with improved visual appeal */}
+
                 <div className="mt-12 max-w-5xl mx-auto">
                     <div className="bg-white rounded-xl p-6 sm:p-8 border border-blue-100 shadow-xs">
                         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -186,7 +184,7 @@ export default function Hero() {
                             </div>
                             <a
                                 href="/login"
-                                className="w-full md:w-auto inline-block px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300 text-center"
+                                className="w-full md:w-auto  inline-block px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300 text-center"
                             >
                                 Log In to Get Started
                             </a>

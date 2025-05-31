@@ -17,6 +17,7 @@
     "axios": "^1.9.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "firebase-admin": "^13.2.0",
@@ -28,6 +29,7 @@
     "openai": "^4.97.0",
     "p-limit": "^6.2.0",
     "pinecone-client": "^2.0.0",
+    "razorpay": "^2.9.6",
     "striptags": "^3.2.0"
   },
   "devDependencies": {

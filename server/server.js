@@ -9,24 +9,12 @@ import authRoutes from "./routes/authRoutes.js";
 import bookmarkRoutes from "./routes/bookmarkRoutes.js";
 import integateRoutes from "./routes/integrateRoutes.js";
 import recommendRoutes from "./routes/recommendRoutes.js";
-
+import paymentRoutes from "./routes/paymentRoutes.js"
 
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
-
-
-// const FRONTEND_URL = "https://next-step-iota-liard.vercel.app"|| "http://localhost:3000";
-
-// // Middleware
-// app.use(
-//   cors({
-//     origin: [FRONTEND_URL], // Allow both URLs
-//     credentials: true, // Enable cookies & authentication headers
-//   })
-// );
-
 
 
 const FRONTEND_URLS = [
@@ -58,7 +46,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/bookmark", bookmarkRoutes);
 app.use("/api/integrate", integateRoutes);
 app.use("/api/recommend", recommendRoutes);
-
+app.use("/api/payment", paymentRoutes)
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
