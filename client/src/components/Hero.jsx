@@ -1,7 +1,16 @@
 "use client";
 
 import { ArrowRight, CheckCircle } from "lucide-react";
+import { useEffect } from "react";
 export default function Hero() {
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/ping`).catch(console.error);
+        }, 1000)
+
+        return () => clearTimeout(timer);
+    }, [])
 
     return (
 
@@ -127,7 +136,7 @@ export default function Hero() {
                 <div className=" py-16 md:py-24">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                            <h2 className="text-3xl font-extrabold text-gray-800 sm:text-4xl">
                                 How it works
                             </h2>
                             <p className="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
@@ -140,20 +149,20 @@ export default function Hero() {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             {/* Step 1 */}
                             <div className="flex flex-col items-center text-center">
-                                <div className="bg-indigo-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-6">
+                                <div className="bg-indigo-500 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-6">
                                     1
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">Login and Integrate Your LeetCode Account</h3>
+                                <h3 className="text-xl font-bold text-gray-800 mb-3">Login and Integrate Your LeetCode Account</h3>
                                 <p className="text-gray-700">
                                     Sign in and link your LeetCode username so we can understand your progress and fetch your recent activity automatically.                                </p>
                             </div>
 
                             {/* Step 2 */}
                             <div className="flex flex-col items-center text-center">
-                                <div className="bg-indigo-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-6">
+                                <div className="bg-indigo-500 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-6">
                                     2
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">Receive Personalized Problem Recommendations</h3>
+                                <h3 className="text-xl font-bold text-gray-800 mb-3">Receive Personalized Problem Recommendations</h3>
                                 <p className="text-gray-700">
                                     Based on your most recently solved problems, our AI suggests new challenges tailored to your level, helping you grow efficiently.
                                 </p>
@@ -161,10 +170,10 @@ export default function Hero() {
 
                             {/* Step 3 */}
                             <div className="flex flex-col items-center text-center">
-                                <div className="bg-indigo-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-6">
+                                <div className="bg-indigo-500 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-6">
                                     3
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">Get Contextual Help When You're Stuck</h3>
+                                <h3 className="text-xl font-bold text-gray-800 mb-3">Get Contextual Help When You're Stuck</h3>
                                 <p className="text-gray-700">
                                     If you’re stuck, the platform shows how the problem relates to your past ones, guides your next steps, and keeps problem-solving engaging.                                </p>
                             </div>
@@ -173,18 +182,21 @@ export default function Hero() {
                 </div>
 
 
+
                 <div className="mt-12 max-w-5xl mx-auto">
-                    <div className="bg-white rounded-xl p-6 sm:p-8 border border-blue-100 shadow-xs">
+                    <div className="bg-white rounded-xl p-4 sm:p-8 border border-green-200 ">
                         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                             <div className="text-center md:text-left">
-                                <h3 className="text-xl font-semibold mb-2 text-gray-800">Ready to Accelerate Your Learning?</h3>
-                                <p className="text-gray-700">
+                                <h3 className="text-lg sm:text-xl font-semibold mb-2 text-gray-800">
+                                    Ready to Accelerate Your Learning?
+                                </h3>
+                                <p className="text-sm sm:text-base text-gray-700">
                                     Log in and connect your LeetCode account to start your journey towards coding mastery!
                                 </p>
                             </div>
                             <a
                                 href="/login"
-                                className="w-full md:w-auto  inline-block px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300 text-center"
+                                className="w-full md:w-auto inline-block px-4 sm:px-6 py-2.5 sm:py-3 bg-green-100 text-green-600 text-sm sm:text-base font-semibold rounded-md border border-green-300 hover:bg-green-200 transition duration-300 text-center"
                             >
                                 Log In to Get Started
                             </a>

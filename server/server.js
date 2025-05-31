@@ -40,13 +40,19 @@ mongoose
   })
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error", err));
-
+ 
+app.get("/api/ping", (req, res) => {
+  console.log("Ping , Bakend is awake !")
+  res.status(200).json({ status: "ok", message: "Backend is awake!" });
+});
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/bookmark", bookmarkRoutes);
 app.use("/api/integrate", integateRoutes);
 app.use("/api/recommend", recommendRoutes);
 app.use("/api/payment", paymentRoutes)
+
+//
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

@@ -100,7 +100,7 @@ export default function Activity({ username }) {
                             ) : (
                                 <ul
                                     className="space-y-4 overflow-y-auto mt-4 pr-2"
-                                    style={{ maxHeight: '450px' }}
+                                    style={{ maxHeight: '560px' }}
                                 >
                                     {submissions.map((submission, index) => (
                                         <SubmissionItem key={index} submission={submission} />

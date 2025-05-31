@@ -2,7 +2,7 @@
 "use client"
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
-import { useContests } from '../../hooks/useContests';
+import { useContests } from '../../lib/hooks/useContests';
 import ContestCard from '../../components/ContestCard';
 import FilterBar from '@/components/FilterBar';
 import { useAuth } from '../../context/AuthContext';

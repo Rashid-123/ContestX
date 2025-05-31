@@ -1,12 +1,12 @@
 // hooks/useContests.js
 import { useState, useEffect } from 'react';
-import { fetchContests } from '../services/contestService';
+import { fetchContests } from '../../services/contestService';
 import {
   enhanceContestsWithStatus,
   sortContestsByStatus,
   filterContestsByPlatform,
   filterContestsByStatus
-} from '../services/contestUtilityService';
+} from '../../services/contestUtilityService';
 
 export function useContests() {
   const [rawContests, setRawContests] = useState([]);

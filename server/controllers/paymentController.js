@@ -51,15 +51,9 @@ export const verify_payment = async (req, res) => {
   const { razorpay_order_id, razorpay_payment_id, razorpay_signature, creditsPurchased } = req.body;
   const userId = req.user.id;
 
-  // const body = razorpay_order_id + "|" + razorpay_payment_id;
-  // const expectedSignature = crypto
-  //   .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
-  //   .update(body.toString())
-  //   .digest("hex");
-
     const body = razorpay_order_id + "|" + razorpay_payment_id;
   const expectedSignature = crypto
-    .createHmac("sha256", `${process.env.RAZORPAY_KEY_SECRET}`)
+    .createHmac("sha256", `${process.env.RAZORPAY_TEST_KEY_SECRET}`)
     .update(body.toString())
     .digest("hex");
 
