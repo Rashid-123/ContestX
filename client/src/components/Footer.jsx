@@ -85,7 +85,7 @@ export default function Footer() {
                 </div>
 
                 {/* Divider */}
-                <div className="border-t border-gray-700 mt-4 pt-6">
+                <div className=" flex flex-col items-center border-t border-gray-700 mt-4 pt-6">
 
                     <p className="text-sm text-gray-500 text-align-center ">
                         © {new Date().getFullYear()} NextStep. Built with ❤️

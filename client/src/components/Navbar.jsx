@@ -657,7 +657,7 @@ export default function Navbar() {
                             {/* Profile Dropdown */}
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                    <Avatar className="h-7 w-7 sm:h-8 sm:w-8 lg:h-10 lg:w-10 cursor-pointer flex-shrink-0">
+                                    <Avatar className="h-8 w-8 sm:h-9 sm:w-9 lg:h-10 lg:w-10 cursor-pointer flex-shrink-0">
                                         <AvatarImage src={user.photoURL} alt="Profile" />
                                         <AvatarFallback>{getUserInitials()}</AvatarFallback>
                                     </Avatar>
@@ -681,7 +681,7 @@ export default function Navbar() {
                                 size="icon"
                                 className="lg:hidden bg-slate-50 border border-slate-100 h-7 w-7 sm:h-8 sm:w-8"
                             >
-                                <Menu className="h-4 w-4 sm:h-5 sm:w-5 text-slate-600" />
+                                <Menu className="h-5 w-5  text-slate-600" />
                                 <span className="sr-only">Toggle menu</span>
                             </Button>
                         </SheetTrigger>
