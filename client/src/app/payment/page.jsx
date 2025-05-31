@@ -157,7 +157,7 @@ export default function Payment() {
             );
 
             const options = {
-                key: process.env.NEXT_PUBLIC_TEST_RAZORPAY_KEY_ID,
+                key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
                 amount: data.amount,
                 currency: data.currency,
                 order_id: data.id,
