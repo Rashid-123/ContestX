@@ -125,9 +125,9 @@ export default function Payment() {
                             </div>
                             <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-2">Starter</h3>
                             <div className="mb-4">
-                                <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800">₹100</span>
+                                <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800">₹199</span>
                             </div>
-                            <p className="text-gray-600">50 Credits • ₹2.0 per credit</p>
+                            <p className="text-gray-600">50 Credits • ₹4.0 per credit</p>
                         </div>
 
                         <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
@@ -143,7 +143,7 @@ export default function Payment() {
                         </div>
 
                         <button
-                            onClick={() => handleBuyCredits(100, 50)}
+                            onClick={() => handleBuyCredits(199, 50)}
                             className="w-full bg-blue-500 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-lg text-sm sm:text-base font-semibold hover:bg-white hover:text-gray-600 border border-blue-400 transition-colors"
                         >
                             Get Starter Plan
@@ -164,11 +164,11 @@ export default function Payment() {
                             </div>
                             <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-2">Power</h3>
                             <div className="mb-4">
-                                <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800">₹200</span>
+                                <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800">₹499</span>
                             </div>
-                            <p className="text-gray-600">110 Credits • ₹1.8 per credit</p>
+                            <p className="text-gray-600">150 Credits • ₹3.33 per credit</p>
                             <div className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium mt-2">
-                                Save ₹20
+                                save ₹100
                             </div>
                         </div>
 
@@ -185,7 +185,7 @@ export default function Payment() {
                         </div>
 
                         <button
-                            onClick={() => handleBuyCredits(200, 110)}
+                            onClick={() => handleBuyCredits(499, 150)}
                             className="w-full bg-purple-500 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-lg text-sm sm:text-base font-semibold hover:bg-white hover:text-gray-600 border border-purple-400 transition-colors"
                         >
                             Get Power Plan
