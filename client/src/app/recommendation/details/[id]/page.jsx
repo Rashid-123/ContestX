@@ -1,6 +1,3 @@
-
-
-
 'use client';
 
 import React, { useEffect, useState } from "react";
@@ -124,30 +121,32 @@ export default function RecommendationDetails() {
     }
 
     return (
-        <div className="min-h-screen py-6 mt-8">
+        <div className="min-h-screen py-6">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+
                 {/* Header Section */}
-                <div className="bg-purple-50 border border-blue-100 rounded-xl p-6 mb-6 shadow-xs transition-shadow">
-                    <h1 className="text-2xl font-semibold text-gray-800 mb-4 tracking-tight">
+                <div className="border-b border-blue-200 p-4 sm:p-6 mb-4 sm:mb-6 transition-shadow">
+                    <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-3 sm:mb-4 tracking-tight leading-tight">
                         {recommendation.name}
                     </h1>
 
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-sm text-gray-700 gap-4">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 text-sm text-gray-700">
                         {/* Problems Count with Badge Style */}
                         <div className="flex items-center gap-2">
-                            <span className="font-medium text-gray-600">Total Problems:</span>
-                            <span className="inline-flex items-center px-3 py-1 rounded-lg text-sm font-medium bg-blue-100 text-blue-800 border border-blue-200">
+                            <span className="font-medium text-gray-600 text-xs sm:text-sm">Total Problems:</span>
+                            <span className="inline-flex items-center px-2.5 py-1 rounded-lg text-xs sm:text-sm font-medium bg-blue-100 text-blue-800 border border-blue-200">
                                 {recommendation.recommendations.length}
                             </span>
                         </div>
 
                         {/* Date with Calendar Icon and Better Formatting */}
-                        <div className="flex items-center gap-2 sm:ml-auto">
-                            <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="flex items-center gap-2">
+                            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
-                            <span className="font-medium text-gray-600">Created:</span>
-                            <span className="font-medium text-gray-800">
+                            <span className="font-medium text-gray-600 text-xs sm:text-sm whitespace-nowrap">Created:</span>
+                            <span className="font-medium text-gray-800 text-xs sm:text-sm">
                                 {new Date(recommendation.createdAt).toLocaleDateString('en-US', {
                                     year: 'numeric',
                                     month: 'short',
@@ -156,60 +155,62 @@ export default function RecommendationDetails() {
                             </span>
                         </div>
                     </div>
+
                 </div>
 
-                {/* Problems List */}
+
                 <div className="space-y-3">
                     {recommendation.recommendations.map((rec, index) => (
-                        <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 md:p-4 shadow-xs">
-                            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between">
-                                {/* Problem Info */}
-                                <div className="flex-1 space-y-1">
-                                    <div className="flex items-center space-x-2">
-                                        <span
-                                            className={`px-2 py-0.5 text-xs font-medium rounded border ${getDifficultyColor(
-                                                rec.difficulty
-                                            )}`}
-                                        >
-                                            {rec.difficulty}
-                                        </span>
-                                        <span >
-                                            <h2 className="text-base font-medium md:font-semibold text-gray-800">
-                                                <span className="text-gray-600">{rec.recommendedProblemNumber} - </span>
-                                                {rec.title}
-                                            </h2>
-                                        </span>
-                                    </div>
+                        <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6 md:p-8 shadow-xs">
+                            {/* Problem Header */}
+                            <div className="flex items-start justify-between gap-3 mb-5">
+                                <div className="flex-1 min-w-0">
+                                    <h2 className="text-sm sm:text-base font-medium md:font-semibold text-gray-800 leading-tight">
+                                        <span className="text-gray-600">{rec.recommendedProblemNumber} - </span>
+                                        <span className="break-words">{rec.title}</span>
+                                    </h2>
                                 </div>
+                                <span
+                                    className={`px-2 py-0.5 text-xs font-medium rounded border whitespace-nowrap ${getDifficultyColor(
+                                        rec.difficulty
+                                    )}`}
+                                >
+                                    {rec.difficulty}
+                                </span>
+                            </div>
 
-                                {/* Action Buttons */}
-                                <div className="flex items-center space-x-2 mt-2 sm:mt-0 sm:ml-4">
-                                    <button
-                                        onClick={() => openMessage(rec.message)}
-                                        className="flex items-center space-x-1 px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-50 border border-blue-200 rounded hover:bg-blue-100 transition-colors"
-                                    >
-                                        <MessageSquare className="h-3 w-3" />
-                                        <span>Message</span>
-                                    </button>
-                                    <a
-                                        href={`https://leetcode.com/problems/${rec.titleSlug}`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center space-x-1 px-3 py-1.5 text-xs font-medium text-gray-600 bg-yellow-100 border border-yellow-300 rounded hover:bg-yellow-200 transition-colors"
-                                        aria-label="Open problem in LeetCode"
-                                    >
-                                        <ExternalLink className="h-3 w-3" />
-                                        <span>LeetCode</span>
-                                    </a>
-                                </div>
+                            {/* Action Buttons */}
+                            <div className="flex flex-col xs:flex-row gap-2 xs:gap-3">
+                                <button
+                                    onClick={() => openMessage(rec.message)}
+                                    className="flex items-center justify-center xs:justify-start space-x-2 px-3 py-2 text-xs font-medium text-blue-600 bg-blue-50 border border-blue-200 rounded hover:bg-blue-100 transition-colors flex-1 xs:flex-none"
+                                >
+                                    <MessageSquare className="h-3 w-3" />
+                                    <span>View Hint</span>
+                                </button>
+                                <a
+                                    href={`https://leetcode.com/problems/${rec.titleSlug}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center xs:justify-start space-x-2 px-3 py-2 text-xs font-medium text-gray-600 bg-yellow-100 border border-yellow-200 rounded hover:bg-yellow-200 transition-colors flex-1 xs:flex-none"
+                                    aria-label="Open problem in LeetCode"
+                                >
+                                    <ExternalLink className="h-3 w-3" />
+                                    <span>Open in LeetCode</span>
+                                </a>
                             </div>
                         </div>
+
+
+
+
                     ))}
                 </div>
-            </div>
+            </div >
 
             {/* Slide Panel (Remains unchanged as it's not part of initial load) */}
-            <div className={`fixed inset-0 z-50 ${isSlideOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+            < div className={`fixed inset-0 z-50 ${isSlideOpen ? 'pointer-events-auto' : 'pointer-events-none'}`
+            }>
                 <div
                     className={`absolute inset-0 bg-black transition-opacity duration-300 ease-in-out ${isSlideOpen ? 'opacity-50' : 'opacity-0'
                         }`}
@@ -236,8 +237,8 @@ export default function RecommendationDetails() {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 }
 

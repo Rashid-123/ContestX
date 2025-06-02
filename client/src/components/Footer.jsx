@@ -1,6 +1,6 @@
 
 import { Github, Linkedin, Twitter, ExternalLink, Mail } from 'lucide-react';
-
+import Link from 'next/link';
 export default function Footer() {
     return (
         <footer className="bg-gray-900 text-gray-300  border-t border-gray-700">
@@ -16,9 +16,10 @@ export default function Footer() {
                         <div className="flex items-center gap-2 mt-3">
                             <Mail className="w-4 h-4 text-blue-400" />
                             <span className="text-sm text-gray-400">
-                                Found a bug? Feel free to reach out!
+                                Found a bug? Feel free to reach out ! <Link href="/help" className="text-blue-400 cursor-pointer underline ml-1">help</Link>
                             </span>
                         </div>
+
                     </div>
 
                     {/* Social links */}
