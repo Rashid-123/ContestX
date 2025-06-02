@@ -149,10 +149,6 @@ Return only the styled HTML content that can be directly inserted into a web pag
 For the first heading, do NOT add margin-top since it will be the first element `)
 
 
-
-
-
-
 /**
  * Fetch problem details and vectors from Pinecone in batches
  */

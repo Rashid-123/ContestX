@@ -1,124 +1,4 @@
 
-// "use client";
-
-// import axios from "axios";
-// import { useAuth } from "@/context/AuthContext";
-
-// export default function Payment() {
-//     const { token, user, setUser } = useAuth();
-
-//     const loadRazorpayScript = () => {
-//         return new Promise((resolve) => {
-//             const script = document.createElement("script");
-//             script.src = "https://checkout.razorpay.com/v1/checkout.js";
-//             script.onload = () => resolve(true);
-//             script.onerror = () => resolve(false);
-//             document.body.appendChild(script);
-//         });
-//     };
-
-//     const handleBuyCredits = async (amount, credits) => {
-//         const res = await loadRazorpayScript();
-//         if (!res) {
-//             alert("Razorpay SDK failed to load. Check your internet.");
-//             return;
-//         }
-
-//         try {
-//             const { data } = await axios.post(
-//                 `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/payment/create-order`,
-//                 { amount }, // amount in rupees
-//                 {
-//                     headers: {
-//                         Authorization: `Bearer ${token}`,
-//                     },
-//                 }
-//             );
-
-//             const options = {
-//                 key: process.env.NEXT_PUBLIC_TEST_RAZORPAY_KEY_ID,
-//                 amount: data.amount,
-//                 currency: data.currency,
-//                 order_id: data.id,
-//                 name: "NextStep",
-
-//                 handler: async function (response) {
-//                     try {
-//                         const verifyRes = await axios.post(
-//                             `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/payment/verify`,
-//                             {
-//                                 razorpay_order_id: response.razorpay_order_id,
-//                                 razorpay_payment_id: response.razorpay_payment_id,
-//                                 razorpay_signature: response.razorpay_signature,
-//                                 creditsPurchased: credits,
-//                             },
-//                             {
-//                                 headers: {
-//                                     Authorization: `Bearer ${token}`,
-//                                 },
-//                             }
-//                         );
-
-//                         // ✅ Log the successful response
-//                         console.log("Payment verification response:", verifyRes.data);
-
-//                         // ✅ Update user credits in real-time using context
-//                         if (verifyRes.data.success) {
-//                             setUser(prevUser => ({
-//                                 ...prevUser,
-//                                 credits: verifyRes.data.credits // Use the updated credits from backend
-//                             }));
-
-//                             alert(`Payment successful! ${credits} credits added. Total credits: ${verifyRes.data.credits}`);
-//                         }
-//                     } catch (error) {
-//                         console.error("Error verifying payment:", error);
-//                         alert("Payment verification failed. Please contact support.");
-//                     }
-//                 },
-
-//                 prefill: {
-//                     name: user?.name || "Test User",
-//                     email: user?.email || "test@example.com",
-//                 },
-//                 theme: {
-//                     color: "#6366f1",
-//                 },
-//             };
-
-//             const rzp = new window.Razorpay(options);
-//             rzp.open();
-//         } catch (error) {
-//             console.error("Payment failed:", error);
-//             alert("Something went wrong during payment. Please try again.");
-//         }
-//     };
-
-//     return (
-//         <div style={{ padding: "2rem", display: "flex", gap: "2rem", flexWrap: "wrap" }}>
-//             <h2>Buy Credits</h2>
-
-//             {/* Display current credits */}
-//             <div style={{ width: "100%", marginBottom: "1rem" }}>
-//                 <p><strong>Current Credits: {user?.credits || 0}</strong></p>
-//             </div>
-
-//             <div style={{ border: "1px solid #ccc", padding: "2rem", borderRadius: "8px", width: "250px" }}>
-//                 <h3>50 Credits</h3>
-//                 <p>Price: ₹100</p>
-//                 <button onClick={() => handleBuyCredits(100, 50)}>Buy Now</button>
-//             </div>
-
-//             <div style={{ border: "1px solid #ccc", padding: "2rem", borderRadius: "8px", width: "250px" }}>
-//                 <h3>110 Credits</h3>
-//                 <p>Price: ₹200</p>
-//                 <button onClick={() => handleBuyCredits(200, 110)}>Buy Now</button>
-//             </div>
-//         </div>
-//     );
-// }
-
-
 "use client";
 
 import axios from "axios";
@@ -238,7 +118,7 @@ export default function Payment() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
 
                     {/* Starter Plan */}
-                    <div className="bg-white border-2 border-slate-100 rounded-lg p-4 sm:p-6 md:p-8 hover:border-slate-200 transition-colors">
+                    <div className="bg-white border-2 border-blue-100 rounded-lg p-8 hover:border-blue-200 transition-colors">
                         <div className="text-center mb-6 sm:mb-8">
                             <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gray-100 rounded-lg mb-4">
                                 <Zap className="h-6 w-6 sm:h-8 sm:w-8 text-gray-600" />
@@ -247,7 +127,7 @@ export default function Payment() {
                             <div className="mb-4">
                                 <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800">₹100</span>
                             </div>
-                            <p className="text-sm sm:text-base text-gray-600">50 Credits • ₹2.0 per credit</p>
+                            <p className="text-gray-600">50 Credits • ₹2.0 per credit</p>
                         </div>
 
                         <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
@@ -279,12 +159,12 @@ export default function Payment() {
                         </div>
 
                         <div className="text-center mb-8">
-                            <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-400 rounded-lg mb-4">
-                                <Crown className="h-8 w-8 text-white" />
+                            <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-purple-400 rounded-lg mb-4">
+                                <Crown className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                             </div>
-                            <h3 className="text-2xl font-bold text-gray-800 mb-2">Power</h3>
+                            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-2">Power</h3>
                             <div className="mb-4">
-                                <span className="text-5xl font-bold text-gray-800">₹200</span>
+                                <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800">₹200</span>
                             </div>
                             <p className="text-gray-600">110 Credits • ₹1.8 per credit</p>
                             <div className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium mt-2">
@@ -295,18 +175,18 @@ export default function Payment() {
                         <div className="space-y-4 mb-8">
                             <div className="flex items-center gap-3">
                                 <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                                <span className="text-gray-700">110 AI Problem Recommendations</span>
+                                <span className="text-sm sm:text-base text-gray-700">110 AI Problem Recommendations</span>
                             </div>
                             <div className="flex items-center gap-3">
                                 <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                                <span className="text-gray-700">Advanced Contextual Help</span>
+                                <span className="text-sm sm:text-base text-gray-700">Advanced Contextual Help</span>
                             </div>
 
                         </div>
 
                         <button
                             onClick={() => handleBuyCredits(200, 110)}
-                            className="w-full bg-purple-400 text-white py-4 px-6 rounded-lg font-semibold border border-purple-300 hover:bg-white hover:text-gray-700 transition-colors"
+                            className="w-full bg-purple-500 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-lg text-sm sm:text-base font-semibold hover:bg-white hover:text-gray-600 border border-purple-400 transition-colors"
                         >
                             Get Power Plan
                         </button>
