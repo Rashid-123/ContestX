@@ -73,7 +73,7 @@ const handleAuth = async (req, res) => {
           photoURL: picture || '',
           role: 'user',
           bookmarked: [],
-          credits:0,
+          credits:50,
 
         });
         await user.save();
