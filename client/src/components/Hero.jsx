@@ -196,7 +196,7 @@ export default function Hero() {
                             </div>
                             <a
                                 href="/login"
-                                className="w-full md:w-auto inline-block px-4 sm:px-6 py-2.5 sm:py-3 bg-green-100 text-green-600 text-sm sm:text-base font-semibold rounded-md border border-green-300 hover:bg-green-200 transition duration-300 text-center"
+                                className="w-full md:w-auto inline-block px-4 sm:px-6 py-2.5 sm:py-3 bg-green-50 text-green-600 text-sm sm:text-base font-semibold rounded-md border border-green-200 hover:bg-green-300 transition duration-300 text-center"
                             >
                                 Log In to Get Started
                             </a>
