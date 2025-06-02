@@ -319,7 +319,7 @@ import { useAuth } from "@/context/AuthContext";
 import { Lightbulb, Loader2, Info, AlertCircle } from "lucide-react";
 import { useLeetCode } from "@/context/LeetCodeContext";
 import { useState, useEffect } from "react";
-
+import { toast } from 'react-hot-toast';
 // Confirmation Popup Component
 const ConfirmationPopup = ({ isOpen, onConfirm, onCancel, credits }) => {
     if (!isOpen) return null;
@@ -413,7 +413,7 @@ export default function CreateRecommendation({ username, onCreated }) {
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [showProcessing, setShowProcessing] = useState(false);
 
-    const { token } = useAuth();
+    const { user, setUser, token } = useAuth();
     const { submissions, isLoading, leetCodeError, fetchLeetCodeData } = useLeetCode();
 
     useEffect(() => {
@@ -437,6 +437,12 @@ export default function CreateRecommendation({ username, onCreated }) {
     }, [submissions]);
 
     const handleCreateClick = (e) => {
+
+        if (user.credits < numberOfProblems) {
+            toast.error("Please buy some credits.");
+            return;
+        }
+
         e.preventDefault();
 
         if (previousProblems.length === 0) {
@@ -477,9 +483,15 @@ export default function CreateRecommendation({ username, onCreated }) {
             const data = await response.json();
             console.log("Recommendation created:", data);
 
+            setUser(prevUser => ({
+                ...prevUser,
+                credits: data.credits
+            }));
+
             if (onCreated) {
                 onCreated();
             }
+
             setRecommendationName("");
             setHard(false);
         } catch (error) {

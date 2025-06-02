@@ -36,7 +36,7 @@ const initializeServices = async () => {
     llm = new ChatOpenAI({
       modelName: "gpt-4o",
       temperature: 0.6,
-      maxTokens: 1000,
+      maxTokens: 1200,
       openAIApiKey: process.env.OPENAI_API_KEY, // Explicitly pass API key
     });
 

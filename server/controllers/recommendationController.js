@@ -93,18 +93,22 @@ export const createRecommendation = async (req, res) => {
         console.log("Saved recommendation:", savedRecommendation._id);
         
         // Update the user's recommendation history
-        await User.findByIdAndUpdate(
-            userId,
-            { $push: { recommendationHistory: savedRecommendation._id } },
-            { new: true }
-        );
+     const updatedUser = await User.findByIdAndUpdate(
+    userId,
+    {
+        $push: { recommendationHistory: savedRecommendation._id },
+        $inc: { credits: -numRecommendations }
+    },
+    { new: true }
+);
         
         return res.status(200).json({
             message: 'Recommendation created successfully',
             recommendationId: savedRecommendation._id,
             recommendations: formattedRecommendations,
             name: name,
-            createdAt: savedRecommendation.createdAt
+            createdAt: savedRecommendation.createdAt,
+            credits:updatedUser.credits
         });
         
     } catch (error) {

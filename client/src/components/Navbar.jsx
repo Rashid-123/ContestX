@@ -664,7 +664,7 @@ export default function Navbar() {
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent align="end" className="w-48">
 
-                                    <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
+                                    <DropdownMenuItem className="text-center text-red-400 bg-red-50 border border-red-100 hover:text-red-500 cursor-pointer transition-all duration-200" onClick={handleLogout}>Logout</DropdownMenuItem>
                                 </DropdownMenuContent>
                             </DropdownMenu>
                         </div>
