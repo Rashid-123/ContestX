@@ -184,7 +184,7 @@ export default function Hero() {
 
 
                 <div className="mt-12 max-w-5xl mx-auto">
-                    <div className="bg-white rounded-xl p-4 sm:p-8 border border-green-200 ">
+                    <div className="bg-white rounded-xl p-4 sm:p-8 border border-green-100 ">
                         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                             <div className="text-center md:text-left">
                                 <h3 className="text-lg sm:text-xl font-semibold mb-2 text-gray-800">
