@@ -63,7 +63,8 @@ export default function Activity({ username }) {
 
             {/* Handle no username case */}
             {!username ? (
-                <Nolinked message={"Please add you leetcode UserName to show your recent submissions"} />
+                <div className="min-h-[350px] flex items-center justify-center"> <Nolinked message={"Please add you leetcode UserName to show your recent submissions"} /> </div>
+
             ) : (
                 <>
                     {/* Loading state with skeleton */}

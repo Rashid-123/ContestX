@@ -59,7 +59,11 @@ export default function Hero() {
 
                     {/* "Why Choose Us" section with improved card design */}
                     <div className="mb-4 text-center">
-                        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Why Choose Us?</h2>
+                        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Why Choose NextStep?</h2>
+                        {/* <h2 className="  text-3xl font-bold text-gray-800 sm:text-4xl mb-2">Why Choose NextStep?</h2> */}
+
+
+
                         <div className="h-1 w-20 bg-blue-500 mx-auto rounded-full mb-8"></div>
                     </div>
 
@@ -136,7 +140,7 @@ export default function Hero() {
                     <div className=" py-16 md:py-24">
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div className="text-center mb-16">
-                                <h2 className="text-3xl font-extrabold text-gray-800 sm:text-4xl">
+                                <h2 className="text-3xl font-bold text-gray-800 sm:text-4xl">
                                     How it works
                                 </h2>
                                 <p className="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
@@ -189,7 +193,7 @@ export default function Hero() {
             <div className="px-5 max-w-6xl mx-auto">
                 <div className="mt-16 mb-12 max-w-5xl mx-auto">
                     <div className="text-center mb-8">
-                        <h2 className="text-3xl font-extrabold text-gray-800 sm:text-4xl mb-2">Choose Your Plan</h2>
+                        <h2 className="text-3xl font-bold text-gray-800 sm:text-4xl mb-2">Pricing Plans</h2>
                         <div className="h-1 w-20 bg-blue-500 mx-auto rounded-full mb-4"></div>
                         <p className="text-sm sm:text-base text-gray-600">Start with 50 free credits, then choose a plan that fits your needs</p>
 
@@ -197,7 +201,7 @@ export default function Hero() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
                         {/* Free Plan */}
-                        <div className="bg-white rounded-xl p-4 sm:p-6 border border-green-100 shadow-xs hover:shadow-sm transition-all duration-300">
+                        <div className="bg-white rounded-xl p-4 sm:p-6 border border-green-200 shadow-xs hover:shadow-sm transition-all duration-300">
                             <div className="text-center mb-4">
                                 <div className="inline-flex items-center justify-center w-10 h-10 bg-green-100 rounded-lg mb-3">
                                     <Gift className="h-5 w-5 text-green-600" />
@@ -219,7 +223,7 @@ export default function Hero() {
                         </div>
 
                         {/* Starter Plan */}
-                        <div className="bg-white rounded-xl p-4 sm:p-6 border border-blue-100 shadow-xs hover:shadow-sm transition-all duration-300">
+                        <div className="bg-white rounded-xl p-4 sm:p-6 border border-blue-200 shadow-xs hover:shadow-sm transition-all duration-300">
                             <div className="text-center mb-4">
                                 <div className="inline-flex items-center justify-center w-10 h-10 bg-blue-100 rounded-lg mb-3">
                                     <Zap className="h-5 w-5 text-blue-600" />
@@ -285,7 +289,7 @@ export default function Hero() {
 
 
                 <div className="m-12 max-w-5xl mx-auto">
-                    <div className="bg-white rounded-xl p-4 sm:p-8 border border-green-100 ">
+                    <div className="bg-white rounded-xl p-4 sm:p-8 border border-green-200 ">
                         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                             <div className="text-center md:text-left">
                                 <h3 className="text-lg sm:text-xl font-semibold mb-2 text-gray-800">

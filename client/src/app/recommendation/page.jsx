@@ -104,7 +104,7 @@ export default function Recommendation() {
                 <RecommendationList recommendations={recommendations} />
               )
             ) : (
-              <Nologin message="Please login to get your previous recommendations" />
+              <div className="min-h-[350px] flex items-center justify-center" > <Nologin message="Please login to get your previous recommendations" /> </div>
             )}
           </div>
 
@@ -122,8 +122,8 @@ export default function Recommendation() {
             {user ? (
               user.leetcode ? (
                 <CreateRecommendation username={user.leetcode} onCreated={fetchRecommendations} />
-              ) : <Nolinked message={"Please add your LeetCode to create recommendations"} />) : (
-              <Nologin message="Please login to create recommendations" />
+              ) : <div className="min-h-[350px] flex items-center justify-center" > <Nolinked message={"Please add your LeetCode to create recommendations"} /> </div>) : (
+              <div className="min-h-[350px] flex items-center justify-center"> <Nologin message="Please login to create recommendations" /> </div>
             )}
           </div>
         </div>

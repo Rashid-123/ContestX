@@ -81,7 +81,7 @@ export default function Heatmap({ username }) {
 
             {/* Handle null/undefined username */}
             {!username ? (
-                <div className="my-6">
+                <div className="min-h-[350px] md:min-h-[100px] flex items-center justify-center">
                     <Nolinked message={"Please add you leetcode userName to show the heatmap"} />
                 </div>
             ) : isLoading ? (
