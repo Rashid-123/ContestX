@@ -21,7 +21,7 @@ export default function Help() {
                         Hello! I am Rashid developer of this app. If you have any feedback, suggestions, or issues, please feel free to reach out to me. I would love to hear from you !
                     </p>
                     <p className="mb-5 text-sm flex items-center flex-wrap gap-2" style={{ color: 'var(--second-text-color)' }}>
-                        <FaHandshake className="w-6 h-6 text-blue-500 mr-1" />Connect with me on :
+                        Connect with me on :
 
                         <a
                             href="https://www.linkedin.com/in/shadan-rashid/"

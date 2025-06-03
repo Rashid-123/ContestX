@@ -622,7 +622,7 @@ export default function Navbar() {
                     {/* Login Button or User Profile - Visible on all screen sizes */}
                     {!user ? (
 
-                        <button className="px-3 py-1 bg-green-50 hover:bg-green-100 text-green-600 font-medium border border-green-200 rounded-md transition-all duration-200">
+                        <button className="px-2.5 py-0.5 md:px-3 md:py-1 bg-green-50 hover:bg-green-100 text-green-600 font-medium border border-green-200 rounded-md transition-all duration-200">
                             <Link href="/login">Login</Link>
                         </button>
 
