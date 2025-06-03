@@ -59,7 +59,7 @@ export default function Hero() {
 
                     {/* "Why Choose Us" section with improved card design */}
                     <div className="mb-4 text-center">
-                        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Why Choose NextStep?</h2>
+                        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Why Choose <span className="text-xl md:text-2xl" style={{ fontFamily: 'orbitron' }}>Next<span className="text-blue-600">Step</span></span> ?</h2>
                         {/* <h2 className="  text-3xl font-bold text-gray-800 sm:text-4xl mb-2">Why Choose NextStep?</h2> */}
 
 
